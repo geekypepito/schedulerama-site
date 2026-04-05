@@ -16,51 +16,23 @@ collections:
       - label: Home
         name: home
         file: src/pages/index.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: About
         name: about
         file: src/pages/about.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Pricing
         name: pricing
         file: src/pages/pricing.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Contact
         name: contact
         file: src/pages/contact.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
 
   - name: product
     label: Product Pages
@@ -68,111 +40,48 @@ collections:
       - label: Facility Operations
         name: facility_operations
         file: src/pages/product/facility-operations.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Game Finder
         name: game_finder
         file: src/pages/product/game-finder.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Group Scheduler
         name: group_scheduler
         file: src/pages/product/group-scheduler.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Operational Workflows
         name: operational_workflows
         file: src/pages/product/operational-workflows.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Organization Data
         name: organization_data
         file: src/pages/product/organization-data.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Realtime Messaging
         name: realtime_messaging
         file: src/pages/product/realtime-messaging.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Reports and Import
         name: reports_import
         file: src/pages/product/reports-import.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Requests Inbox
         name: requests_inbox
         file: src/pages/product/requests-inbox.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Schedule Management
         name: schedule_management
         file: src/pages/product/schedule-management.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
 
   - name: solutions
     label: Solutions Pages
@@ -180,87 +89,38 @@ collections:
       - label: Athletic Directors
         name: athletic_directors
         file: src/pages/solutions/athletic-directors.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Coaches
         name: coaches
         file: src/pages/solutions/coaches.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Game Officials
         name: game_officials
         file: src/pages/solutions/game-officials.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: League Admins
         name: league_admins
         file: src/pages/solutions/league-admins.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Maintenance
         name: maintenance
         file: src/pages/solutions/maintenance.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Super Admins
         name: super_admins
         file: src/pages/solutions/super-admins.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Transportation
         name: transportation
         file: src/pages/solutions/transportation.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
 
   - name: resources
     label: Resources Pages
@@ -268,48 +128,20 @@ collections:
       - label: FAQ
         name: faq
         file: src/pages/resources/faq.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Feature Matrix
         name: feature_matrix
         file: src/pages/resources/feature-matrix.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: Release Notes
         name: release_notes
         file: src/pages/resources/release-notes.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
       - label: User Guide
         name: user_guide
         file: src/pages/resources/user-guide.astro
-        format: astro-raw
-        editor:
-          preview: false
         fields:
-          - label: Page Source
-            name: body
-            widget: code
-            default_language: html
-            output_code_only: true
+          - { label: Page Source, name: body, widget: text }
