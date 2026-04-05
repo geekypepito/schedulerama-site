@@ -2,7 +2,15 @@
 import Base from '../layouts/Base.astro';
 import contactPage from '../content/admin/contact.json';
 
-const { title, description, hero, expectations, form, success, contactBand } = contactPage;
+const {
+  title,
+  description,
+  hero = {},
+  expectations = [],
+  form = {},
+  success = {},
+  contactBand = [],
+} = contactPage;
 ---
 
 <Base title={title} description={description} activeSection="company">
@@ -35,16 +43,21 @@ const { title, description, hero, expectations, form, success, contactBand } = c
     border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-pale);
   }
   .form-group textarea{resize:vertical;min-height:100px;}
+  .form-group.invalid input,.form-group.invalid select,.form-group.invalid textarea{border-color:#d14343;box-shadow:0 0 0 3px rgba(209,67,67,0.12);}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .btn-submit{
     width:100%;padding:15px;background:var(--orange);color:#fff;border:none;
     border-radius:6px;font-family:'Barlow',sans-serif;font-weight:700;font-size:1rem;
-    letter-spacing:0.05em;cursor:pointer;transition:background 0.2s;margin-top:8px;
+    letter-spacing:0.05em;cursor:pointer;transition:background 0.2s, opacity 0.2s;margin-top:8px;
   }
   .btn-submit:hover{background:var(--orange-bright);}
+  .btn-submit:disabled{opacity:0.75;cursor:wait;}
   .form-note{font-size:0.78rem;color:var(--ink-soft);margin-top:12px;text-align:center;line-height:1.6;}
+  .form-error{display:none;margin:0 0 16px;padding:12px 14px;background:#fff1f1;border:1px solid #f2c0c0;border-radius:8px;color:#9f1d1d;font-size:0.9rem;line-height:1.5;}
+  .form-error.visible{display:block;}
 
   .success-panel{display:none;text-align:center;padding:40px;background:var(--teal);color:#fff;border-radius:12px;}
+  .success-panel.visible{display:block;}
   .success-panel .ico{font-size:3rem;margin-bottom:16px;}
   .success-panel h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;margin-bottom:8px;}
   .success-panel p{font-size:0.95rem;opacity:0.85;line-height:1.6;}
@@ -87,55 +100,56 @@ const { title, description, hero, expectations, form, success, contactBand } = c
 
   <div class="contact-right">
     <h2>{form.heading}</h2>
-    <div id="contact-form">
+    <form id="contact-form" novalidate>
+      <div class="form-error" id="form-error" role="alert"></div>
       <div class="form-row">
-        <div class="form-group">
+        <div class="form-group" data-field="firstName">
           <label for="fname">{form.firstNameLabel}</label>
-          <input type="text" id="fname" placeholder={form.firstNamePlaceholder}>
+          <input type="text" id="fname" name="firstName" placeholder={form.firstNamePlaceholder}>
         </div>
-        <div class="form-group">
+        <div class="form-group" data-field="lastName">
           <label for="lname">{form.lastNameLabel}</label>
-          <input type="text" id="lname" placeholder={form.lastNamePlaceholder}>
+          <input type="text" id="lname" name="lastName" placeholder={form.lastNamePlaceholder}>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" data-field="email">
         <label for="email">{form.emailLabel}</label>
-        <input type="email" id="email" placeholder={form.emailPlaceholder}>
+        <input type="email" id="email" name="email" placeholder={form.emailPlaceholder}>
       </div>
-      <div class="form-group">
+      <div class="form-group" data-field="organization">
         <label for="org">{form.organizationLabel}</label>
-        <input type="text" id="org" placeholder={form.organizationPlaceholder}>
+        <input type="text" id="org" name="organization" placeholder={form.organizationPlaceholder}>
       </div>
-      <div class="form-group">
+      <div class="form-group" data-field="role">
         <label for="role">{form.roleLabel}</label>
-        <select id="role">
+        <select id="role" name="role">
           <option value="">Select your role…</option>
-          {form.roleOptions.map((option) => <option>{option}</option>)}
+          {form.roleOptions.map((option) => <option value={option}>{option}</option>)}
         </select>
       </div>
       <div class="form-row">
-        <div class="form-group">
+        <div class="form-group" data-field="schools">
           <label for="schools">{form.schoolsLabel}</label>
-          <select id="schools">
+          <select id="schools" name="schools">
             <option value="">Select…</option>
-            {form.schoolsOptions.map((option) => <option>{option}</option>)}
+            {form.schoolsOptions.map((option) => <option value={option}>{option}</option>)}
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" data-field="sports">
           <label for="sports">{form.sportsLabel}</label>
-          <select id="sports">
+          <select id="sports" name="sports">
             <option value="">Select…</option>
-            {form.sportsOptions.map((option) => <option>{option}</option>)}
+            {form.sportsOptions.map((option) => <option value={option}>{option}</option>)}
           </select>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" data-field="notes">
         <label for="notes">{form.notesLabel}</label>
-        <textarea id="notes" placeholder={form.notesPlaceholder}></textarea>
+        <textarea id="notes" name="notes" placeholder={form.notesPlaceholder}></textarea>
       </div>
-      <button class="btn-submit" onclick="submitForm()">{form.submitLabel}</button>
+      <button class="btn-submit" id="contact-submit" type="submit">{form.submitLabel}</button>
       <p class="form-note">{form.note}</p>
-    </div>
+    </form>
     <div class="success-panel" id="success-panel">
       <div class="ico">{success.icon}</div>
       <h3>{success.heading}</h3>
@@ -153,4 +167,80 @@ const { title, description, hero, expectations, form, success, contactBand } = c
     </div>
   ))}
 </div>
+
+<script is:inline>
+  const formEl = document.getElementById('contact-form');
+  const successPanelEl = document.getElementById('success-panel');
+  const errorEl = document.getElementById('form-error');
+  const submitButtonEl = document.getElementById('contact-submit');
+  const endpoint = 'https://app.schedulerama.com/api/marketing/demo-request';
+
+  const getPayload = () => ({
+    firstName: document.getElementById('fname')?.value?.trim() ?? '',
+    lastName: document.getElementById('lname')?.value?.trim() ?? '',
+    email: document.getElementById('email')?.value?.trim() ?? '',
+    organization: document.getElementById('org')?.value?.trim() ?? '',
+    role: document.getElementById('role')?.value?.trim() ?? '',
+    schools: document.getElementById('schools')?.value?.trim() ?? '',
+    sports: document.getElementById('sports')?.value?.trim() ?? '',
+    notes: document.getElementById('notes')?.value?.trim() ?? '',
+  });
+
+  const setFieldErrors = (fields) => {
+    document.querySelectorAll('.form-group').forEach((group) => group.classList.remove('invalid'));
+    fields.forEach((field) => {
+      const group = document.querySelector(`.form-group[data-field="${field}"]`);
+      if (group) group.classList.add('invalid');
+    });
+  };
+
+  const showError = (message) => {
+    errorEl.textContent = message;
+    errorEl.classList.add('visible');
+  };
+
+  const clearError = () => {
+    errorEl.textContent = '';
+    errorEl.classList.remove('visible');
+  };
+
+  formEl?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearError();
+    setFieldErrors([]);
+
+    const payload = getPayload();
+    submitButtonEl.disabled = true;
+    const originalLabel = submitButtonEl.textContent;
+    submitButtonEl.textContent = 'Submitting...';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        const fields = Array.isArray(result.errors) ? result.errors : [];
+        if (fields.length) {
+          setFieldErrors(fields);
+        }
+        throw new Error(result.message || 'We could not submit your request right now. Please try again.');
+      }
+
+      formEl.style.display = 'none';
+      successPanelEl.classList.add('visible');
+    } catch (error) {
+      showError(error instanceof Error ? error.message : 'We could not submit your request right now. Please try again.');
+    } finally {
+      submitButtonEl.disabled = false;
+      submitButtonEl.textContent = originalLabel;
+    }
+  });
+</script>
 </Base>
