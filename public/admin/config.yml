@@ -10,138 +10,54 @@ media_folder: public/images
 public_folder: /images
 
 collections:
-  - name: site_pages
+  - name: pages
     label: Site Pages
-    files:
-      - label: Home
-        name: home
-        file: src/pages/index.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: About
-        name: about
-        file: src/pages/about.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Pricing
-        name: pricing
-        file: src/pages/pricing.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Contact
-        name: contact
-        file: src/pages/contact.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
+    folder: src/pages
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
 
-  - name: product_pages
+  - name: product
     label: Product Pages
-    files:
-      - label: Schedule Management
-        name: schedule_management
-        file: src/pages/product/schedule-management.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Facility Operations
-        name: facility_operations
-        file: src/pages/product/facility-operations.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Group Scheduler
-        name: group_scheduler
-        file: src/pages/product/group-scheduler.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Game Finder
-        name: game_finder
-        file: src/pages/product/game-finder.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Requests Inbox
-        name: requests_inbox
-        file: src/pages/product/requests-inbox.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Realtime Messaging
-        name: realtime_messaging
-        file: src/pages/product/realtime-messaging.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Reports & Import
-        name: reports_import
-        file: src/pages/product/reports-import.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Operational Workflows
-        name: operational_workflows
-        file: src/pages/product/operational-workflows.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Organization Data
-        name: organization_data
-        file: src/pages/product/organization-data.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
+    folder: src/pages/product
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
 
-  - name: solution_pages
+  - name: solutions
     label: Solution Pages
-    files:
-      - label: Athletic Directors
-        name: athletic_directors
-        file: src/pages/solutions/athletic-directors.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Coaches
-        name: coaches
-        file: src/pages/solutions/coaches.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Game Officials
-        name: game_officials
-        file: src/pages/solutions/game-officials.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: League Admins
-        name: league_admins
-        file: src/pages/solutions/league-admins.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Maintenance
-        name: maintenance
-        file: src/pages/solutions/maintenance.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Super Admins
-        name: super_admins
-        file: src/pages/solutions/super-admins.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Transportation
-        name: transportation
-        file: src/pages/solutions/transportation.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
+    folder: src/pages/solutions
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
 
-  - name: resource_pages
+  - name: resources
     label: Resource Pages
-    files:
-      - label: FAQ
-        name: faq
-        file: src/pages/resources/faq.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Feature Matrix
-        name: feature_matrix
-        file: src/pages/resources/feature-matrix.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: Release Notes
-        name: release_notes
-        file: src/pages/resources/release-notes.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
-      - label: User Guide
-        name: user_guide
-        file: src/pages/resources/user-guide.astro
-        fields:
-          - { label: Source, name: body, widget: code, default_language: html, output_code_only: true }
+    folder: src/pages/resources
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    summary: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
