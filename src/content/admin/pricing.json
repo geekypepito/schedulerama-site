@@ -315,10 +315,6 @@
         {
           "label": "Schedule import with validation",
           "dim": false
-        },
-        {
-          "label": "API access",
-          "dim": false
         }
       ],
       "buttonHref": "/contact/"
