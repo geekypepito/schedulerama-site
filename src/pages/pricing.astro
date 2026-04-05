@@ -1,0 +1,291 @@
+---
+import Base from '../layouts/Base.astro';
+const title = "Pricing";
+const description = `Simple, transparent pricing for every athletic program. No per-seat surprises. No hidden add-ons.`;
+---
+
+<Base title={title} description={description} activeSection="">
+<style>
+
+  .nav-item>a:hover,.nav-item.active>a{color:#fff;}
+  .nav-item.has-drop>a::after{content:' ▾';font-size:0.65rem;}
+  
+  
+  .nav-dropdown a:hover{color:#fff;background:rgba(255,255,255,0.06);padding-left:24px;}
+  
+  .nav-cta:hover{background:var(--orange-bright)!important;}
+
+  .page-hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.8rem,6vw,4.5rem);line-height:1;color:#fff;margin-bottom:20px;}
+  .page-hero p{font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:560px;margin:0 auto;line-height:1.7;}
+
+  /* BILLING TOGGLE */
+  .billing-toggle{display:flex;align-items:center;justify-content:center;gap:16px;margin:48px 0 0;}
+  .billing-toggle span{font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.6);}
+  .billing-toggle span.active{color:#fff;}
+  .toggle-track{width:52px;height:28px;background:rgba(255,255,255,0.15);border-radius:14px;position:relative;cursor:pointer;transition:background 0.2s;}
+  .toggle-track.annual{background:var(--orange);}
+  .toggle-knob{width:22px;height:22px;background:#fff;border-radius:11px;position:absolute;top:3px;left:3px;transition:transform 0.2s;}
+  .toggle-track.annual .toggle-knob{transform:translateX(24px);}
+  .save-badge{background:var(--teal);color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-left:6px;}
+
+  /* PRICING GRID */
+  .pricing-section{padding:72px 56px;max-width:1200px;margin:0 auto;}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+  .price-card{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:40px 32px;position:relative;transition:transform 0.2s,box-shadow 0.2s;}
+  .price-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,0.1);}
+  .price-card.featured{background:var(--navy-deep);color:#fff;border-color:var(--orange);box-shadow:0 0 0 2px var(--orange),0 24px 48px rgba(15,28,48,0.4);}
+  .featured-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;}
+  .plan-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+  .plan-desc{font-size:0.88rem;color:var(--ink-soft);line-height:1.6;margin-bottom:28px;}
+  .price-card.featured .plan-desc{color:rgba(255,255,255,0.5);}
+  .price-amount{margin-bottom:8px;}
+  .price-amount .currency{font-size:1.4rem;font-weight:700;vertical-align:top;margin-top:8px;display:inline-block;}
+  .price-amount .amount{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3.8rem;line-height:1;}
+  .price-amount .period{font-size:0.85rem;color:var(--ink-soft);margin-left:2px;}
+  .price-card.featured .price-amount .period{color:rgba(255,255,255,0.4);}
+  .price-note{font-size:0.78rem;color:var(--ink-soft);margin-bottom:32px;min-height:20px;}
+  .price-card.featured .price-note{color:rgba(255,255,255,0.35);}
+  .plan-features{list-style:none;margin-bottom:36px;display:flex;flex-direction:column;gap:10px;}
+  .plan-features li{font-size:0.88rem;padding-left:22px;position:relative;line-height:1.5;}
+  .plan-features li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700;}
+  .plan-features li.dim{color:var(--ink-soft);}
+  .plan-features li.dim::before{color:var(--rule);}
+  .price-card.featured .plan-features li{color:rgba(255,255,255,0.8);}
+  .price-card.featured .plan-features li.dim{color:rgba(255,255,255,0.3);}
+  .price-card.featured .plan-features li::before{color:var(--teal);}
+  .btn-plan{display:block;width:100%;padding:13px;border-radius:6px;font-weight:700;font-size:0.9rem;letter-spacing:0.05em;text-align:center;text-decoration:none;transition:all 0.2s;border:2px solid transparent;}
+  .btn-plan-outline{border-color:var(--rule);color:var(--navy);background:transparent;}
+  .btn-plan-outline:hover{border-color:var(--navy);background:var(--navy);color:#fff;}
+  .btn-plan-primary{background:var(--orange);color:#fff;border-color:var(--orange);}
+  .btn-plan-primary:hover{background:var(--orange-bright);border-color:var(--orange-bright);}
+  .btn-plan-white{background:#fff;color:var(--navy-deep);border-color:#fff;}
+  .btn-plan-white:hover{background:rgba(255,255,255,0.85);}
+
+  /* CUSTOM PRICING */
+  .enterprise-band{background:var(--navy);padding:56px;display:flex;align-items:center;justify-content:space-between;gap:40px;margin:0 0 72px;}
+  .enterprise-band h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:#fff;}
+  .enterprise-band p{color:rgba(255,255,255,0.55);margin-top:8px;font-size:0.95rem;max-width:480px;line-height:1.6;}
+  .btn-ent{background:transparent;border:2px solid rgba(255,255,255,0.3);color:#fff;padding:12px 28px;border-radius:6px;font-weight:700;font-size:0.9rem;letter-spacing:0.05em;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+  .btn-ent:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+
+  /* COMPARE TABLE */
+  .compare-section{padding:0 56px 80px;max-width:1200px;margin:0 auto;}
+  .compare-section h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.2rem;margin-bottom:40px;}
+  .compare-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+  .compare-table th{padding:14px 20px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--navy-deep);color:rgba(255,255,255,0.5);border-bottom:2px solid var(--orange);}
+  .compare-table th:first-child{color:rgba(255,255,255,0.3);}
+  .compare-table td{padding:12px 20px;border-bottom:1px solid var(--rule);vertical-align:middle;}
+  .compare-table tr:last-child td{border-bottom:none;}
+  .compare-table tr:nth-child(even) td{background:rgba(26,26,26,0.02);}
+  .compare-table td:not(:first-child){text-align:center;}
+  .compare-table .feature-name{font-weight:500;color:var(--ink);}
+  .compare-table .check{color:var(--teal);font-size:1.1rem;font-weight:700;}
+  .compare-table .dash{color:var(--rule);}
+  .compare-table .val{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--ink-mid);}
+  .cat-row td{background:var(--bg-warm)!important;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);border-bottom:1px solid var(--rule);}
+
+  /* FAQ */
+  .faq-section{padding:0 56px 80px;max-width:860px;margin:0 auto;}
+  .faq-section h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.2rem;margin-bottom:40px;}
+  .faq-item{border-bottom:1px solid var(--rule);padding:20px 0;}
+  .faq-q{font-weight:600;font-size:1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+  .faq-q::after{content:'＋';font-size:1.2rem;color:var(--orange);flex-shrink:0;transition:transform 0.2s;}
+  .faq-item.open .faq-q::after{content:'－';}
+  .faq-a{display:none;margin-top:12px;color:var(--ink-mid);line-height:1.7;font-size:0.93rem;}
+  .faq-item.open .faq-a{display:block;}
+
+.cta-strip h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;margin-bottom:12px;}
+  .cta-strip p{color:rgba(255,255,255,0.55);margin-bottom:32px;font-size:1rem;}
+  
+  .btn-white:hover{background:var(--orange);color:#fff;}
+
+.footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
+  .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  
+  .footer-col a:hover{color:#fff;}
+  
+  .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+  .footer-bottom a:hover{color:#fff;}
+
+  .js-loaded .fade-up.on{opacity:1;transform:none;}
+
+@media(max-width:1024px){
+.price-grid{grid-template-columns:1fr;}
+    .enterprise-band{flex-direction:column;padding:40px 20px;}
+
+}
+</style>
+<div class="page-hero">
+  <div class="eyebrow">Pricing</div>
+  <h1>Simple,<br>Transparent Pricing</h1>
+  <p>One platform for every role in your athletic program. No per-seat surprises. No hidden add-ons.</p>
+  <div class="billing-toggle">
+    <span class="active" id="lbl-monthly">Monthly</span>
+    <div class="toggle-track" id="billing-toggle" onclick="toggleBilling()">
+      <div class="toggle-knob"></div>
+    </div>
+    <span id="lbl-annual">Annual <span class="save-badge">Save 20%</span></span>
+  </div>
+</div>
+
+<section class="pricing-section">
+  <div class="price-grid">
+
+    <div class="price-card fade-up">
+      <div class="plan-name">Starter</div>
+      <div class="plan-desc">Perfect for a single school or small program getting organized.</div>
+      <div class="price-amount">
+        <span class="currency">$</span><span class="amount" id="price-starter">79</span><span class="period">/mo</span>
+      </div>
+      <div class="price-note" id="note-starter">Billed monthly</div>
+      <ul class="plan-features">
+        <li>1 school</li>
+        <li>Up to 5 teams</li>
+        <li>Full schedule management</li>
+        <li>Game Finder access</li>
+        <li>Requests Inbox</li>
+        <li>CSV export &amp; print views</li>
+        <li class="dim">Group Scheduler</li>
+        <li class="dim">Multi-league support</li>
+        <li class="dim">API access</li>
+      </ul>
+      <a href="/contact/" class="btn-plan btn-plan-outline">Get Started</a>
+    </div>
+
+    <div class="price-card featured fade-up" style="transition-delay:0.1s">
+      <div class="featured-badge">Most Popular</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-desc">The full platform for ADs and league admins running a complete season.</div>
+      <div class="price-amount">
+        <span class="currency">$</span><span class="amount" id="price-pro">199</span><span class="period">/mo</span>
+      </div>
+      <div class="price-note" id="note-pro">Billed monthly</div>
+      <ul class="plan-features">
+        <li>Up to 3 schools or 1 league</li>
+        <li>Unlimited teams</li>
+        <li>Full schedule management</li>
+        <li>Game Finder access</li>
+        <li>Requests Inbox</li>
+        <li>CSV export &amp; print views</li>
+        <li>Group Scheduler</li>
+        <li>Schedule import with validation</li>
+        <li class="dim">API access</li>
+      </ul>
+      <a href="/contact/" class="btn-plan btn-plan-white">Book a Demo</a>
+    </div>
+
+    <div class="price-card fade-up" style="transition-delay:0.2s">
+      <div class="plan-name">League</div>
+      <div class="plan-desc">Built for league admins and super admins managing multiple schools.</div>
+      <div class="price-amount">
+        <span class="currency">$</span><span class="amount" id="price-league">449</span><span class="period">/mo</span>
+      </div>
+      <div class="price-note" id="note-league">Billed monthly</div>
+      <ul class="plan-features">
+        <li>Unlimited schools &amp; leagues</li>
+        <li>Unlimited teams</li>
+        <li>Full schedule management</li>
+        <li>Game Finder access</li>
+        <li>Requests Inbox</li>
+        <li>CSV export &amp; print views</li>
+        <li>Group Scheduler</li>
+        <li>Schedule import with validation</li>
+        <li>API access</li>
+      </ul>
+      <a href="/contact/" class="btn-plan btn-plan-outline">Contact Sales</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="enterprise-band fade-up">
+  <div>
+    <h2>State Associations &amp; Multi-League Networks</h2>
+    <p>Running dozens of schools across multiple leagues? We build custom packages for state-level organizations, multi-sport networks, and enterprise athletic departments.</p>
+  </div>
+  <a href="/contact/" class="btn-ent">Talk to Sales →</a>
+</div>
+
+<section class="compare-section">
+  <h2 class="fade-up">Full Feature Comparison</h2>
+  <table class="compare-table fade-up">
+    <thead>
+      <tr>
+        <th style="width:40%;">Feature</th>
+        <th>Starter</th>
+        <th>Pro</th>
+        <th>League</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cat-row"><td colspan="4">Scheduling</td></tr>
+      <tr><td class="feature-name">Schedule management &amp; calendar</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Game creation, edit, delete</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Group Scheduler (season pre-population)</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Home/away auto-balance</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Schedule import with field mapping</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">Requests &amp; Communication</td></tr>
+      <tr><td class="feature-name">Requests Inbox</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Game Finder (open opponent search)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Message threads per game</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Request approval workflow</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">Data &amp; Organization</td></tr>
+      <tr><td class="feature-name">Schools</td><td><span class="val">1</span></td><td><span class="val">Up to 3</span></td><td><span class="val">Unlimited</span></td></tr>
+      <tr><td class="feature-name">Teams</td><td><span class="val">Up to 5</span></td><td><span class="val">Unlimited</span></td><td><span class="val">Unlimited</span></td></tr>
+      <tr><td class="feature-name">Facility management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Contact management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Multi-league support</td><td><span class="dash">—</span></td><td><span class="val">1 league</span></td><td><span class="val">Unlimited</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">Reports &amp; Export</td></tr>
+      <tr><td class="feature-name">CSV export (all datasets)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Print-ready schedule views</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">API access</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+
+      <tr class="cat-row"><td colspan="4">Access &amp; Roles</td></tr>
+      <tr><td class="feature-name">Role-based permissions (5 roles)</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">Super Admin controls</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+      <tr><td class="feature-name">User provisioning</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="faq-section">
+  <h2 class="fade-up">Frequently Asked Questions</h2>
+
+  <div class="faq-item fade-up">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need a credit card to get started?</div>
+    <div class="faq-a">No. We start with a demo and scoping call to make sure ScheduleRama is the right fit for your program. There's no self-serve signup — we set you up directly.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What counts as a "school" or "league"?</div>
+    <div class="faq-a">A school is any organization with its own teams and schedule. A league is a grouping of schools that share game scheduling and coordination. We'll help you map your program to the right plan during onboarding.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I switch plans mid-season?</div>
+    <div class="faq-a">Yes. You can upgrade at any time and the change takes effect immediately. Downgrades take effect at the next billing cycle. Your data is never affected by a plan change.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a discount for annual billing?</div>
+    <div class="faq-a">Yes — annual plans save 20% compared to monthly billing. Toggle between billing periods above to see the difference.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What kind of support is included?</div>
+    <div class="faq-a">All plans include email support and access to our user guide and documentation. Pro and League plans include priority support with faster response times. Enterprise customers get a dedicated account manager.</div>
+  </div>
+  <div class="faq-item fade-up">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does data import work?</div>
+    <div class="faq-a">Pro and League plans include our validated schedule import tool. You map your CSV columns to our fields, we validate the data, and games populate directly into your schedule. No manual re-entry required.</div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Ready to Run a Tighter Season?</h2>
+  <p>See how ScheduleRama works for your program in a live demo.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+
+

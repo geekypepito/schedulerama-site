@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "User Guide";
+const description = `Step-by-step guides for every role in ScheduleRama — from Athletic Directors to Game Officials.`;
+---
+
+<Base title={title} description={description} activeSection="resources">
+<style>
+
+  .nav-item > a:hover, .nav-item.active > a { color:#fff; }
+  .nav-item.has-drop > a::after { content:' ▾'; font-size:0.65rem; }
+  
+  
+  .nav-dropdown a:last-child { border-bottom:none; }
+  .nav-dropdown a:hover { background:rgba(232,95,23,0.1); color:#fff; padding-left:22px; }
+  
+  .nav-cta:hover { background:var(--orange-bright) !important; }
+
+.page-hero::before {
+    content:''; position:absolute; right:0; top:0; bottom:0; width:40%;
+    background:linear-gradient(90deg, transparent, rgba(232,95,23,0.04));
+    pointer-events:none;
+  }
+  .page-hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--orange);
+    margin-bottom:20px;
+  }
+  .page-hero-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--orange); }
+  .page-hero h1 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:clamp(3rem,6vw,5.5rem); line-height:0.92;
+    letter-spacing:-0.01em; color:#fff; text-transform:uppercase;
+    max-width:700px; margin-bottom:22px;
+  }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p {
+    font-size:1.1rem; line-height:1.7;
+    color:rgba(255,255,255,0.55); max-width:560px;
+  }
+  .page-hero-actions { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  /* ── SECTION COMMON ── */
+  section { padding:88px 56px; }
+  
+  .eyebrow::after { content:''; display:block; height:1px; width:36px; background:var(--orange); }
+  h2 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:800;
+    font-size:clamp(2.4rem,4vw,3.8rem); line-height:0.95;
+    letter-spacing:-0.01em; text-transform:uppercase;
+    color:var(--navy); margin-bottom:14px;
+  }
+
+.btn-primary:hover { background:var(--orange-bright); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,95,23,0.4); }
+  
+  .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
+  .btn-navy {
+    background:var(--navy); color:#fff; padding:14px 34px;
+    border-radius:2px; font-size:0.9rem; font-weight:600;
+    text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
+    transition:all 0.2s; display:inline-block;
+  }
+  .btn-navy:hover { background:var(--navy-deep); transform:translateY(-2px); }
+
+.feat-grid-2 { grid-template-columns:repeat(2,1fr); }
+  
+  .feat-tile:hover { background:#fff; }
+  .feat-tile::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+  .feat-tile:hover::after { transform:scaleX(1); }
+  .feat-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+  .feat-tile h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .feat-tile p { font-size:0.87rem; line-height:1.7; color:var(--ink-soft); }
+
+  /* ── STEP LIST ── */
+  .steps { display:flex; flex-direction:column; gap:0; }
+  .step { display:grid; grid-template-columns:60px 1fr; gap:28px; padding:36px 0; border-bottom:1px solid var(--rule); align-items:start; }
+  .step:last-child { border-bottom:none; }
+  .step-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:3rem; color:rgba(26,26,26,0.1); line-height:1; text-align:right; }
+  .step h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .step p { font-size:0.88rem; line-height:1.7; color:var(--ink-soft); }
+
+.check-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.9rem; line-height:1.6; color:var(--ink-mid); }
+  .check-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+  /* ── ROLE CARDS ── */
+  .role-card { background:#fff; border:1px solid var(--rule); border-radius:6px; padding:32px 28px; border-top:3px solid var(--orange); }
+  .role-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+  .role-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:10px; }
+  .role-card p { font-size:0.86rem; line-height:1.7; color:var(--ink-soft); }
+
+.cta-strip h2 { color:#fff; margin-bottom:10px; }
+  .cta-strip p { color:rgba(255,255,255,0.8); font-size:1rem; max-width:480px; margin:0 auto 28px; line-height:1.65; }
+  
+  .btn-white:hover { background:var(--navy-deep); color:#fff; transform:translateY(-2px); }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+
+  .fade-up.on { opacity:1; transform:none; }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+</style>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Resources</div>
+  <h1>User <span>Guide</span></h1>
+  <p>Step-by-step instructions for every role — from first login to a fully published season schedule.</p>
+</div>
+
+<section>
+  <div class="eyebrow">Getting Started</div>
+  <h2>For All Users</h2>
+  <p class="section-sub">These guides apply regardless of your role in ScheduleRama.</p>
+  <div class="steps fade-up" style="max-width:720px;">
+    <div class="step"><div class="step-num">01</div><div><h3>Login &amp; Session Basics</h3><p>Navigate to your organization's ScheduleRama URL. Enter your credentials and select "Remember Me" to stay logged in. Sessions time out after 8 hours of inactivity — your data is always saved.</p></div></div>
+    <div class="step"><div class="step-num">02</div><div><h3>Navigation &amp; Page Access</h3><p>The left sidebar contains your primary navigation. Pages visible to you are determined by your role. If you expect to see a page and don't, contact your Athletic Director or Super Admin to check your permissions.</p></div></div>
+    <div class="step"><div class="step-num">03</div><div><h3>Schedule Views &amp; Filters</h3><p>Use the filter bar at the top of the Schedule page to narrow by sport, level, date range, and status. Save frequently-used filter combinations as named views for one-click access.</p></div></div>
+    <div class="step"><div class="step-num">04</div><div><h3>Game Statuses</h3><p>Every game shows a colored status indicator: green (Confirmed), orange (Pending), grey (Non-Counting), red (Cancelled). Hover any indicator to see the full status label and last-updated time.</p></div></div>
+    <div class="step"><div class="step-num">05</div><div><h3>Profile &amp; Password</h3><p>Update your name, email, and notification preferences under your profile icon in the top-right corner. To change your password, select "Security" from the profile dropdown.</p></div></div>
+  </div>
+</section>
+
+<section style="background:var(--bg-warm);">
+  <div class="eyebrow">Guides by Role</div>
+  <h2>Jump to Your Role</h2>
+  <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;" class="fade-up">
+    <a href="/solutions/super-admins/" style="text-decoration:none; background:#fff; border:1px solid var(--rule); border-radius:6px; padding:28px; border-top:3px solid var(--orange); transition:all 0.2s; display:block;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(26,26,26,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px;">Role Guide</div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--navy); margin-bottom:8px;">Super Admin</h3>
+      <p style="font-size:0.84rem; color:var(--ink-soft); line-height:1.6;">Manage users, configure permissions, create schools and leagues, oversee imports and governance.</p>
+    </a>
+    <a href="/solutions/league-admins/" style="text-decoration:none; background:#fff; border:1px solid var(--rule); border-radius:6px; padding:28px; border-top:3px solid var(--orange); transition:all 0.2s; display:block;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(26,26,26,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px;">Role Guide</div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--navy); margin-bottom:8px;">League Admin</h3>
+      <p style="font-size:0.84rem; color:var(--ink-soft); line-height:1.6;">Run Group Scheduler, manage school memberships, triage inbox, and generate league-wide reports.</p>
+    </a>
+    <a href="/solutions/athletic-directors/" style="text-decoration:none; background:#fff; border:1px solid var(--rule); border-radius:6px; padding:28px; border-top:3px solid var(--orange); transition:all 0.2s; display:block;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(26,26,26,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px;">Role Guide</div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--navy); margin-bottom:8px;">Athletic Director</h3>
+      <p style="font-size:0.84rem; color:var(--ink-soft); line-height:1.6;">Manage your school's teams, games, facilities, contacts, and weekly reporting workflows.</p>
+    </a>
+    <a href="/solutions/coaches/" style="text-decoration:none; background:#fff; border:1px solid var(--rule); border-radius:6px; padding:28px; border-top:3px solid var(--orange); transition:all 0.2s; display:block;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(26,26,26,0.1)'" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 32px rgba(26,26,26,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px;">Role Guide</div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; text-transform:uppercase; color:var(--navy); margin-bottom:8px;">Coach</h3>
+      <p style="font-size:0.84rem; color:var(--ink-soft); line-height:1.6;">Use Game Finder, manage your Inbox, track your team schedule, and stay on top of checklist items.</p>
+    </a>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Need More Help?</h2>
+  <p>Our support team is available to walk you through any workflow, answer questions, or help with onboarding.</p>
+  <a href="/contact/" class="btn-white">Contact Support</a>
+</div>
+</Base>
+

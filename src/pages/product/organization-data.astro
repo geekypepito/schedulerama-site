@@ -1,0 +1,171 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Organization Data";
+const description = `Manage schools, teams, leagues, sports, facilities, and contacts from one place. Bulk creation for league-wide setups.`;
+---
+
+<Base title={title} description={description} activeSection="product">
+<style>
+
+  .nav-item > a:hover, .nav-item.active > a { color:#fff; }
+  .nav-item.has-drop > a::after { content:' ▾'; font-size:0.65rem; }
+  
+  
+  .nav-dropdown a:last-child { border-bottom:none; }
+  .nav-dropdown a:hover { background:rgba(232,95,23,0.1); color:#fff; padding-left:22px; }
+  
+  .nav-cta:hover { background:var(--orange-bright) !important; }
+
+.page-hero::before {
+    content:''; position:absolute; right:0; top:0; bottom:0; width:40%;
+    background:linear-gradient(90deg, transparent, rgba(232,95,23,0.04));
+    pointer-events:none;
+  }
+  .page-hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--orange);
+    margin-bottom:20px;
+  }
+  .page-hero-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--orange); }
+  .page-hero h1 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:clamp(3rem,6vw,5.5rem); line-height:0.92;
+    letter-spacing:-0.01em; color:#fff; text-transform:uppercase;
+    max-width:700px; margin-bottom:22px;
+  }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p {
+    font-size:1.1rem; line-height:1.7;
+    color:rgba(255,255,255,0.55); max-width:560px;
+  }
+  .page-hero-actions { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  /* ── SECTION COMMON ── */
+  section { padding:88px 56px; }
+  
+  .eyebrow::after { content:''; display:block; height:1px; width:36px; background:var(--orange); }
+  h2 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:800;
+    font-size:clamp(2.4rem,4vw,3.8rem); line-height:0.95;
+    letter-spacing:-0.01em; text-transform:uppercase;
+    color:var(--navy); margin-bottom:14px;
+  }
+
+.btn-primary:hover { background:var(--orange-bright); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,95,23,0.4); }
+  
+  .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
+  .btn-navy {
+    background:var(--navy); color:#fff; padding:14px 34px;
+    border-radius:2px; font-size:0.9rem; font-weight:600;
+    text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
+    transition:all 0.2s; display:inline-block;
+  }
+  .btn-navy:hover { background:var(--navy-deep); transform:translateY(-2px); }
+
+.feat-grid-2 { grid-template-columns:repeat(2,1fr); }
+  
+  .feat-tile:hover { background:#fff; }
+  .feat-tile::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+  .feat-tile:hover::after { transform:scaleX(1); }
+  .feat-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+  .feat-tile h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .feat-tile p { font-size:0.87rem; line-height:1.7; color:var(--ink-soft); }
+
+  /* ── STEP LIST ── */
+  .steps { display:flex; flex-direction:column; gap:0; }
+  .step { display:grid; grid-template-columns:60px 1fr; gap:28px; padding:36px 0; border-bottom:1px solid var(--rule); align-items:start; }
+  .step:last-child { border-bottom:none; }
+  .step-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:3rem; color:rgba(26,26,26,0.1); line-height:1; text-align:right; }
+  .step h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .step p { font-size:0.88rem; line-height:1.7; color:var(--ink-soft); }
+
+.check-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.9rem; line-height:1.6; color:var(--ink-mid); }
+  .check-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+  /* ── ROLE CARDS ── */
+  .role-card { background:#fff; border:1px solid var(--rule); border-radius:6px; padding:32px 28px; border-top:3px solid var(--orange); }
+  .role-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+  .role-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:10px; }
+  .role-card p { font-size:0.86rem; line-height:1.7; color:var(--ink-soft); }
+
+.cta-strip h2 { color:#fff; margin-bottom:10px; }
+  .cta-strip p { color:rgba(255,255,255,0.8); font-size:1rem; max-width:480px; margin:0 auto 28px; line-height:1.65; }
+  
+  .btn-white:hover { background:var(--navy-deep); color:#fff; transform:translateY(-2px); }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+
+  .fade-up.on { opacity:1; transform:none; }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+</style>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Product</div>
+  <h1>Organization <span>Data</span></h1>
+  <p>Schools, leagues, sports, teams, contacts, and facilities — managed in one place, always accurate, always accessible.</p>
+  <div class="page-hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/solutions/super-admins/" class="btn-outline">Super Admin Guide</a>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow">Data Management</div>
+  <h2>One Source of Truth<br>for Your Organization</h2>
+  <p class="section-sub">All the structural data your scheduling depends on — organized, up to date, and role-accessible at every level.</p>
+  <div class="feat-grid fade-up">
+    <div class="feat-tile">
+      <div class="feat-tag">Structure</div>
+      <h3>Schools &amp; Leagues</h3>
+      <p>Create and manage school records with full contact info, facilities, and league memberships. Organize schools into leagues — one school can belong to multiple leagues.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Sports</div>
+      <h3>Sports &amp; Levels</h3>
+      <p>Define sports and the levels each school participates in. Configure season types, gender designations, and game-counting rules per sport.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Teams</div>
+      <h3>Team Management</h3>
+      <p>Create teams for every sport and level. Bulk-create teams for an entire league at once. Assign coaches and contacts directly from the team record.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">People</div>
+      <h3>Contacts</h3>
+      <p>Manage coaches, ADs, and other contacts for every school. Contacts can be promoted to app users without leaving the contact record — scoped access configured instantly.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Venues</div>
+      <h3>Facilities</h3>
+      <p>Add and manage athletic facilities — name, address, surface type, capacity, and notes. Attach facilities to schools and reference them in every game record.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Bulk Tools</div>
+      <h3>Bulk Team Creation</h3>
+      <p>Create teams for all schools in a league simultaneously. Configure sport, level, and season — then publish. Ideal for league admins setting up a new season from scratch.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Clean Data.<br>Better Scheduling.</h2>
+  <p>When your organization data is accurate, everything else — scheduling, reporting, communication — runs smoother.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+

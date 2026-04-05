@@ -1,0 +1,80 @@
+---
+export interface Props {
+  activeSection?: string; // 'product' | 'solutions' | 'resources' | 'company'
+}
+const { activeSection } = Astro.props;
+---
+
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="/images/logo.png" alt="ScheduleRama" width="40" height="40" />
+    <span class="nav-wordmark">Schedule<span>Rama</span></span>
+  </a>
+
+  <ul class="nav-links">
+    <li class={`nav-item has-drop${activeSection === 'product' ? ' active' : ''}`}>
+      <a href="/product/">Product</a>
+      <div class="nav-dropdown">
+        <a href="/product/schedule-management/">Schedule Management</a>
+        <a href="/product/group-scheduler/">Group Scheduler</a>
+        <a href="/product/game-finder/">Game Finder</a>
+        <a href="/product/requests-inbox/">Requests Inbox</a>
+        <a href="/product/realtime-messaging/">Realtime &amp; Chat</a>
+        <a href="/product/facility-operations/">Facility Operations</a>
+        <a href="/product/operational-workflows/">Operational Workflows</a>
+        <a href="/product/organization-data/">Organization Data</a>
+        <a href="/product/reports-import/">Reports &amp; Import</a>
+      </div>
+    </li>
+
+    <li class={`nav-item has-drop${activeSection === 'solutions' ? ' active' : ''}`}>
+      <a href="/solutions/">Solutions</a>
+      <div class="nav-dropdown">
+        <a href="/solutions/athletic-directors/">Athletic Directors</a>
+        <a href="/solutions/transportation/">Transportation</a>
+        <a href="/solutions/maintenance/">Maintenance</a>
+        <a href="/solutions/game-officials/">Game Officials</a>
+        <a href="/solutions/coaches/">Coaches</a>
+        <a href="/solutions/league-admins/">League Admins</a>
+        <a href="/solutions/super-admins/">Super Admins</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="/pricing/">Pricing</a>
+    </li>
+
+    <li class={`nav-item has-drop${activeSection === 'resources' ? ' active' : ''}`}>
+      <a href="/resources/">Resources</a>
+      <div class="nav-dropdown">
+        <a href="/resources/user-guide/">User Guide</a>
+        <a href="/resources/feature-matrix/">Feature Matrix</a>
+        <a href="/resources/release-notes/">Release Notes</a>
+        <a href="/resources/faq/">FAQ</a>
+      </div>
+    </li>
+
+    <li class={`nav-item has-drop${activeSection === 'company' ? ' active' : ''}`}>
+      <a href="#">Company</a>
+      <div class="nav-dropdown">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a href="/contact/" class="nav-cta">Book Demo</a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (nav) {
+      nav.style.boxShadow = window.scrollY > 40
+        ? '0 4px 24px rgba(0,0,0,0.4)'
+        : 'none';
+    }
+  });
+</script>

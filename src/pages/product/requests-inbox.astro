@@ -1,0 +1,198 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Requests Inbox";
+const description = `Centralized request workflow with message threads, approvals, and live push notifications. Every conversation tied to a specific game.`;
+---
+
+<Base title={title} description={description} activeSection="product">
+<style>
+
+  .nav-item > a:hover, .nav-item.active > a { color:#fff; }
+  .nav-item.has-drop > a::after { content:' ▾'; font-size:0.65rem; }
+  
+  
+  .nav-dropdown a:last-child { border-bottom:none; }
+  .nav-dropdown a:hover { background:rgba(232,95,23,0.1); color:#fff; padding-left:22px; }
+  
+  .nav-cta:hover { background:var(--orange-bright) !important; }
+
+.page-hero::before {
+    content:''; position:absolute; right:0; top:0; bottom:0; width:40%;
+    background:linear-gradient(90deg, transparent, rgba(232,95,23,0.04));
+    pointer-events:none;
+  }
+  .page-hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--orange);
+    margin-bottom:20px;
+  }
+  .page-hero-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--orange); }
+  .page-hero h1 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:clamp(3rem,6vw,5.5rem); line-height:0.92;
+    letter-spacing:-0.01em; color:#fff; text-transform:uppercase;
+    max-width:700px; margin-bottom:22px;
+  }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p {
+    font-size:1.1rem; line-height:1.7;
+    color:rgba(255,255,255,0.55); max-width:560px;
+  }
+  .page-hero-actions { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  /* ── SECTION COMMON ── */
+  section { padding:88px 56px; }
+  
+  .eyebrow::after { content:''; display:block; height:1px; width:36px; background:var(--orange); }
+  h2 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:800;
+    font-size:clamp(2.4rem,4vw,3.8rem); line-height:0.95;
+    letter-spacing:-0.01em; text-transform:uppercase;
+    color:var(--navy); margin-bottom:14px;
+  }
+
+.btn-primary:hover { background:var(--orange-bright); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,95,23,0.4); }
+  
+  .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
+  .btn-navy {
+    background:var(--navy); color:#fff; padding:14px 34px;
+    border-radius:2px; font-size:0.9rem; font-weight:600;
+    text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
+    transition:all 0.2s; display:inline-block;
+  }
+  .btn-navy:hover { background:var(--navy-deep); transform:translateY(-2px); }
+
+.feat-grid-2 { grid-template-columns:repeat(2,1fr); }
+  
+  .feat-tile:hover { background:#fff; }
+  .feat-tile::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+  .feat-tile:hover::after { transform:scaleX(1); }
+  .feat-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+  .feat-tile h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .feat-tile p { font-size:0.87rem; line-height:1.7; color:var(--ink-soft); }
+
+  /* ── STEP LIST ── */
+  .steps { display:flex; flex-direction:column; gap:0; }
+  .step { display:grid; grid-template-columns:60px 1fr; gap:28px; padding:36px 0; border-bottom:1px solid var(--rule); align-items:start; }
+  .step:last-child { border-bottom:none; }
+  .step-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:3rem; color:rgba(26,26,26,0.1); line-height:1; text-align:right; }
+  .step h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .step p { font-size:0.88rem; line-height:1.7; color:var(--ink-soft); }
+
+.check-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.9rem; line-height:1.6; color:var(--ink-mid); }
+  .check-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+  /* ── ROLE CARDS ── */
+  .role-card { background:#fff; border:1px solid var(--rule); border-radius:6px; padding:32px 28px; border-top:3px solid var(--orange); }
+  .role-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+  .role-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:10px; }
+  .role-card p { font-size:0.86rem; line-height:1.7; color:var(--ink-soft); }
+
+.cta-strip h2 { color:#fff; margin-bottom:10px; }
+  .cta-strip p { color:rgba(255,255,255,0.8); font-size:1rem; max-width:480px; margin:0 auto 28px; line-height:1.65; }
+  
+  .btn-white:hover { background:var(--navy-deep); color:#fff; transform:translateY(-2px); }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+
+  .fade-up.on { opacity:1; transform:none; }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+</style>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Product</div>
+  <h1>Requests <span>Inbox</span></h1>
+  <p>Every game request, message, and approval in one thread-based inbox. No more lost emails. No more "who said what when."</p>
+  <div class="page-hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/product/game-finder/" class="btn-outline">See Game Finder</a>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow">Communication Hub</div>
+  <h2>One Inbox for Every<br>Game Conversation</h2>
+  <p class="section-sub">The Requests Inbox ties every conversation to a specific game — so context is never lost and accountability is always clear.</p>
+  <div class="feat-grid fade-up">
+    <div class="feat-tile">
+      <div class="feat-tag">Requests</div>
+      <h3>Incoming &amp; Outgoing</h3>
+      <p>See all requests you've sent and received in one unified inbox. Filter by status — Pending, Approved, Declined, or Needs Response. Nothing falls through the cracks.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Threads</div>
+      <h3>Message Threads</h3>
+      <p>Every request has its own message thread. All back-and-forth communication stays tied to the game — not buried in an email chain you'll never find again.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Actions</div>
+      <h3>Approve, Decline, Counter</h3>
+      <p>Respond to any request with a single click. Approve to confirm the game, decline with a reason, or counter-propose a different date or venue directly in the thread.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Notifications</div>
+      <h3>Real-Time Alerts</h3>
+      <p>Live push notifications powered by SignalR — requests, replies, and game change notices arrive as toast alerts the moment they happen, with distinct audio cues. No polling, no refresh, no missed updates.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Audit Trail</div>
+      <h3>Full History</h3>
+      <p>Every action — request sent, message added, status changed, game confirmed — is logged with a timestamp and user. The full decision history is always accessible.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Scoping</div>
+      <h3>Role-Scoped Access</h3>
+      <p>ADs see requests for their school. League Admins see requests across their league. Coaches see requests for their team. Everyone sees exactly what they need to.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-warm);">
+  <div class="eyebrow">Request Lifecycle</div>
+  <h2>From Request to<br>Confirmed Game</h2>
+  <div class="steps fade-up" style="max-width:720px;">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div><h3>Request Sent</h3><p>A coach or AD sends a game request via Game Finder or directly from the schedule. The receiving school's inbox shows the request immediately.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div><h3>Notification Delivered</h3><p>The receiving AD or coach gets an in-app notification. They can respond from the inbox or directly from the notification banner.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div><h3>Message &amp; Negotiate</h3><p>Either party can add messages to the thread — proposing alternate dates, asking about facilities, or confirming officials. All in one place.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div><h3>Approved or Declined</h3><p>The receiving party approves or declines. If approved, the game is instantly added to both schools' schedules at Confirmed status.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div><h3>Thread Archived</h3><p>The thread stays accessible for the life of the game — useful for resolving disputes, checking what was agreed, or auditing the season after the fact.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Every Request.<br>Every Reply. One Place.</h2>
+  <p>See how the Requests Inbox eliminates the email chaos that plagues every athletic program at scheduling time.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+

@@ -1,0 +1,265 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Operational Workflows";
+const description = `Transportation plans, facility readiness, and officials confirmation — each owned by the right role with role-specific dashboards.`;
+---
+
+<Base title={title} description={description} activeSection="product">
+<style>
+.nav-item>a:hover,.nav-item.active>a{color:#fff;}
+  .nav-item.has-drop>a::after{content:' ▾';font-size:0.65rem;}
+  
+  
+  .nav-dropdown a:hover{color:#fff;background:rgba(255,255,255,0.06);padding-left:24px;}
+  
+  .nav-cta:hover{background:var(--orange-bright)!important;}
+
+.page-hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.8rem,5vw,4rem);color:#fff;line-height:1.05;margin-bottom:20px;}
+  .page-hero p{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:620px;line-height:1.7;margin-bottom:32px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  
+  .btn-primary:hover{background:var(--orange-bright);}
+  
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.06);}
+  section{padding:72px 56px;max-width:1200px;margin:0 auto;}
+  .section-alt{background:var(--bg-warm);padding:72px 56px;}
+  .section-alt .inner{max-width:1200px;margin:0 auto;}
+  h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;margin-bottom:12px;}
+
+.feat-card .ico{font-size:1.8rem;margin-bottom:14px;}
+  .feat-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:8px;letter-spacing:0.04em;}
+  .feat-card p{font-size:0.88rem;color:var(--ink-mid);line-height:1.65;}
+  
+  .check-list li{font-size:0.92rem;padding-left:24px;position:relative;line-height:1.55;}
+  .check-list li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700;}
+  
+  .two-col-alt{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  
+  .mock-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+  .mock-title{color:#fff;font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:0.05em;text-transform:uppercase;}
+  .mock-badge{background:var(--orange);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:10px;}
+  .mock-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:6px;margin-bottom:6px;background:rgba(255,255,255,0.05);}
+  .mock-row:last-child{margin-bottom:0;}
+  .mock-label{color:rgba(255,255,255,0.75);}
+  .mock-val{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--orange);}
+  .mock-val.ok{color:var(--teal);}
+  .mock-val.pend{color:rgba(255,255,255,0.4);}
+  .role-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+  .role-tag.orange{background:var(--orange-pale);color:var(--orange);}
+  .role-tag.teal{background:var(--teal-pale);color:var(--teal);}
+  .role-tag.navy{background:rgba(27,45,79,0.12);color:var(--navy);}
+  
+  .cta-strip h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;margin-bottom:12px;}
+  .cta-strip p{color:rgba(255,255,255,0.55);margin-bottom:32px;}
+  
+  .btn-white:hover{background:var(--orange);color:#fff;}
+
+.footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
+  .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  
+  .footer-col a:hover{color:#fff;}
+  
+  .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+  
+  .js-loaded .fade-up.on{opacity:1;transform:none;}
+    
+  @media(max-width:1024px){
+    .two-col,.two-col-alt{grid-template-columns:1fr;}
+      
+  }
+  .workflow-step{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--rule);}
+  .workflow-step:last-child{border-bottom:none;}
+  .step-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--orange);background:var(--orange-pale);padding:4px 10px;border-radius:4px;flex-shrink:0;margin-top:3px;letter-spacing:0.08em;}
+  .step-content h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:6px;letter-spacing:0.04em;}
+  .step-content p{font-size:0.88rem;color:var(--ink-mid);line-height:1.65;}
+  .role-row{display:flex;gap:16px;align-items:center;padding:10px 14px;border-radius:6px;background:rgba(255,255,255,0.05);margin-bottom:8px;}
+  .role-ico{font-size:1.2rem;flex-shrink:0;}
+  .role-name{color:#fff;font-weight:600;font-size:0.85rem;min-width:120px;}
+  .role-scope{font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;}
+  .checklist-mock{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+  .cl-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:6px;background:rgba(255,255,255,0.05);}
+  .cl-check{width:18px;height:18px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;}
+  .cl-check.done{background:var(--teal);color:#fff;}
+  .cl-check.pend{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.3);}
+  .cl-label{color:rgba(255,255,255,0.75);font-size:0.82rem;flex:1;}
+  .cl-owner{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;}
+</style>
+<div class="page-hero">
+  <div class="eyebrow">Product — Operational Workflows</div>
+  <h1>Every Game-Day Task<br>Has an Owner</h1>
+  <p>Transportation plans, facility readiness, officials confirmations, and game change notices — all tracked with role-based ownership and accountability, not guesswork from email threads.</p>
+  <div class="hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/pricing/" class="btn-outline">See Pricing</a>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow fade-up">Role-Based Checklists</div>
+  <h2 class="section-title fade-up">Checklists That Know Who's Responsible</h2>
+  <p class="section-sub fade-up">Every checklist item has an explicit owner — home school, away school, officials, or league. Role-specific dashboards show each person only the tasks relevant to them, not everything for every game.</p>
+  <div class="two-col">
+    <div class="fade-up">
+      <div class="workflow-step">
+        <span class="step-num">Home</span>
+        <div class="step-content">
+          <h4>Facility Readiness</h4>
+          <p>Home-side maintenance staff confirm fields, gyms, and locker rooms are ready. Visible to both schools and league admins.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">Away</span>
+        <div class="step-content">
+          <h4>Transportation &amp; Accommodations</h4>
+          <p>Away-school transportation staff confirm departure plans, carrier, and arrival logistics. Checklist updates when transport plan is complete.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">League</span>
+        <div class="step-content">
+          <h4>Officials Confirmation</h4>
+          <p>Officials crew assigned and confirmed by the league. Visible to both schools. Scoped to the game official's assigned leagues and sports.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">Both</span>
+        <div class="step-content">
+          <h4>Team Readiness Confirmation</h4>
+          <p>Home and away schools each confirm their team is ready. AD or super admin confirms their own side — not the opponent's.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mock-panel fade-up" style="transition-delay:0.1s;">
+      <div class="mock-bar">
+        <span class="mock-title">Game Checklist</span>
+        <span class="mock-badge">Sep 19 · Var SOC</span>
+      </div>
+      <div class="checklist-mock">
+        <div class="cl-item"><div class="cl-check done">✓</div><span class="cl-label">Home Team Confirmed</span><span class="cl-owner">Home AD</span></div>
+        <div class="cl-item"><div class="cl-check done">✓</div><span class="cl-label">Facility Ready</span><span class="cl-owner">Maintenance</span></div>
+        <div class="cl-item"><div class="cl-check pend">·</div><span class="cl-label">Away Team Confirmed</span><span class="cl-owner">Away AD</span></div>
+        <div class="cl-item"><div class="cl-check pend">·</div><span class="cl-label">Transportation Confirmed</span><span class="cl-owner">Transport</span></div>
+        <div class="cl-item"><div class="cl-check pend">·</div><span class="cl-label">Officials Assigned</span><span class="cl-owner">League</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt">
+  <div class="inner">
+    <div class="eyebrow fade-up">Transportation Planning</div>
+    <h2 class="section-title fade-up">Travel Logistics Tied to the Game</h2>
+    <p class="section-sub fade-up">Transportation plans live alongside the game record — not in a separate spreadsheet. Away-school transportation staff log departure, arrival, return, carrier, and vehicle details. When the plan is complete, the checklist updates automatically.</p>
+    <div class="feat-grid">
+      <div class="feat-card fade-up">
+        <div class="ico">🚌</div>
+        <h3>Transportation Plan Fields</h3>
+        <p>Capture depart time, arrive time, return time, carrier, driver, vehicle, pickup location, and destination — all tied to the specific game.</p>
+      </div>
+      <div class="feat-card fade-up" style="transition-delay:0.08s;">
+        <div class="ico">✅</div>
+        <h3>Plan-Driven Confirmation</h3>
+        <p>When core timestamps (depart, arrive, return) are filled in, the transportation checklist item can be confirmed automatically — no double-entry.</p>
+      </div>
+      <div class="feat-card fade-up" style="transition-delay:0.16s;">
+        <div class="ico">📱</div>
+        <h3>Role-Scoped Dashboard</h3>
+        <p>Transportation staff see only their upcoming travel games, pending transport items, and office notes from the AD — nothing outside their scope.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow fade-up">Game Change Notices</div>
+  <h2 class="section-title fade-up">Every Schedule Change Gets Tracked</h2>
+  <p class="section-sub fade-up">When a game is edited or cancelled, ScheduleRama generates a change notice and routes it to the right recipients — including people who don't have app accounts.</p>
+  <div class="two-col">
+    <div class="mock-panel fade-up">
+      <div class="mock-bar">
+        <span class="mock-title">Change Notice</span>
+        <span class="mock-badge" style="background:rgba(255,200,50,0.3);color:#f5c842;">PENDING</span>
+      </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;margin-bottom:6px;">Change Summary</div>
+        <div style="color:rgba(255,255,255,0.7);font-size:0.85rem;line-height:1.6;">Lincoln vs Jefferson — Sep 19<br>
+        <span style="color:#ff6b6b;font-size:0.8rem;">Time changed: 4:00 PM → 3:30 PM</span><br>
+        <span style="color:#ff6b6b;font-size:0.8rem;">Facility: North Field → South Field</span></div>
+      </div>
+      <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;margin-bottom:8px;">Recipients</div>
+      <div class="role-row"><span class="role-ico">👤</span><span class="role-name">Coach Rivera</span><span class="role-scope">Away — Required</span></div>
+      <div class="role-row"><span class="role-ico">👤</span><span class="role-name">J. Martinez</span><span class="role-scope">Transportation — Optional</span></div>
+      <div class="role-row" style="background:rgba(26,171,138,0.1);"><span class="role-ico">✓</span><span class="role-name">AD Chen</span><span class="role-scope" style="color:var(--teal);">Home — Acknowledged</span></div>
+    </div>
+    <div class="fade-up" style="transition-delay:0.1s;">
+      <ul class="check-list">
+        <li>Tracked changes trigger a notice automatically on game save</li>
+        <li>AD selects recipients from a preview before sending</li>
+        <li>Athletic Directors are required recipients by default</li>
+        <li>Optional recipients (coaches, transportation, maintenance) can be toggled</li>
+        <li>Email-only recipients receive a secure link to acknowledge without logging in</li>
+        <li>Acknowledgements tracked in the inbox with due dates and overdue states</li>
+        <li>Local mail-client workflow when SMTP is not configured</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt">
+  <div class="inner">
+    <div class="eyebrow fade-up">Operational Roles</div>
+    <h2 class="section-title fade-up">Dashboards Built for Each Role</h2>
+    <p class="section-sub fade-up">Transportation, Maintenance, and Game Official roles each get a focused dashboard showing only what's relevant to their work — with confirmation access scoped to their checklist families.</p>
+    <div class="feat-grid">
+      <div class="feat-card fade-up">
+        <div class="role-tag orange">Transportation</div>
+        <h3>Travel Dashboard</h3>
+        <p>Upcoming away games with transport checklist status, pending plan items, office notes from the AD, and secure email-link acknowledgements.</p>
+      </div>
+      <div class="feat-card fade-up" style="transition-delay:0.08s;">
+        <div class="role-tag teal">Maintenance</div>
+        <h3>Facility Dashboard</h3>
+        <p>Upcoming home events, facility readiness checklists, access to the full facility schedule page, and drag-and-drop for non-game bookings.</p>
+      </div>
+      <div class="feat-card fade-up" style="transition-delay:0.16s;">
+        <div class="role-tag navy">Game Official</div>
+        <h3>Officials Dashboard</h3>
+        <p>League- and sport-scoped game visibility. Confirmation limited to games where the assigned league's school is the home team. Sport grid default view.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow fade-up">Public Confirmation Links</div>
+  <h2 class="section-title fade-up">Confirmations Without App Accounts</h2>
+  <p class="section-sub fade-up">Send a secure one-click confirmation link to any contact — transportation coordinator, facilities manager, or game official — and track their response in the checklist automatically. No login required.</p>
+  <div class="two-col fade-up">
+    <ul class="check-list">
+      <li>Secure links expire and are tied to a specific checklist item and recipient</li>
+      <li>Recipient name is captured on confirmation for audit trail</li>
+      <li>Optional confirmation note from the recipient</li>
+      <li>Office notes and confirmation notes are tracked separately</li>
+      <li>AD can see who confirmed, when, and via what method (in-app or public link)</li>
+    </ul>
+    <div class="mock-panel fade-up" style="transition-delay:0.1s;">
+      <div class="mock-bar">
+        <span class="mock-title">Confirmation Request</span>
+      </div>
+      <div class="mock-row"><span class="mock-label">Item</span><span class="mock-val">Transportation Confirmed</span></div>
+      <div class="mock-row"><span class="mock-label">Game</span><span class="mock-val">@ Jefferson — Sep 19</span></div>
+      <div class="mock-row"><span class="mock-label">Recipient</span><span class="mock-val">J. Martinez (Transport)</span></div>
+      <div class="mock-row"><span class="mock-label">Status</span><span class="mock-val pend">AWAITING</span></div>
+      <div class="mock-row"><span class="mock-label">Link Expires</span><span class="mock-val">Sep 18 · 11:59 PM</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Replace the Email Chains<br>with Real Accountability</h2>
+  <p>See operational workflows live in a demo built around your program's structure.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+

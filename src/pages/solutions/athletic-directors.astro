@@ -1,0 +1,246 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Athletic Directors";
+const description = `Full school-scoped visibility and control. Manage every sport, every team, and every game from one dashboard.`;
+---
+
+<Base title={title} description={description} activeSection="solutions">
+<style>
+
+  .nav-item > a:hover, .nav-item.active > a { color:#fff; }
+  .nav-item.has-drop > a::after { content:' ▾'; font-size:0.65rem; }
+  
+  .nav-item:hover 
+  
+  .nav-dropdown a:last-child { border-bottom:none; }
+  .nav-dropdown a:hover { background:rgba(232,95,23,0.1); color:#fff; padding-left:22px; }
+  
+  .nav-cta:hover { background:var(--orange-bright) !important; }
+
+.page-hero::before {
+    content:''; position:absolute; right:0; top:0; bottom:0; width:40%;
+    background:linear-gradient(90deg, transparent, rgba(232,95,23,0.04));
+    pointer-events:none;
+  }
+  .page-hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--orange);
+    margin-bottom:20px;
+  }
+  .page-hero-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--orange); }
+  .page-hero h1 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:clamp(3rem,6vw,5.5rem); line-height:0.92;
+    letter-spacing:-0.01em; color:#fff; text-transform:uppercase;
+    max-width:700px; margin-bottom:22px;
+  }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p {
+    font-size:1.1rem; line-height:1.7;
+    color:rgba(255,255,255,0.55); max-width:560px;
+  }
+  .page-hero-actions { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  /* ── SECTION COMMON ── */
+  section { padding:88px 56px; }
+  
+  .eyebrow::after { content:''; display:block; height:1px; width:36px; background:var(--orange); }
+  h2 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:800;
+    font-size:clamp(2.4rem,4vw,3.8rem); line-height:0.95;
+    letter-spacing:-0.01em; text-transform:uppercase;
+    color:var(--navy); margin-bottom:14px;
+  }
+
+.btn-primary:hover { background:var(--orange-bright); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,95,23,0.4); }
+  
+  .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
+  .btn-navy {
+    background:var(--navy); color:#fff; padding:14px 34px;
+    border-radius:2px; font-size:0.9rem; font-weight:600;
+    text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
+    transition:all 0.2s; display:inline-block;
+  }
+  .btn-navy:hover { background:var(--navy-deep); transform:translateY(-2px); }
+
+.feat-grid-2 { grid-template-columns:repeat(2,1fr); }
+  
+  .feat-tile:hover { background:#fff; }
+  .feat-tile::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+  .feat-tile:hover::after { transform:scaleX(1); }
+  .feat-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+  .feat-tile h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .feat-tile p { font-size:0.87rem; line-height:1.7; color:var(--ink-soft); }
+
+  /* ── STEP LIST ── */
+  .steps { display:flex; flex-direction:column; gap:0; }
+  .step { display:grid; grid-template-columns:60px 1fr; gap:28px; padding:36px 0; border-bottom:1px solid var(--rule); align-items:start; }
+  .step:last-child { border-bottom:none; }
+  .step-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:3rem; color:rgba(26,26,26,0.1); line-height:1; text-align:right; }
+  .step h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .step p { font-size:0.88rem; line-height:1.7; color:var(--ink-soft); }
+
+.check-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.9rem; line-height:1.6; color:var(--ink-mid); }
+  .check-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+  /* ── ROLE CARDS ── */
+  .role-card { background:#fff; border:1px solid var(--rule); border-radius:6px; padding:32px 28px; border-top:3px solid var(--orange); }
+  .role-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+  .role-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:10px; }
+  .role-card p { font-size:0.86rem; line-height:1.7; color:var(--ink-soft); }
+
+.cta-strip h2 { color:#fff; margin-bottom:10px; }
+  .cta-strip p { color:rgba(255,255,255,0.8); font-size:1rem; max-width:480px; margin:0 auto 28px; line-height:1.65; }
+  
+  .btn-white:hover { background:var(--navy-deep); color:#fff; transform:translateY(-2px); }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+
+.js-loaded 
+  .fade-up.on { opacity:1; transform:none; }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+  @media(max-width:1024px){   }
+</style>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Solutions</div>
+  <h1>Built for <span>Athletic Directors</span></h1>
+  <p>Full school-scoped visibility and control. Manage every sport, every team, and every game — from one dashboard.</p>
+  <div class="page-hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/pricing/" class="btn-outline">See Pricing</a>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow">Your Day-to-Day</div>
+  <h2>Everything an AD<br>Needs in One Place</h2>
+  <p class="section-sub">Stop juggling spreadsheets, email threads, and phone calls. ScheduleRama gives you a single source of truth for your entire athletic program.</p>
+  <div class="feat-grid fade-up">
+    <div class="feat-tile">
+      <div class="feat-tag">Schedule Control</div>
+      <h3>Create &amp; Edit Games</h3>
+      <p>Add, modify, or cancel games for any sport at your school. Set game type, location, level, and officials all in one form. Changes reflect instantly for all stakeholders.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Team Management</div>
+      <h3>Manage Your Rosters</h3>
+      <p>Create and edit teams for every sport and level at your school. Assign coaches, set team contacts, and keep everything current without IT help.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">People</div>
+      <h3>Contacts &amp; Users</h3>
+      <p>Add coaches and staff as contacts, then promote them to app users with a single click. Control exactly what each person can see and do.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Opponent Discovery</div>
+      <h3>Game Finder</h3>
+      <p>Search for open opponents by sport, level, and date range. Send game requests directly. Fill your schedule gaps in minutes instead of days.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Communication</div>
+      <h3>Requests Inbox</h3>
+      <p>All incoming and outgoing game requests in one place. Respond, negotiate, approve, or decline — with a full message thread on every request.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Oversight</div>
+      <h3>Reports &amp; Exports</h3>
+      <p>Print season schedules, export CSVs for any sport, and run weekly compliance reports. Share with your principal or booster club with one click.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-warm); padding-top:88px; padding-bottom:88px;">
+  <div style="max-width:800px;">
+    <div class="eyebrow">Workflow</div>
+    <h2>How ADs Use<br>ScheduleRama</h2>
+  </div>
+  <div class="steps fade-up" style="max-width:760px; margin-top:16px;">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <h3>Set Up Your School</h3>
+        <p>Add your facilities, create teams for each sport and level, and import any existing schedule via CSV. Most ADs are fully set up in under an hour.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <h3>Add Coaches as Users</h3>
+        <p>Create contact records for each coach, then generate their login credentials from the same screen. Assign them to their team — they're live immediately.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <h3>Build Your Schedule</h3>
+        <p>Use the Group Scheduler to pre-populate league matchups, then fill non-conference slots with the Game Finder. Review the full calendar before publishing.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <h3>Manage the Inbox</h3>
+        <p>Incoming requests from other schools land in your Inbox. Approve, decline, or message back — all from one screen. Every decision is logged automatically.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div>
+        <h3>Report Weekly</h3>
+        <p>Run your weekly schedule report, check checklist completion, and export data for your district. Keep your principal and league in the loop effortlessly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Access Summary</div>
+  <h2>What ADs Can Do</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:860px;" class="fade-up">
+    <div>
+      <ul class="check-list">
+        <li>View and filter full school schedule</li>
+        <li>Create, edit, and delete games</li>
+        <li>Manage all school teams</li>
+        <li>Add and edit facility information</li>
+        <li>Create and manage contacts</li>
+        <li>Promote contacts to app users</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="check-list">
+        <li>Send and receive game requests</li>
+        <li>Direct chat with coaches and league admins from any page</li>
+        <li>Live notifications for requests, replies, and change notice acknowledgements</li>
+        <li>Manage inbox threads and approvals</li>
+        <li>Use Game Finder for open opponents</li>
+        <li>Access Group Scheduler</li>
+        <li>Export CSV and print schedules</li>
+        <li>Import schedules with validation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Stop Managing<br>Spreadsheets</h2>
+  <p>See how ADs at schools like yours use ScheduleRama to reclaim hours every week.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>

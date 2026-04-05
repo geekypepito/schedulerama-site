@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Schedule Management";
+const description = `Full schedule visibility and control — card and calendar views, filters, saved views, game checklists, and change notices.`;
+---
+
+<Base title={title} description={description} activeSection="product">
+<style>
+
+  .nav-item > a:hover, .nav-item.active > a { color:#fff; }
+  .nav-item.has-drop > a::after { content:' ▾'; font-size:0.65rem; }
+  
+  
+  .nav-dropdown a:last-child { border-bottom:none; }
+  .nav-dropdown a:hover { background:rgba(232,95,23,0.1); color:#fff; padding-left:22px; }
+  
+  .nav-cta:hover { background:var(--orange-bright) !important; }
+
+.page-hero::before {
+    content:''; position:absolute; right:0; top:0; bottom:0; width:40%;
+    background:linear-gradient(90deg, transparent, rgba(232,95,23,0.04));
+    pointer-events:none;
+  }
+  .page-hero-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--orange);
+    margin-bottom:20px;
+  }
+  .page-hero-eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--orange); }
+  .page-hero h1 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:clamp(3rem,6vw,5.5rem); line-height:0.92;
+    letter-spacing:-0.01em; color:#fff; text-transform:uppercase;
+    max-width:700px; margin-bottom:22px;
+  }
+  .page-hero h1 span { color:var(--orange); }
+  .page-hero p {
+    font-size:1.1rem; line-height:1.7;
+    color:rgba(255,255,255,0.55); max-width:560px;
+  }
+  .page-hero-actions { display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  /* ── SECTION COMMON ── */
+  section { padding:88px 56px; }
+  
+  .eyebrow::after { content:''; display:block; height:1px; width:36px; background:var(--orange); }
+  h2 {
+    font-family:'Barlow Condensed',sans-serif; font-weight:800;
+    font-size:clamp(2.4rem,4vw,3.8rem); line-height:0.95;
+    letter-spacing:-0.01em; text-transform:uppercase;
+    color:var(--navy); margin-bottom:14px;
+  }
+
+.btn-primary:hover { background:var(--orange-bright); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,95,23,0.4); }
+  
+  .btn-outline:hover { border-color:var(--orange); color:var(--orange); }
+  .btn-navy {
+    background:var(--navy); color:#fff; padding:14px 34px;
+    border-radius:2px; font-size:0.9rem; font-weight:600;
+    text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
+    transition:all 0.2s; display:inline-block;
+  }
+  .btn-navy:hover { background:var(--navy-deep); transform:translateY(-2px); }
+
+.feat-grid-2 { grid-template-columns:repeat(2,1fr); }
+  
+  .feat-tile:hover { background:#fff; }
+  .feat-tile::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+  .feat-tile:hover::after { transform:scaleX(1); }
+  .feat-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+  .feat-tile h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.4rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .feat-tile p { font-size:0.87rem; line-height:1.7; color:var(--ink-soft); }
+
+  /* ── STEP LIST ── */
+  .steps { display:flex; flex-direction:column; gap:0; }
+  .step { display:grid; grid-template-columns:60px 1fr; gap:28px; padding:36px 0; border-bottom:1px solid var(--rule); align-items:start; }
+  .step:last-child { border-bottom:none; }
+  .step-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:3rem; color:rgba(26,26,26,0.1); line-height:1; text-align:right; }
+  .step h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  .step p { font-size:0.88rem; line-height:1.7; color:var(--ink-soft); }
+
+.check-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.9rem; line-height:1.6; color:var(--ink-mid); }
+  .check-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+  /* ── ROLE CARDS ── */
+  .role-card { background:#fff; border:1px solid var(--rule); border-radius:6px; padding:32px 28px; border-top:3px solid var(--orange); }
+  .role-label { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+  .role-card h3 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:1.5rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--navy); margin-bottom:10px; }
+  .role-card p { font-size:0.86rem; line-height:1.7; color:var(--ink-soft); }
+
+.cta-strip h2 { color:#fff; margin-bottom:10px; }
+  .cta-strip p { color:rgba(255,255,255,0.8); font-size:1rem; max-width:480px; margin:0 auto 28px; line-height:1.65; }
+  
+  .btn-white:hover { background:var(--navy-deep); color:#fff; transform:translateY(-2px); }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+
+  .fade-up.on { opacity:1; transform:none; }
+
+.footer-brand p { font-size:0.84rem; color:rgba(255,255,255,0.4); line-height:1.7; margin-top:12px; max-width:250px; }
+  .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  
+  .footer-col a:hover { color:#fff; }
+  
+  .footer-bottom a { color:rgba(255,255,255,0.35); text-decoration:none; }
+  .footer-bottom a:hover { color:var(--orange); }
+</style>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Product</div>
+  <h1>Schedule <span>Management</span></h1>
+  <p>Your entire athletic calendar in one place. Filter by sport, level, date, or school. See exactly what you need — nothing you don't.</p>
+  <div class="page-hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/pricing/" class="btn-outline">See Pricing</a>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow">Core Features</div>
+  <h2>The Calendar That<br>Runs Your Season</h2>
+  <p class="section-sub">A powerful, filterable schedule view built for how athletic programs actually operate — not how a generic calendar app thinks they do.</p>
+  <div class="feat-grid fade-up">
+    <div class="feat-tile">
+      <div class="feat-tag">Views</div>
+      <h3>Calendar &amp; List Views</h3>
+      <p>Toggle between a full calendar view and a list view. See games by day, week, or month. Every view is filterable and searchable in real time.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Filtering</div>
+      <h3>Smart Filters</h3>
+      <p>Filter by sport, team level, school, game status, or date range. Combine multiple filters simultaneously. Save your most-used filter combinations as named views.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Saved Views</div>
+      <h3>Custom Views</h3>
+      <p>Save filter configurations as named views and switch between them instantly. Build views for "Varsity Boys This Week," "All Pending Games," or any combination you need.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Game Status</div>
+      <h3>Status Tracking</h3>
+      <p>Every game has a clear status — Confirmed, Pending, Cancelled, Rescheduled, or non-counting. Color-coded indicators make your calendar's health visible at a glance.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Checklists</div>
+      <h3>Pre-Game Checklists</h3>
+      <p>Attach checklist items to any game. Track officials confirmation, bus reservation, facility setup, and anything else your program requires before game day.</p>
+    </div>
+    <div class="feat-tile">
+      <div class="feat-tag">Detail</div>
+      <h3>Full Game Records</h3>
+      <p>Every game record includes sport, level, teams, venue, date, time, officials, status, and a full notes field. All editable, all searchable, all exportable.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-warm);">
+  <div class="eyebrow">Game Statuses</div>
+  <h2>Know the State of<br>Every Game</h2>
+  <p class="section-sub">Clear, consistent game statuses so every stakeholder — AD, coach, league admin — sees the same picture.</p>
+  <div style="display:flex; flex-direction:column; gap:16px; max-width:680px;" class="fade-up">
+    <div style="display:flex; gap:20px; align-items:flex-start; padding:22px 24px; background:#fff; border-radius:6px; border-left:4px solid var(--teal);">
+      <div style="width:12px; height:12px; border-radius:50%; background:var(--teal); box-shadow:0 0 6px var(--teal); flex-shrink:0; margin-top:4px;"></div>
+      <div><strong style="font-size:0.95rem; color:var(--navy);">Confirmed</strong><p style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">Both parties have agreed. Date, time, and location are locked in.</p></div>
+    </div>
+    <div style="display:flex; gap:20px; align-items:flex-start; padding:22px 24px; background:#fff; border-radius:6px; border-left:4px solid var(--orange);">
+      <div style="width:12px; height:12px; border-radius:50%; background:var(--orange); box-shadow:0 0 6px var(--orange); flex-shrink:0; margin-top:4px;"></div>
+      <div><strong style="font-size:0.95rem; color:var(--navy);">Pending</strong><p style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">Request sent, awaiting response. Appears on both schools' schedules.</p></div>
+    </div>
+    <div style="display:flex; gap:20px; align-items:flex-start; padding:22px 24px; background:#fff; border-radius:6px; border-left:4px solid rgba(26,26,26,0.2);">
+      <div style="width:12px; height:12px; border-radius:50%; background:rgba(26,26,26,0.25); flex-shrink:0; margin-top:4px;"></div>
+      <div><strong style="font-size:0.95rem; color:var(--navy);">Non-Counting</strong><p style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">Scrimmages and exhibitions — on the calendar but excluded from record tracking.</p></div>
+    </div>
+    <div style="display:flex; gap:20px; align-items:flex-start; padding:22px 24px; background:#fff; border-radius:6px; border-left:4px solid #e85555;">
+      <div style="width:12px; height:12px; border-radius:50%; background:#e85555; flex-shrink:0; margin-top:4px;"></div>
+      <div><strong style="font-size:0.95rem; color:var(--navy);">Cancelled / Rescheduled</strong><p style="font-size:0.85rem; color:var(--ink-soft); margin-top:4px;">Game is off. Stays on record for history — linked to any rescheduled replacement.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Your Season,<br>Crystal Clear</h2>
+  <p>See how ScheduleRama's schedule management tools eliminate the chaos of juggling multiple calendars.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+

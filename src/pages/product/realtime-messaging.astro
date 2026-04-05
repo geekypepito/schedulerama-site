@@ -1,0 +1,326 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Realtime Messaging";
+const description = `Live chat, online presence, and real-time inbox updates. Game requests, replies, and change notices push instantly — no page refresh required.`;
+---
+
+<Base title={title} description={description} activeSection="product">
+<style>
+.nav-item>a:hover,.nav-item.active>a{color:#fff;}
+  .nav-item.has-drop>a::after{content:' ▾';font-size:0.65rem;}
+  
+  
+  .nav-dropdown a:hover{color:#fff;background:rgba(255,255,255,0.06);padding-left:24px;}
+  
+  .nav-cta:hover{background:var(--orange-bright)!important;}
+
+.page-hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.8rem,5vw,4rem);color:#fff;line-height:1.05;margin-bottom:20px;}
+  .page-hero p{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:620px;line-height:1.7;margin-bottom:32px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  
+  .btn-primary:hover{background:var(--orange-bright);}
+  
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.06);}
+  section{padding:72px 56px;max-width:1200px;margin:0 auto;}
+  .section-alt{background:var(--bg-warm);padding:72px 56px;}
+  .section-alt .inner{max-width:1200px;margin:0 auto;}
+  h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;margin-bottom:12px;}
+
+.feat-card .ico{font-size:1.8rem;margin-bottom:14px;}
+  .feat-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:8px;letter-spacing:0.04em;}
+  .feat-card p{font-size:0.88rem;color:var(--ink-mid);line-height:1.65;}
+  
+  .check-list li{font-size:0.92rem;padding-left:24px;position:relative;line-height:1.55;}
+  .check-list li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700;}
+  
+  .two-col-alt{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  
+  .mock-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+  .mock-title{color:#fff;font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:0.05em;text-transform:uppercase;}
+  .mock-badge{background:var(--orange);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:10px;}
+  .mock-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:6px;margin-bottom:6px;background:rgba(255,255,255,0.05);}
+  .mock-row:last-child{margin-bottom:0;}
+  .mock-label{color:rgba(255,255,255,0.75);}
+  .mock-val{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--orange);}
+  .mock-val.ok{color:var(--teal);}
+  .mock-val.pend{color:rgba(255,255,255,0.4);}
+  .role-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+  .role-tag.orange{background:var(--orange-pale);color:var(--orange);}
+  .role-tag.teal{background:var(--teal-pale);color:var(--teal);}
+  .role-tag.navy{background:rgba(27,45,79,0.12);color:var(--navy);}
+  
+  .cta-strip h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;margin-bottom:12px;}
+  .cta-strip p{color:rgba(255,255,255,0.55);margin-bottom:32px;}
+  
+  .btn-white:hover{background:var(--orange);color:#fff;}
+
+.footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
+  .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  
+  .footer-col a:hover{color:#fff;}
+  
+  .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+  
+  .js-loaded .fade-up.on{opacity:1;transform:none;}
+    
+  @media(max-width:1024px){
+    .two-col,.two-col-alt{grid-template-columns:1fr;}
+      
+  }
+  .conflict-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:6px;margin-bottom:8px;background:rgba(255,255,255,0.05);}
+  .conflict-ico{font-size:1.1rem;flex-shrink:0;}
+  .conflict-label{color:rgba(255,255,255,0.75);font-size:0.82rem;}
+  .conflict-action{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.08em;}
+  .calendar-mock{background:rgba(255,255,255,0.04);border-radius:8px;padding:16px;margin-top:12px;}
+  .cal-header{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px;}
+  .cal-day-label{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;text-transform:uppercase;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+  .cal-cell{height:32px;border-radius:4px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:rgba(255,255,255,0.35);}
+  .cal-cell.has-game{background:rgba(232,95,23,0.25);color:var(--orange);font-weight:700;}
+  .cal-cell.has-event{background:rgba(26,171,138,0.2);color:var(--teal);}
+  .cal-cell.conflict{background:rgba(220,50,50,0.25);color:#ff6b6b;font-weight:700;}
+  .cal-cell.today{border:1px solid var(--orange);}
+  /* Chat mock */
+  .chat-window{background:var(--navy-deep);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);}
+  .chat-header{background:rgba(255,255,255,0.05);padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+  .presence-dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 0 2px rgba(26,171,138,0.3);}
+  .presence-dot.away{background:rgba(255,255,255,0.2);}
+  .chat-name{color:#fff;font-weight:600;font-size:0.88rem;}
+  .chat-status{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-left:auto;}
+  .chat-status.away{color:rgba(255,255,255,0.3);}
+  .chat-
+  .msg{max-width:78%;padding:9px 13px;border-radius:8px;font-size:0.82rem;line-height:1.5;}
+  .msg.them{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);align-self:flex-start;}
+  .msg.me{background:var(--orange);color:#fff;align-self:flex-end;}
+  .msg-time{font-size:0.65rem;opacity:0.5;margin-top:3px;text-align:right;}
+  .chat-input{background:rgba(255,255,255,0.05);border-top:1px solid rgba(255,255,255,0.07);padding:10px 14px;display:flex;align-items:center;gap:10px;}
+  .chat-input-box{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:7px 14px;font-size:0.82rem;color:rgba(255,255,255,0.6);}
+  .chat-send{background:var(--orange);color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:0.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  /* Toast mock */
+  .toast-stack{display:flex;flex-direction:column;gap:10px;}
+  .toast{background:var(--navy);border:1px solid rgba(255,255,255,0.1);border-left:3px solid var(--orange);border-radius:8px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+  .toast.chat-toast{border-left-color:var(--teal);}
+  .toast.notice-toast{border-left-color:#f5c842;}
+  .toast-ico{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+  .toast-content{flex:1;}
+  .toast-title{color:#fff;font-weight:600;font-size:0.82rem;margin-bottom:2px;}
+  .toast-
+  .toast-close{color:rgba(255,255,255,0.25);font-size:0.9rem;cursor:pointer;padding:0 4px;}
+  /* Presence list */
+  .presence-list{display:flex;flex-direction:column;gap:6px;}
+  .presence-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,0.04);border-radius:6px;}
+  .presence-item .name{color:rgba(255,255,255,0.75);font-size:0.85rem;flex:1;}
+  .presence-item .role{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;}
+  .unread-badge{background:var(--orange);color:#fff;font-size:0.65rem;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 5px;}
+</style>
+<div class="page-hero">
+  <div class="eyebrow">Product — Realtime &amp; Chat</div>
+  <h1>Live Updates.<br>Direct Messages.<br>No Refreshing.</h1>
+  <p>Game requests, change notices, and direct conversations update instantly for everyone connected — with toast notifications, unread badges, and a slide-out chat drawer that stays out of the way while you work.</p>
+  <div class="hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/pricing/" class="btn-outline">See Pricing</a>
+  </div>
+</div>
+
+<section>
+  <div class="two-col fade-up">
+    <div>
+      <div class="eyebrow">Direct Messaging</div>
+      <h2 class="section-title">Chat Without Leaving the Page</h2>
+      <p style="color:var(--ink-mid);line-height:1.7;margin-bottom:24px;">A global slide-out chat drawer lets you reply to any direct message from anywhere in the app — no navigation break, no lost context. The standalone <code>/chat</code> page is still there when you need more room.</p>
+      <ul class="check-list">
+        <li>Direct user-to-user conversations across roles and schools</li>
+        <li>Slide-out drawer available from every page in the app</li>
+        <li>Unread message counts update in real time</li>
+        <li>Messages deliver without a page refresh</li>
+        <li>Clear Chat option to reset a conversation</li>
+        <li>No duplicate conversations — one thread per contact pair</li>
+      </ul>
+    </div>
+    <div class="chat-window fade-up" style="transition-delay:0.1s;">
+      <div class="chat-header">
+        <div class="presence-dot"></div>
+        <span class="chat-name">Coach Rivera — Jefferson HS</span>
+        <span class="chat-status">Online</span>
+      </div>
+      <div class="chat-body">
+        <div class="msg them">Hey — are you still good for the Sep 19 game? We need to confirm by end of week.<div class="msg-time">2:14 PM</div></div>
+        <div class="msg me">Yes, confirmed on our end. I'll send the checklist link now.<div class="msg-time">2:16 PM</div></div>
+        <div class="msg them">Perfect. Any change to the start time?<div class="msg-time">2:17 PM</div></div>
+        <div class="msg me">Still 4:00 PM. Facility locked in.<div class="msg-time">2:18 PM</div></div>
+      </div>
+      <div class="chat-input">
+        <div class="chat-input-box">Type a message…</div>
+        <button class="chat-send">➤</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt">
+  <div class="inner">
+    <div class="eyebrow fade-up">Online Presence</div>
+    <h2 class="section-title fade-up">See Who's Connected Right Now</h2>
+    <p class="section-sub fade-up">Presence indicators show which users are currently active in the app. Green means connected — so you know whether a reply is likely immediate or will wait until they're back online.</p>
+    <div class="two-col-alt">
+      <div class="mock-panel fade-up">
+        <div class="mock-bar">
+          <span class="mock-title">Active Users</span>
+          <span class="mock-badge">4 Online</span>
+        </div>
+        <div class="presence-list" style="margin-top:4px;">
+          <div class="presence-item">
+            <div class="presence-dot"></div>
+            <span class="name">AD Chen — Lincoln HS</span>
+            <span class="role">Athletic Dir.</span>
+          </div>
+          <div class="presence-item">
+            <div class="presence-dot"></div>
+            <span class="name">Coach Rivera — Jefferson</span>
+            <span class="role">Coach</span>
+            <span class="unread-badge">3</span>
+          </div>
+          <div class="presence-item">
+            <div class="presence-dot"></div>
+            <span class="name">J. Martinez — Lincoln HS</span>
+            <span class="role">Transport</span>
+          </div>
+          <div class="presence-item">
+            <div class="presence-dot away"></div>
+            <span class="name">L. Thompson — MWL</span>
+            <span class="role" style="color:rgba(255,255,255,0.2);">League Admin</span>
+          </div>
+          <div class="presence-item">
+            <div class="presence-dot away"></div>
+            <span class="name">Coach Williams — Roosevelt</span>
+            <span class="role" style="color:rgba(255,255,255,0.2);">Coach</span>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:0.1s;">
+        <div class="feat-grid" style="grid-template-columns:1fr;gap:16px;">
+          <div class="feat-card">
+            <div class="ico">🟢</div>
+            <h3>Live Presence Indicators</h3>
+            <p>Green dot next to a contact name means they're connected right now. Grey means offline or inactive — available anywhere contact names appear in chat.</p>
+          </div>
+          <div class="feat-card">
+            <div class="ico">🔢</div>
+            <h3>Unread Chat Badges</h3>
+            <p>Unread counts appear on the chat drawer icon in the nav and next to each conversation. They clear automatically when you open the thread.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow fade-up">Live Inbox Updates</div>
+  <h2 class="section-title fade-up">Game Requests and Notices Without the Refresh</h2>
+  <p class="section-sub fade-up">When a game request comes in, a request reply is posted, or a game change notice is sent, the inbox updates live and a toast notification appears — no matter what page you're on.</p>
+  <div class="two-col">
+    <div class="toast-stack fade-up">
+      <div class="toast">
+        <span class="toast-ico">📋</span>
+        <div class="toast-content">
+          <div class="toast-title">New Game Request</div>
+          <div class="toast-body">Coach Rivera · Jefferson HS — Sep 26, Var SOC</div>
+        </div>
+        <span class="toast-close">✕</span>
+      </div>
+      <div class="toast">
+        <span class="toast-ico">💬</span>
+        <div class="toast-content">
+          <div class="toast-title">Request Reply</div>
+          <div class="toast-body">Coach Williams replied to your Sep 19 request</div>
+        </div>
+        <span class="toast-close">✕</span>
+      </div>
+      <div class="toast notice-toast">
+        <span class="toast-ico">⚠️</span>
+        <div class="toast-content">
+          <div class="toast-title">Schedule Change Notice</div>
+          <div class="toast-body">Lincoln vs Jefferson — time updated to 3:30 PM</div>
+        </div>
+        <span class="toast-close">✕</span>
+      </div>
+      <div class="toast chat-toast">
+        <span class="toast-ico">💬</span>
+        <div class="toast-content">
+          <div class="toast-title">Message from Coach Rivera</div>
+          <div class="toast-body">Are you still good for the Sep 19 game?</div>
+        </div>
+        <span class="toast-close">✕</span>
+      </div>
+    </div>
+    <div class="fade-up" style="transition-delay:0.1s;">
+      <ul class="check-list">
+        <li>Toast notifications appear for incoming game requests, request replies, and change notices</li>
+        <li>Separate toasts for direct chat messages — visually distinct from scheduling events</li>
+        <li>Distinct notification sounds: one for requests/replies, one for chat</li>
+        <li>Close button on every toast to dismiss immediately</li>
+        <li>Inbox badge count updates live — no manual refresh needed</li>
+        <li>All roles receive live updates scoped to what they can see</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt">
+  <div class="inner">
+    <div class="eyebrow fade-up">Request Workflow Improvements</div>
+    <h2 class="section-title fade-up">Smarter Request Handling End to End</h2>
+    <p class="section-sub fade-up">Alongside realtime delivery, this release tightened up several request workflow rough edges — from Game Finder team resolution to the accept flow to reply threading.</p>
+    <div class="feat-grid">
+      <div class="feat-card fade-up">
+        <div class="ico">🎯</div>
+        <h3>Smart Team Resolution in Game Finder</h3>
+        <p>When sending a request from Game Finder, the source team is resolved by matching sport, level, season year, and school — so the right team prefills automatically instead of requiring a manual selection.</p>
+      </div>
+      <div class="feat-card fade-up" style="transition-delay:0.08s;">
+        <div class="ico">✅</div>
+        <h3>Accept Opens Add Game Modal</h3>
+        <p>Accepting a request now opens the Add Game form with the date and both teams prefilled — no more silent auto-save attempts that left games in incomplete states.</p>
+      </div>
+      <div class="feat-card fade-up" style="transition-delay:0.16s;">
+        <div class="ico">🧵</div>
+        <h3>Thread Replies Fixed</h3>
+        <p>Request reply posting in inbox threads now works reliably. Reply authors can also delete their own requests, and the action is clearly labeled "Delete Request" to avoid confusion.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow fade-up">How It Works</div>
+  <h2 class="section-title fade-up">Built on SignalR, Works for Every Role</h2>
+  <p class="section-sub fade-up">Realtime features are powered by a persistent SignalR connection. All eight roles get live updates — scoped to what they're allowed to see. If the connection drops, the app degrades gracefully and can reconnect automatically.</p>
+  <div class="feat-grid">
+    <div class="feat-card fade-up">
+      <div class="ico">⚡</div>
+      <h3>Persistent Connection</h3>
+      <p>The SignalR hub maintains a persistent connection for each authenticated session. Messages, request updates, and presence changes push directly to connected clients.</p>
+    </div>
+    <div class="feat-card fade-up" style="transition-delay:0.08s;">
+      <div class="ico">🔐</div>
+      <h3>Role-Scoped Updates</h3>
+      <p>Game Officials only receive updates for their assigned leagues and sports. Coaches see updates for their assigned team. Realtime respects the same permission boundaries as every other part of the app.</p>
+    </div>
+    <div class="feat-card fade-up" style="transition-delay:0.16s;">
+      <div class="ico">🔔</div>
+      <h3>Audio Notifications</h3>
+      <p>Distinct notification sounds play for game requests and request replies (one sound) and direct chat messages (a different sound). Both follow normal browser autoplay rules — sounds play after first user interaction.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Coordination That Moves<br>at the Speed of the Season</h2>
+  <p>See live chat and realtime updates in action with a 30-minute demo.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+

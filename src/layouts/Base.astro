@@ -1,0 +1,63 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  activeSection?: string;
+  pageClass?: string;
+}
+
+const {
+  title,
+  description = 'ScheduleRama — Run the season, not the spreadsheet. Athletic scheduling for directors, coaches, and league admins.',
+  activeSection,
+  pageClass = '',
+} = Astro.props;
+
+const fullTitle = title === 'ScheduleRama'
+  ? 'ScheduleRama — Run the season, not the spreadsheet!'
+  : `${title} — ScheduleRama`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body class={pageClass}>
+  <Nav activeSection={activeSection} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+  <script>
+    // Scroll-triggered fade-up animations
+    document.documentElement.classList.add('js-loaded');
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('on');
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.fade-up').forEach((el) => obs.observe(el));
+  </script>
+</body>
+</html>

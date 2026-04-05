@@ -1,0 +1,240 @@
+---
+import Base from '../../layouts/Base.astro';
+const title = "Facility Operations";
+const description = `Manage game bookings, recurring events, and facility conflicts from a single calendar. Detect scheduling collisions before they happen.`;
+---
+
+<Base title={title} description={description} activeSection="product">
+<style>
+.nav-item>a:hover,.nav-item.active>a{color:#fff;}
+  .nav-item.has-drop>a::after{content:' ▾';font-size:0.65rem;}
+  
+  
+  .nav-dropdown a:hover{color:#fff;background:rgba(255,255,255,0.06);padding-left:24px;}
+  
+  .nav-cta:hover{background:var(--orange-bright)!important;}
+
+.page-hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.8rem,5vw,4rem);color:#fff;line-height:1.05;margin-bottom:20px;}
+  .page-hero p{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:620px;line-height:1.7;margin-bottom:32px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  
+  .btn-primary:hover{background:var(--orange-bright);}
+  
+  .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.06);}
+  section{padding:72px 56px;max-width:1200px;margin:0 auto;}
+  .section-alt{background:var(--bg-warm);padding:72px 56px;}
+  .section-alt .inner{max-width:1200px;margin:0 auto;}
+  h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;margin-bottom:12px;}
+
+.feat-card .ico{font-size:1.8rem;margin-bottom:14px;}
+  .feat-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:8px;letter-spacing:0.04em;}
+  .feat-card p{font-size:0.88rem;color:var(--ink-mid);line-height:1.65;}
+  
+  .check-list li{font-size:0.92rem;padding-left:24px;position:relative;line-height:1.55;}
+  .check-list li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700;}
+  
+  .two-col-alt{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  
+  .mock-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+  .mock-title{color:#fff;font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:0.05em;text-transform:uppercase;}
+  .mock-badge{background:var(--orange);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:10px;}
+  .mock-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-radius:6px;margin-bottom:6px;background:rgba(255,255,255,0.05);}
+  .mock-row:last-child{margin-bottom:0;}
+  .mock-label{color:rgba(255,255,255,0.75);}
+  .mock-val{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--orange);}
+  .mock-val.ok{color:var(--teal);}
+  .mock-val.pend{color:rgba(255,255,255,0.4);}
+  .role-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+  .role-tag.orange{background:var(--orange-pale);color:var(--orange);}
+  .role-tag.teal{background:var(--teal-pale);color:var(--teal);}
+  .role-tag.navy{background:rgba(27,45,79,0.12);color:var(--navy);}
+  
+  .cta-strip h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;margin-bottom:12px;}
+  .cta-strip p{color:rgba(255,255,255,0.55);margin-bottom:32px;}
+  
+  .btn-white:hover{background:var(--orange);color:#fff;}
+
+.footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
+  .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  
+  .footer-col a:hover{color:#fff;}
+  
+  .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+  
+  .js-loaded .fade-up.on{opacity:1;transform:none;}
+    
+  @media(max-width:1024px){
+    .two-col,.two-col-alt{grid-template-columns:1fr;}
+      
+  }
+  .conflict-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:6px;margin-bottom:8px;background:rgba(255,255,255,0.05);}
+  .conflict-ico{font-size:1.1rem;flex-shrink:0;}
+  .conflict-label{color:rgba(255,255,255,0.75);font-size:0.82rem;}
+  .conflict-action{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.08em;}
+  .calendar-mock{background:rgba(255,255,255,0.04);border-radius:8px;padding:16px;margin-top:12px;}
+  .cal-header{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px;}
+  .cal-day-label{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;text-transform:uppercase;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+  .cal-cell{height:32px;border-radius:4px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:rgba(255,255,255,0.35);}
+  .cal-cell.has-game{background:rgba(232,95,23,0.25);color:var(--orange);font-weight:700;}
+  .cal-cell.has-event{background:rgba(26,171,138,0.2);color:var(--teal);}
+  .cal-cell.conflict{background:rgba(220,50,50,0.25);color:#ff6b6b;font-weight:700;}
+  .cal-cell.today{border:1px solid var(--orange);}
+</style>
+<div class="page-hero">
+  <div class="eyebrow">Product — Facility Operations</div>
+  <h1>One Calendar for Every<br>Field, Court &amp; Gym</h1>
+  <p>Manage game bookings, recurring events, and facility conflicts from a single calendar view. Detect scheduling collisions before they become problems — and resolve them without making phone calls.</p>
+  <div class="hero-actions">
+    <a href="/contact/" class="btn-primary">Book a Demo</a>
+    <a href="/pricing/" class="btn-outline">See Pricing</a>
+  </div>
+</div>
+
+<section>
+  <div class="two-col fade-up">
+    <div>
+      <div class="eyebrow">Calendar &amp; Agenda Views</div>
+      <h2 class="section-title">Every Booking, One Place</h2>
+      <p class="section-sub">The facility schedule page shows games and non-game events side by side — practices, maintenance windows, rentals — so your facilities team always has the full picture.</p>
+      <ul class="check-list">
+        <li>Week calendar and scrollable agenda/list views</li>
+        <li>Color-coded games vs operational events</li>
+        <li>Filter by facility, sport, or date range</li>
+        <li>Drag and drop to reschedule non-game events</li>
+        <li>Outlook .ics import with date filter and conflict preview</li>
+        <li>Conflict warnings surface immediately on game saves</li>
+      </ul>
+    </div>
+    <div class="mock-panel fade-up" style="transition-delay:0.1s;">
+      <div class="mock-bar">
+        <span class="mock-title">Lincoln HS — Main Gym</span>
+        <span class="mock-badge">March 2026</span>
+      </div>
+      <div class="cal-header">
+        <div class="cal-day-label">Sun</div><div class="cal-day-label">Mon</div><div class="cal-day-label">Tue</div><div class="cal-day-label">Wed</div><div class="cal-day-label">Thu</div><div class="cal-day-label">Fri</div><div class="cal-day-label">Sat</div>
+      </div>
+      <div class="cal-grid">
+        <div class="cal-cell">1</div><div class="cal-cell">2</div><div class="cal-cell has-event">3</div><div class="cal-cell">4</div><div class="cal-cell has-game">5 ▸</div><div class="cal-cell">6</div><div class="cal-cell">7</div>
+        <div class="cal-cell">8</div><div class="cal-cell has-event">9</div><div class="cal-cell">10</div><div class="cal-cell conflict">11 !</div><div class="cal-cell has-game">12 ▸</div><div class="cal-cell">13</div><div class="cal-cell">14</div>
+        <div class="cal-cell has-game">15 ▸</div><div class="cal-cell">16</div><div class="cal-cell has-event">17</div><div class="cal-cell">18</div><div class="cal-cell today has-game">19 ▸</div><div class="cal-cell">20</div><div class="cal-cell">21</div>
+        <div class="cal-cell">22</div><div class="cal-cell has-event">23</div><div class="cal-cell">24</div><div class="cal-cell has-game">25 ▸</div><div class="cal-cell">26</div><div class="cal-cell">27</div><div class="cal-cell">28</div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:14px;font-size:0.72rem;">
+        <span style="color:var(--orange);">▪ Game</span>
+        <span style="color:var(--teal);">▪ Event</span>
+        <span style="color:#ff6b6b;">▪ Conflict</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt">
+  <div class="inner">
+    <div class="eyebrow fade-up">Conflict Detection</div>
+    <h2 class="section-title fade-up">Catch Double-Bookings Before They Happen</h2>
+    <p class="section-sub fade-up">When a new game is saved to a facility that's already in use, ScheduleRama flags the conflict immediately and offers actionable resolution — including moving the blocking event to another available facility.</p>
+    <div class="two-col-alt" style="margin-top:0;">
+      <div class="feat-grid" style="grid-template-columns:1fr;gap:16px;">
+        <div class="feat-card fade-up">
+          <div class="ico">⚡</div>
+          <h3>Real-Time Conflict Detection</h3>
+          <p>Conflicts are checked when a game is saved, using actual game end times when present. No more end-of-day surprises.</p>
+        </div>
+        <div class="feat-card fade-up" style="transition-delay:0.08s;">
+          <div class="ico">🔄</div>
+          <h3>Alternate Facility Suggestions</h3>
+          <p>When a conflict is detected, ScheduleRama recommends alternate available facilities for the same sport — factoring in both game bookings and non-game events.</p>
+        </div>
+        <div class="feat-card fade-up" style="transition-delay:0.16s;">
+          <div class="ico">🛠️</div>
+          <h3>Conflict Resolution Workflow</h3>
+          <p>Move a blocking practice to another facility without leaving the game form. Review, confirm, and the calendar updates in one step.</p>
+        </div>
+      </div>
+      <div class="mock-panel fade-up" style="transition-delay:0.1s;">
+        <div class="mock-bar">
+          <span class="mock-title">Conflict Detected</span>
+          <span class="mock-badge" style="background:#b03030;">March 11</span>
+        </div>
+        <div class="conflict-row">
+          <span class="conflict-ico">🏀</span>
+          <span class="conflict-label">Varsity Basketball vs Jefferson — 4:00 PM</span>
+          <span class="conflict-action">NEW GAME</span>
+        </div>
+        <div class="conflict-row" style="background:rgba(220,50,50,0.15);">
+          <span class="conflict-ico">🏋️</span>
+          <span class="conflict-label">JV Practice — Main Gym — 3:30–5:30 PM</span>
+          <span class="conflict-action" style="color:#ff6b6b;">BLOCKS</span>
+        </div>
+        <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;">
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;">Suggested Resolution</div>
+          <div class="conflict-row" style="background:rgba(26,171,138,0.12);">
+            <span class="conflict-ico">✓</span>
+            <span class="conflict-label" style="color:var(--teal);">Move JV Practice → Aux Gym (available)</span>
+            <span class="conflict-action" style="color:var(--teal);">APPLY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow fade-up">Recurring Events</div>
+  <h2 class="section-title fade-up">Populate Recurring Events with a Preview</h2>
+  <p class="section-sub fade-up">Set a recurring pattern — weekly practices, maintenance windows, rental blocks — and review the full list of dates before committing. Edit exceptions without breaking the series.</p>
+  <div class="feat-grid">
+    <div class="feat-card fade-up">
+      <div class="ico">📅</div>
+      <h3>Recurring Population Preview</h3>
+      <p>See every generated date before saving. Remove individual exceptions from the preview without affecting the rest of the series.</p>
+    </div>
+    <div class="feat-card fade-up" style="transition-delay:0.08s;">
+      <div class="ico">📥</div>
+      <h3>Outlook .ics Import</h3>
+      <p>Import existing facility calendars from Outlook or any .ics-compatible source. Filter by date range, preview conflicts, and publish in one step.</p>
+    </div>
+    <div class="feat-card fade-up" style="transition-delay:0.16s;">
+      <div class="ico">🔧</div>
+      <h3>Orphaned Booking Repair</h3>
+      <p>Admin tools detect and repair game facility records that have become orphaned or out-of-sync — preview affected rows before applying fixes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow fade-up">Sport &amp; Role Mapping</div>
+  <h2 class="section-title fade-up">Facilities That Understand Sports</h2>
+  <p class="section-sub fade-up">Map facilities to the sports they support, set team defaults, and let ScheduleRama make smarter suggestions when conflicts arise.</p>
+  <div class="two-col fade-up">
+    <ul class="check-list">
+      <li>Map each facility to supported sports</li>
+      <li>Set a team's default facility to reduce scheduling clicks</li>
+      <li>Facility-sport mapping powers alternate suggestions during conflict resolution</li>
+      <li>Non-game facility uses (practices, rentals, maintenance) are first-class bookings</li>
+      <li>Maintenance staff get dedicated access to the facility schedule without schedule CRUD permissions</li>
+      <li>Create and manage non-game events directly from the Maintenance dashboard</li>
+    </ul>
+    <div class="mock-panel fade-up" style="transition-delay:0.1s;">
+      <div class="mock-bar">
+        <span class="mock-title">Facility — Sport Map</span>
+      </div>
+      <div class="mock-row"><span class="mock-label">Main Gym</span><span class="mock-val ok">Basketball · Volleyball · Wrestling</span></div>
+      <div class="mock-row"><span class="mock-label">Aux Gym</span><span class="mock-val ok">Basketball · Gymnastics</span></div>
+      <div class="mock-row"><span class="mock-label">North Field</span><span class="mock-val ok">Soccer · Lacrosse · Football</span></div>
+      <div class="mock-row"><span class="mock-label">South Field</span><span class="mock-val ok">Soccer · Baseball · Softball</span></div>
+      <div class="mock-row"><span class="mock-label">Pool</span><span class="mock-val ok">Swimming · Water Polo</span></div>
+      <div class="mock-row"><span class="mock-label">Track</span><span class="mock-val ok">Track &amp; Field · Cross Country</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <h2>Stop Discovering Conflicts<br>on Game Day</h2>
+  <p>See facility operations in action with a live demo tailored to your program.</p>
+  <a href="/contact/" class="btn-white">Book a Demo</a>
+</div>
+</Base>
+

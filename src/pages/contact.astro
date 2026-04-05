@@ -1,0 +1,202 @@
+---
+import Base from '../layouts/Base.astro';
+const title = "Book a Demo";
+const description = `Book a live demo tailored to your program. 30 minutes, zero pressure.`;
+---
+
+<Base title={title} description={description} activeSection="company">
+<style>
+.nav-item>a:hover,.nav-item.active>a{color:#fff;}
+  .nav-item.has-drop>a::after{content:' ▾';font-size:0.65rem;}
+  
+  
+  .nav-dropdown a:hover{color:#fff;background:rgba(255,255,255,0.06);padding-left:24px;}
+  
+  .nav-cta:hover{background:var(--orange-bright)!important;}
+
+  /* TWO-COL LAYOUT */
+  .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+  .contact-left{background:var(--navy-deep);padding:120px 64px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .contact-left h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.4rem,4vw,3.8rem);color:#fff;line-height:1.05;margin-bottom:24px;}
+  .contact-left p{color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.7;margin-bottom:40px;max-width:420px;}
+  .what-to-expect{display:flex;flex-direction:column;gap:20px;}
+  .expect-item{display:flex;gap:16px;align-items:flex-start;}
+  .expect-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--orange);letter-spacing:0.1em;background:var(--orange-pale);padding:4px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;}
+  .expect-item h4{font-weight:600;font-size:0.95rem;color:#fff;margin-bottom:4px;}
+  .expect-item p{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.6;margin:0;}
+
+  /* FORM PANEL */
+  .contact-right{padding:120px 64px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .contact-right h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;margin-bottom:32px;}
+  .form-group{margin-bottom:20px;}
+  .form-group label{display:block;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:7px;}
+  .form-group input,.form-group select,.form-group textarea{
+    width:100%;padding:12px 14px;border:1.5px solid var(--rule);border-radius:6px;
+    font-family:'Barlow',sans-serif;font-size:0.95rem;background:#fff;color:var(--ink);
+    transition:border-color 0.2s,box-shadow 0.2s;outline:none;
+  }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+    border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-pale);
+  }
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .btn-submit{
+    width:100%;padding:15px;background:var(--orange);color:#fff;border:none;
+    border-radius:6px;font-family:'Barlow',sans-serif;font-weight:700;font-size:1rem;
+    letter-spacing:0.05em;cursor:pointer;transition:background 0.2s;margin-top:8px;
+  }
+  .btn-submit:hover{background:var(--orange-bright);}
+  .form-note{font-size:0.78rem;color:var(--ink-soft);margin-top:12px;text-align:center;line-height:1.6;}
+
+  /* SUCCESS STATE */
+  .success-panel{display:none;text-align:center;padding:40px;background:var(--teal);color:#fff;border-radius:12px;}
+  .success-panel .ico{font-size:3rem;margin-bottom:16px;}
+  .success-panel h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;margin-bottom:8px;}
+  .success-panel p{font-size:0.95rem;opacity:0.85;line-height:1.6;}
+
+  /* CONTACT INFO BAND */
+  .contact-band{background:var(--bg-warm);padding:56px;display:flex;justify-content:center;gap:80px;flex-wrap:wrap;}
+  .contact-info-item{text-align:center;}
+  .contact-info-item .ico{font-size:1.8rem;margin-bottom:10px;}
+  .contact-info-item h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;}
+  .contact-info-item p{color:var(--ink-mid);font-size:0.9rem;}
+
+.footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
+  .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  
+  .footer-col a:hover{color:#fff;}
+  
+  .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
+
+  @media(max-width:1024px){
+.contact-left,.contact-right{padding:100px 24px 56px;}
+    .form-row{grid-template-columns:1fr;}
+    .contact-band{padding:40px 20px;gap:40px;}
+     
+  }
+</style>
+<div class="contact-wrapper">
+  <div class="contact-left">
+    <div class="eyebrow">Book a Demo</div>
+    <h1>See ScheduleRama<br>in Action</h1>
+    <p>Fill out the form and we'll set up a 30-minute live walkthrough tailored to your program — whether you're an AD, a league admin, or running a multi-school network.</p>
+    <div class="what-to-expect">
+      <div class="expect-item">
+        <span class="expect-num">01</span>
+        <div>
+          <h4>We review your setup</h4>
+          <p>Tell us how many schools, leagues, and sports you're managing. We'll tailor the demo to match.</p>
+        </div>
+      </div>
+      <div class="expect-item">
+        <span class="expect-num">02</span>
+        <div>
+          <h4>Live walkthrough — your use case</h4>
+          <p>A 30-minute demo focused on the workflows that matter most to your role. No feature dump, just what's relevant.</p>
+        </div>
+      </div>
+      <div class="expect-item">
+        <span class="expect-num">03</span>
+        <div>
+          <h4>Pricing &amp; onboarding plan</h4>
+          <p>We'll walk through what a rollout looks like and answer any questions about data migration, user setup, or timing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-right">
+    <h2>Tell Us About Your Program</h2>
+    <div id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Marcus">
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Chen">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Work Email</label>
+        <input type="email" id="email" placeholder="marcus@lincolnhigh.edu">
+      </div>
+      <div class="form-group">
+        <label for="org">School / Organization</label>
+        <input type="text" id="org" placeholder="Lincoln High School Athletic Dept.">
+      </div>
+      <div class="form-group">
+        <label for="role">Your Role</label>
+        <select id="role">
+          <option value="">Select your role…</option>
+          <option>Athletic Director</option>
+          <option>League Administrator</option>
+          <option>Head Coach</option>
+          <option>Super Admin / State Association</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="schools">How many schools?</label>
+          <select id="schools">
+            <option value="">Select…</option>
+            <option>1</option>
+            <option>2–5</option>
+            <option>6–20</option>
+            <option>20+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="sports">How many sports?</label>
+          <select id="sports">
+            <option value="">Select…</option>
+            <option>1–3</option>
+            <option>4–8</option>
+            <option>9–15</option>
+            <option>15+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="notes">Anything specific you'd like us to cover?</label>
+        <textarea id="notes" placeholder="e.g. We're trying to replace a Google Sheets system and need to handle fall and spring seasons for 12 schools…"></textarea>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">Request a Demo →</button>
+      <p class="form-note">We respond within one business day. No spam, no pressure.</p>
+    </div>
+    <div class="success-panel" id="success-panel">
+      <div class="ico">✅</div>
+      <h3>Demo Request Received!</h3>
+      <p>Thanks — we'll review your program details and reach out within one business day to find a time that works.</p>
+    </div>
+  </div>
+</div>
+
+<div class="contact-band">
+  <div class="contact-info-item">
+    <div class="ico">📧</div>
+    <h4>Email</h4>
+    <p>hello@schedulerama.com</p>
+  </div>
+  <div class="contact-info-item">
+    <div class="ico">📞</div>
+    <h4>Phone</h4>
+    <p>Available after demo booking</p>
+  </div>
+  <div class="contact-info-item">
+    <div class="ico">⏱️</div>
+    <h4>Response Time</h4>
+    <p>Within 1 business day</p>
+  </div>
+  <div class="contact-info-item">
+    <div class="ico">🗓️</div>
+    <h4>Demo Length</h4>
+    <p>30 minutes, tailored to your role</p>
+  </div>
+</div>
+</Base>
+
+

@@ -1,0 +1,60 @@
+backend:
+  name: github
+  repo: geekypepito/schedulerama-site
+  branch: main
+  site_domain: www.schedulerama.com
+  base_url: https://cms-auth.schedulerama.com
+  auth_endpoint: /auth
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: pages
+    label: Pages
+    folder: src/pages
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: product
+    label: Product Pages
+    folder: src/pages/product
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: solutions
+    label: Solutions Pages
+    folder: src/pages/solutions
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: resources
+    label: Resources Pages
+    folder: src/pages/resources
+    create: false
+    extension: astro
+    format: frontmatter
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+
