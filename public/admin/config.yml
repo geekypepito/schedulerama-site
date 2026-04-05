@@ -3,8 +3,8 @@ backend:
   repo: geekypepito/schedulerama-site
   branch: main
   site_domain: www.schedulerama.com
-  base_url: https://cms-auth.schedulerama.com
-  auth_endpoint: /auth
+  base_url: https://www.schedulerama.com
+  auth_endpoint: /cms-auth/auth
 
 media_folder: public/images
 public_folder: /images
@@ -80,3 +80,4 @@ collections:
       - { label: Title, name: title, widget: string, required: false }
       - { label: Description, name: description, widget: text, required: false }
       - { label: Body, name: body, widget: markdown, required: false }
+
