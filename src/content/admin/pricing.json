@@ -163,7 +163,18 @@
       "annualPrice": "419",
       "buttonLabel": "Let's Talk",
       "buttonHref": "/contact/",
-      "buttonVariant": "outline"
+      "buttonVariant": "outline",
+      "features": [
+        {
+          "label": "Full schedule management"
+        },
+        {
+          "label": "Game Finder access"
+        },
+        {
+          "label": "Requests Inbox"
+        }
+      ]
     },
     {
       "buttonLabel": "Get Started",
