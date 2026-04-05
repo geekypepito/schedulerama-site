@@ -1,25 +1,4 @@
 {
-  "title": "About",
-  "description": "ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls.",
-  "hero": {
-    "eyebrow": "About",
-    "heading": "Built by People Who<br>Run Athletic Programs",
-    "summary": "ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls."
-  },
-  "mission": {
-    "eyebrow": "Our Mission",
-    "heading": "Give Every Athletic Program a Real Command Center",
-    "paragraphs": [
-      "Athletic directors, coaches, and league admins are doing incredible work running programs that matter to their communities. They deserve software that actually fits how they operate — not generic tools bent sideways to handle a sport schedule.",
-      "ScheduleRama is purpose-built for the specific workflows, roles, and communication patterns of high school and amateur athletic programs."
-    ]
-  },
-  "stats": [
-    { "value": "200+", "label": "Schools Active" },
-    { "value": "40+", "label": "Leagues Running" },
-    { "value": "50K+", "label": "Games Scheduled" },
-    { "value": "98%", "label": "Request Resolution" }
-  ],
   "values": {
     "eyebrow": "What We Believe",
     "heading": "Principles We Build By",
@@ -56,6 +35,20 @@
       }
     ]
   },
+  "mission": {
+    "eyebrow": "Our Mission",
+    "heading": "Give Every Athletic Program a Real Command Center",
+    "paragraphs": [
+      "Athletic directors, coaches, and league admins are doing incredible work running programs that matter to their communities. They deserve software that actually fits how they operate — not generic tools bent sideways to handle a sport schedule.",
+      "ScheduleRama is purpose-built for the specific workflows, roles, and communication patterns of high school and amateur athletic programs."
+    ]
+  },
+  "cta": {
+    "heading": "Let's Talk About Your Program",
+    "summary": "We'd love to show you how ScheduleRama fits your specific setup.",
+    "label": "Book a Demo",
+    "href": "/contact/"
+  },
   "story": {
     "eyebrow": "Our Story",
     "heading": "Where ScheduleRama Came From",
@@ -66,6 +59,13 @@
     ],
     "quote": "\"We needed something purpose-built. Something that understands the difference between a request and a confirmation. That knew what a league is, what a level is, what a home-and-away balance means. So we built it.\""
   },
+  "title": "About",
+  "hero": {
+    "eyebrow": "About",
+    "heading": "Built by People Who<br>Run Athletic Programs",
+    "summary": "ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls."
+  },
+  "description": "ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls.",
   "team": {
     "eyebrow": "The Team",
     "heading": "Meet the Team — Real experience. Real solutions. Built for you.",
@@ -92,14 +92,26 @@
         "avatar": "🎨",
         "name": "Rosie Converse Soriano",
         "role": "Director of Marketing",
-        "bio": "If you think Schedulerama looks and feels great, you can thank Rosie. As our marketing guru, she brings a sharp, creative eye along with years of experience in athletics and coaching to the team."
+        "bio": "If you think Schedulerama looks and feels great, you can thank Rosie. As our marketing guru, she brings a sharp, creative eye and years of experience in software development, athletics, and coaching to the ScheduleRama team."
       }
     ]
   },
-  "cta": {
-    "heading": "Let's Talk About Your Program",
-    "summary": "We'd love to show you how ScheduleRama fits your specific setup.",
-    "label": "Book a Demo",
-    "href": "/contact/"
-  }
+  "stats": [
+    {
+      "value": "200+",
+      "label": "Schools Active"
+    },
+    {
+      "value": "40+",
+      "label": "Leagues Running"
+    },
+    {
+      "value": "50K+",
+      "label": "Games Scheduled"
+    },
+    {
+      "value": "98%",
+      "label": "Request Resolution"
+    }
+  ]
 }
