@@ -226,55 +226,6 @@
       "buttonHref": "/contact/"
     },
     {
-      "buttonLabel": "Book a Demo",
-      "annualPrice": "159",
-      "name": "Pro",
-      "featured": false,
-      "buttonVariant": "white",
-      "featuredBadge": "",
-      "monthlyPrice": "199",
-      "description": "The full platform for ADs and league admins running a complete season.",
-      "features": [
-        {
-          "label": "Up to 3 schools or 1 league",
-          "dim": false
-        },
-        {
-          "label": "Unlimited teams",
-          "dim": false
-        },
-        {
-          "label": "Full schedule management",
-          "dim": false
-        },
-        {
-          "label": "Game Finder access",
-          "dim": false
-        },
-        {
-          "label": "Requests Inbox",
-          "dim": false
-        },
-        {
-          "label": "CSV export & print views",
-          "dim": false
-        },
-        {
-          "label": "Group Scheduler",
-          "dim": false
-        },
-        {
-          "label": "Schedule import with validation",
-          "dim": false
-        },
-        {
-          "label": "API access",
-          "dim": true
-        }
-      ],
-      "buttonHref": "/contact/"
-    },
-    {
       "buttonLabel": "Contact Sales",
       "annualPrice": "359",
       "name": "League",
@@ -282,7 +233,7 @@
       "buttonVariant": "outline",
       "featuredBadge": "",
       "monthlyPrice": "449",
-      "description": "Built for league admins and super admins managing multiple schools.",
+      "description": "Built for league admins and athletic directors that work closing to manage multiple sports within a league.",
       "features": [
         {
           "label": "Unlimited schools & leagues",
@@ -370,7 +321,7 @@
   "billing": {
     "monthlyLabel": "Monthly",
     "annualLabel": "Annual",
-    "saveBadge": "Save 20%"
+    "saveBadge": "Save 5%"
   },
   "description": "Simple, transparent pricing for every athletic program. No per-seat surprises. Pricing based on your school's size because we want to make sure we don't leave anyone behind."
 }
