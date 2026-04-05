@@ -157,38 +157,6 @@
   },
   "plans": [
     {
-      "name": "Small School 10-74",
-      "monthlyPrice": "39",
-      "description": "Small schools need help too.",
-      "annualPrice": "419",
-      "buttonLabel": "Let's Talk",
-      "buttonHref": "/contact/",
-      "buttonVariant": "outline",
-      "features": [
-        {
-          "label": "Full schedule management"
-        },
-        {
-          "label": "Game Finder access"
-        },
-        {
-          "label": "Requests Inbox"
-        },
-        {
-          "label": "Facility Management"
-        },
-        {
-          "label": "Facility Conflict Resolution"
-        },
-        {
-          "label": "Game Change Notices"
-        },
-        {
-          "label": "Real-time chat & notifications"
-        }
-      ]
-    },
-    {
       "buttonLabel": "Get Started",
       "annualPrice": "419",
       "name": "Starter",
@@ -196,7 +164,7 @@
       "buttonVariant": "outline",
       "featuredBadge": "MOST POPULAR",
       "monthlyPrice": "39",
-      "description": "Get access to your school and access to all available school data within the OSAA.",
+      "description": "Get access to your school and access to all available school data within the OSAA. Cost is based on your school enrollment, cost as low as $39/month",
       "features": [
         {
           "label": "Access to your school.",
