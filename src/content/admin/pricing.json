@@ -161,7 +161,7 @@
       "annualPrice": "419",
       "name": "Starter",
       "featured": true,
-      "buttonVariant": "outline",
+      "buttonVariant": "white",
       "featuredBadge": "MOST POPULAR",
       "monthlyPrice": "39",
       "description": "Get access to your school and access to all available school data within the OSAA. Cost is based on your school enrollment, cost as low as $39/month",
@@ -199,16 +199,16 @@
     },
     {
       "buttonLabel": "Contact Sales",
-      "annualPrice": "359",
+      "annualPrice": "4200",
       "name": "League",
       "featured": false,
       "buttonVariant": "outline",
       "featuredBadge": "",
-      "monthlyPrice": "449",
-      "description": "Built for league admins and athletic directors that work closing to manage multiple sports within a league.",
+      "monthlyPrice": "350",
+      "description": "Built for league admins and all league athletic directors. Get access to league schools and access to all available school data within the OSAA. Cost is based on number of school and enrollment  size. Discount is available for this tier. Cost as low as $350/month.",
       "features": [
         {
-          "label": "Unlimited schools & leagues",
+          "label": "All league schools included",
           "dim": false
         },
         {
