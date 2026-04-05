@@ -157,6 +157,15 @@
   },
   "plans": [
     {
+      "name": "Small School 10-74",
+      "monthlyPrice": "$39/month",
+      "description": "Small schools need help too.",
+      "annualPrice": "$419/year",
+      "buttonLabel": "Let's Talk",
+      "buttonHref": "https://www.schedulerama.com/contact/",
+      "buttonVariant": "white"
+    },
+    {
       "buttonLabel": "Get Started",
       "annualPrice": "63",
       "name": "Starter",
@@ -302,15 +311,6 @@
         }
       ],
       "buttonHref": "/contact/"
-    },
-    {
-      "name": "Small School 10-74",
-      "monthlyPrice": "$39/month",
-      "description": "Small schools need help too.",
-      "annualPrice": "$419/year",
-      "buttonLabel": "Let's Talk",
-      "buttonHref": "https://www.schedulerama.com/contact/",
-      "buttonVariant": "white"
     }
   ],
   "cta": {
