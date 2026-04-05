@@ -190,20 +190,20 @@
     },
     {
       "buttonLabel": "Get Started",
-      "annualPrice": "120",
+      "annualPrice": "419",
       "name": "Starter",
       "featured": true,
       "buttonVariant": "outline",
       "featuredBadge": "MOST POPULAR",
-      "monthlyPrice": "20",
-      "description": "Perfect for a single school or small program getting organized.",
+      "monthlyPrice": "39",
+      "description": "Get access to your school and access to all available school data within the OSAA.",
       "features": [
         {
-          "label": "1 school",
+          "label": "Access to your school.",
           "dim": false
         },
         {
-          "label": "Up to 5 teams",
+          "label": "Unlimited teams",
           "dim": false
         },
         {
@@ -211,28 +211,20 @@
           "dim": false
         },
         {
-          "label": "Game Finder access",
+          "label": "Facility Management"
+        },
+        {
+          "label": "Real-time chat with other user and notifications"
+        },
+        {
+          "label": "Game Finder & Game Request access",
           "dim": false
         },
         {
-          "label": "Requests Inbox",
-          "dim": false
+          "label": "Game change notifications"
         },
         {
-          "label": "CSV export & print views",
-          "dim": false
-        },
-        {
-          "label": "Group Scheduler",
-          "dim": true
-        },
-        {
-          "label": "Multi-league support",
-          "dim": true
-        },
-        {
-          "label": "API access",
-          "dim": true
+          "label": "Game readiness checklist"
         }
       ],
       "buttonHref": "/contact/"
