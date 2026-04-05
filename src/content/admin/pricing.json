@@ -180,9 +180,9 @@
       "buttonLabel": "Get Started",
       "annualPrice": "120",
       "name": "Starter",
-      "featured": false,
+      "featured": true,
       "buttonVariant": "outline",
-      "featuredBadge": "",
+      "featuredBadge": "MOST POPULAR",
       "monthlyPrice": "20",
       "description": "Perfect for a single school or small program getting organized.",
       "features": [
@@ -229,9 +229,9 @@
       "buttonLabel": "Book a Demo",
       "annualPrice": "159",
       "name": "Pro",
-      "featured": true,
+      "featured": false,
       "buttonVariant": "white",
-      "featuredBadge": "Most Popular",
+      "featuredBadge": "",
       "monthlyPrice": "199",
       "description": "The full platform for ADs and league admins running a complete season.",
       "features": [
