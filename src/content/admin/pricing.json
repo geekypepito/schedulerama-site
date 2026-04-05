@@ -173,6 +173,18 @@
         },
         {
           "label": "Requests Inbox"
+        },
+        {
+          "label": "Facility Management"
+        },
+        {
+          "label": "Facility Conflict Resolution"
+        },
+        {
+          "label": "Game Change Notices"
+        },
+        {
+          "label": "Real-time chat & notifications"
         }
       ]
     },
