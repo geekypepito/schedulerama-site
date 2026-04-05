@@ -10,18 +10,84 @@ media_folder: public/images
 public_folder: /images
 
 collections:
-  - name: pages
-    label: Site Pages
-    folder: src/pages
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }
+  - name: marketing_content
+    label: Marketing Content
+    files:
+      - label: About Page
+        name: about_page
+        file: src/content/admin/about.json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+          - label: Mission
+            name: mission
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - label: Stats
+            name: stats
+            widget: list
+            fields:
+              - { label: Value, name: value, widget: string }
+              - { label: Label, name: label, widget: string }
+          - label: Values
+            name: values
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+          - label: Story
+            name: story
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+              - { label: Quote, name: quote, widget: text }
+          - label: Team
+            name: team
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Members
+                name: members
+                widget: list
+                fields:
+                  - { label: Avatar, name: avatar, widget: string }
+                  - { label: Name, name: name, widget: string }
+                  - { label: Role, name: role, widget: string }
+                  - { label: Bio, name: bio, widget: text }
+          - label: Call To Action
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Button Label, name: label, widget: string }
+              - { label: Button Link, name: href, widget: string }
 
   - name: product
     label: Product Pages

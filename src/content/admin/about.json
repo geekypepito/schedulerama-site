@@ -1,0 +1,105 @@
+{
+  "title": "About",
+  "description": "ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls.",
+  "hero": {
+    "eyebrow": "About",
+    "heading": "Built by People Who<br>Run Athletic Programs",
+    "summary": "ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls."
+  },
+  "mission": {
+    "eyebrow": "Our Mission",
+    "heading": "Give Every Athletic Program a Real Command Center",
+    "paragraphs": [
+      "Athletic directors, coaches, and league admins are doing incredible work running programs that matter to their communities. They deserve software that actually fits how they operate — not generic tools bent sideways to handle a sport schedule.",
+      "ScheduleRama is purpose-built for the specific workflows, roles, and communication patterns of high school and amateur athletic programs."
+    ]
+  },
+  "stats": [
+    { "value": "200+", "label": "Schools Active" },
+    { "value": "40+", "label": "Leagues Running" },
+    { "value": "50K+", "label": "Games Scheduled" },
+    { "value": "98%", "label": "Request Resolution" }
+  ],
+  "values": {
+    "eyebrow": "What We Believe",
+    "heading": "Principles We Build By",
+    "items": [
+      {
+        "icon": "🏗️",
+        "title": "Fit the Workflow, Don't Fight It",
+        "body": "Every feature is designed around how athletic programs actually operate — not how a generic SaaS company thinks they should. We talk to ADs, coaches, and league admins constantly."
+      },
+      {
+        "icon": "🔐",
+        "title": "Roles Matter",
+        "body": "A coach shouldn't see another school's full schedule. A league admin shouldn't accidentally delete a game. Access control is a core feature, not an afterthought."
+      },
+      {
+        "icon": "📋",
+        "title": "Accountability Over Chaos",
+        "body": "Every request, message, and approval creates a permanent record. \"Who confirmed that game?\" should have a clear answer — always."
+      },
+      {
+        "icon": "⚡",
+        "title": "Speed Without Shortcuts",
+        "body": "The Group Scheduler pre-populates an entire season in minutes. But it shows you a full preview before committing a single game. Fast and careful aren't opposites."
+      },
+      {
+        "icon": "🌐",
+        "title": "Connected Programs",
+        "body": "Schedules don't exist in isolation. Game Finder connects programs looking for open dates. Requests flow between schools. The network makes everyone's season better."
+      },
+      {
+        "icon": "📣",
+        "title": "Less Admin, More Sport",
+        "body": "Every hour saved on scheduling logistics is an hour someone can spend coaching, developing athletes, or running their program better. That's what we're optimizing for."
+      }
+    ]
+  },
+  "story": {
+    "eyebrow": "Our Story",
+    "heading": "Where ScheduleRama Came From",
+    "paragraphs": [
+      "It started with a frustrating email chain. A league director trying to coordinate 18 schools, 6 sports, and fall and spring seasons — tracking everything in a master spreadsheet that only one person could edit at a time. Conflicts were caught late. Games got double-booked. Coaches were working from outdated PDFs.",
+      "The tools available were either generic calendar apps that didn't understand sports structure, or enterprise systems built for professional leagues that cost more than a school's entire athletics budget.",
+      "ScheduleRama launched with a single league pilot in 2023 and has grown through direct partnerships with athletic directors and league administrators who helped shape every feature. Every workflow in the platform traces back to a real conversation with someone running a real program."
+    ],
+    "quote": "\"We needed something purpose-built. Something that understands the difference between a request and a confirmation. That knew what a league is, what a level is, what a home-and-away balance means. So we built it.\""
+  },
+  "team": {
+    "eyebrow": "The Team",
+    "heading": "Meet the Team — Real experience. Real solutions. Built for you.",
+    "members": [
+      {
+        "avatar": "⚙️",
+        "name": "Tito Soriano",
+        "role": "Co-Founder",
+        "bio": "20+ years working as a Software Developer in Education. With 25+ years of coaching experience, along with serving as Athletic Director, Tito has seen the headaches of managing a season firsthand. Creating an efficient, cost-saving solution to help districts is right in his wheelhouse."
+      },
+      {
+        "avatar": "📋",
+        "name": "Steve Mitzel",
+        "role": "Co-Founder",
+        "bio": "With years of experience as a Director of Operations in education, Steve recognized the need for a solution that creates a supportive environment — one that alleviates the operational headaches that athletic departments so often face when managing a season."
+      },
+      {
+        "avatar": "🤝",
+        "name": "Brad Eaton",
+        "role": "Co-Founder",
+        "bio": "Obsessive about workflows, Brad ensures every feature starts with a conversation with an actual AD, coach, or league admin before a single line of code is written. His experience as an Athletic Director has been instrumental in shaping Schedulerama into the solution it has become."
+      },
+      {
+        "avatar": "🎨",
+        "name": "Rosie Converse Soriano",
+        "role": "Director of Marketing",
+        "bio": "If you think Schedulerama looks and feels great, you can thank Rosie. As our marketing guru, she brings a sharp, creative eye along with years of experience in athletics and coaching to the team."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Let's Talk About Your Program",
+    "summary": "We'd love to show you how ScheduleRama fits your specific setup.",
+    "label": "Book a Demo",
+    "href": "/contact/"
+  }
+}

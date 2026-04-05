@@ -1,265 +1,30 @@
 ---
-"0": i
-"1": m
-"2": p
-"3": o
-"4": r
-"5": t
-"6": " "
-"7": B
-"8": a
-"9": s
-"10": e
-"11": " "
-"12": f
-"13": r
-"14": o
-"15": m
-"16": " "
-"17": "'"
-"18": .
-"19": .
-"20": /
-"21": l
-"22": a
-"23": y
-"24": o
-"25": u
-"26": t
-"27": s
-"28": /
-"29": B
-"30": a
-"31": s
-"32": e
-"33": .
-"34": a
-"35": s
-"36": t
-"37": r
-"38": o
-"39": "'"
-"40": ;
-"41": " "
-"42": c
-"43": o
-"44": n
-"45": s
-"46": t
-"47": " "
-"48": t
-"49": i
-"50": t
-"51": l
-"52": e
-"53": " "
-"54": =
-"55": " "
-"56": '"'
-"57": A
-"58": b
-"59": o
-"60": u
-"61": t
-"62": '"'
-"63": ;
-"64": " "
-"65": c
-"66": o
-"67": n
-"68": s
-"69": t
-"70": " "
-"71": d
-"72": e
-"73": s
-"74": c
-"75": r
-"76": i
-"77": p
-"78": t
-"79": i
-"80": o
-"81": n
-"82": " "
-"83": =
-"84": " "
-"85": "`"
-"86": S
-"87": c
-"88": h
-"89": e
-"90": d
-"91": u
-"92": l
-"93": e
-"94": R
-"95": a
-"96": m
-"97": a
-"98": " "
-"99": e
-"100": x
-"101": i
-"102": s
-"103": t
-"104": s
-"105": " "
-"106": b
-"107": e
-"108": c
-"109": a
-"110": u
-"111": s
-"112": e
-"113": " "
-"114": c
-"115": o
-"116": o
-"117": r
-"118": d
-"119": i
-"120": n
-"121": a
-"122": t
-"123": i
-"124": n
-"125": g
-"126": " "
-"127": a
-"128": " "
-"129": s
-"130": e
-"131": a
-"132": s
-"133": o
-"134": n
-"135": " "
-"136": a
-"137": c
-"138": r
-"139": o
-"140": s
-"141": s
-"142": " "
-"143": d
-"144": o
-"145": z
-"146": e
-"147": n
-"148": s
-"149": " "
-"150": o
-"151": f
-"152": " "
-"153": s
-"154": c
-"155": h
-"156": o
-"157": o
-"158": l
-"159": s
-"160": " "
-"161": a
-"162": n
-"163": d
-"164": " "
-"165": l
-"166": e
-"167": a
-"168": g
-"169": u
-"170": e
-"171": s
-"172": " "
-"173": w
-"174": a
-"175": s
-"176": " "
-"177": s
-"178": t
-"179": i
-"180": l
-"181": l
-"182": " "
-"183": b
-"184": e
-"185": i
-"186": n
-"187": g
-"188": " "
-"189": d
-"190": o
-"191": n
-"192": e
-"193": " "
-"194": i
-"195": n
-"196": " "
-"197": s
-"198": p
-"199": r
-"200": e
-"201": a
-"202": d
-"203": s
-"204": h
-"205": e
-"206": e
-"207": t
-"208": s
-"209": ","
-"210": " "
-"211": e
-"212": m
-"213": a
-"214": i
-"215": l
-"216": " "
-"217": c
-"218": h
-"219": a
-"220": i
-"221": n
-"222": s
-"223": ","
-"224": " "
-"225": a
-"226": n
-"227": d
-"228": " "
-"229": p
-"230": h
-"231": o
-"232": n
-"233": e
-"234": " "
-"235": c
-"236": a
-"237": l
-"238": l
-"239": s
-"240": .
-"241": "`"
-"242": ;
-title: About
+import Base from '../layouts/Base.astro';
+import aboutPage from '../content/admin/about.json';
+
+const {
+  title,
+  description,
+  hero,
+  mission,
+  stats,
+  values,
+  story,
+  team,
+  cta
+} = aboutPage;
 ---
 <Base title={title} description={description} activeSection="company">
 <style>
 .nav-item>a:hover,.nav-item.active>a{color:#fff;}
   .nav-item.has-drop>a::after{content:' ▾';font-size:0.65rem;}
-  
-  
   .nav-dropdown a:hover{color:#fff;background:rgba(255,255,255,0.06);padding-left:24px;}
-  
   .nav-cta:hover{background:var(--orange-bright)!important;}
 
 .page-hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.8rem,6vw,4.5rem);color:#fff;margin-bottom:20px;line-height:1;}
   .page-hero p{font-size:1.1rem;color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto;line-height:1.7;}
 
-  / *MISSION* /
   .mission-section{padding:88px 56px;max-width:920px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-  .mission-text 
   .mission-text h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;line-height:1.05;margin-bottom:24px;}
   .mission-text p{color:var(--ink-mid);line-height:1.8;font-size:1rem;margin-bottom:16px;}
   .mission-visual{background:var(--navy-deep);border-radius:16px;padding:40px;display:flex;flex-direction:column;gap:20px;}
@@ -269,7 +34,6 @@ title: About
   .stat-label{font-size:0.78rem;color:rgba(255,255,255,0.45);letter-spacing:0.06em;text-transform:uppercase;margin-top:4px;}
   .stat-divider{height:1px;background:rgba(255,255,255,0.08);}
 
-  / *VALUES* /
   .values-section{background:var(--bg-warm);padding:80px 56px;}
   .values-section .section-head{text-align:center;margin-bottom:56px;}
   .values-section h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;margin-top:8px;}
@@ -279,14 +43,11 @@ title: About
   .value-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:8px;letter-spacing:0.04em;}
   .value-card p{font-size:0.88rem;color:var(--ink-mid);line-height:1.7;}
 
-  / *STORY* /
   .story-section{padding:88px 56px;max-width:760px;margin:0 auto;}
-  .story-section 
   .story-section h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;margin-bottom:32px;}
   .story-section p{color:var(--ink-mid);line-height:1.85;font-size:1rem;margin-bottom:20px;}
   blockquote{border-left:4px solid var(--orange);padding:16px 24px;background:var(--orange-pale);border-radius:0 8px 8px 0;margin:32px 0;font-style:italic;font-size:1.05rem;color:var(--ink);line-height:1.7;}
 
-  / *TEAM* /
   .team-section{background:var(--bg-warm);padding:80px 56px;}
   .team-section .section-head{text-align:center;margin-bottom:56px;}
   .team-section h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.4rem;margin-top:8px;}
@@ -298,159 +59,103 @@ title: About
   .team-info .role{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.1em;}
   .team-info p{font-size:0.82rem;color:var(--ink-soft);margin-top:8px;line-height:1.5;}
 
-.cta-strip h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;margin-bottom:12px;}
+  .cta-strip h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;margin-bottom:12px;}
   .cta-strip p{color:rgba(255,255,255,0.55);margin-bottom:32px;}
-
   .btn-white:hover{background:var(--orange);color:#fff;}
 
-.footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
+  .footer-brand p{font-size:0.84rem;line-height:1.7;margin-top:12px;max-width:250px;}
   .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
-
   .footer-col a:hover{color:#fff;}
-
   .footer-bottom a{color:rgba(255,255,255,0.3);text-decoration:none;}
 
   .js-loaded .fade-up.on{opacity:1;transform:none;}
 
-@media(max-width:1024px){
-.values-grid,.team-grid{grid-template-columns:1fr 1fr;}
-    .values-section,.team-section,.story-section{padding-left:20px;padding-right:20px;}
-
-}
+  @media(max-width:1024px){
+    .values-grid,.team-grid{grid-template-columns:1fr 1fr;}
+    .mission-section,.values-section,.team-section,.story-section{padding-left:20px;padding-right:20px;}
+  }
 </style>
 
 <div class="page-hero">
-  <div class="eyebrow">About</div>
-  <h1>Built by People Who<br>Run Athletic Programs</h1>
-  <p>ScheduleRama exists because coordinating a season across dozens of schools and leagues was still being done in spreadsheets, email chains, and phone calls.</p>
+  <div class="eyebrow">{hero.eyebrow}</div>
+  <h1 set:html={hero.heading} />
+  <p>{hero.summary}</p>
 </div>
 
 <section class="mission-section">
   <div class="mission-text fade-up">
-    <div class="eyebrow">Our Mission</div>
-    <h2>Give Every Athletic Program a Real Command Center</h2>
-    <p>Athletic directors, coaches, and league admins are doing incredible work running programs that matter to their communities. They deserve software that actually fits how they operate — not generic tools bent sideways to handle a sport schedule.</p>
-    <p>ScheduleRama is purpose-built for the specific workflows, roles, and communication patterns of high school and amateur athletic programs.</p>
+    <div class="eyebrow">{mission.eyebrow}</div>
+    <h2>{mission.heading}</h2>
+    {mission.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
   </div>
   <div class="mission-visual fade-up" style="transition-delay:0.1s;">
     <div class="stat-row">
-      <div class="stat-item">
-        <div class="stat-num">200+</div>
-        <div class="stat-label">Schools Active</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Leagues Running</div>
-      </div>
+      {stats.slice(0, 2).map((stat) => (
+        <div class="stat-item">
+          <div class="stat-num">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
     </div>
     <div class="stat-divider"></div>
     <div class="stat-row">
-      <div class="stat-item">
-        <div class="stat-num">50K+</div>
-        <div class="stat-label">Games Scheduled</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">98%</div>
-        <div class="stat-label">Request Resolution</div>
-      </div>
+      {stats.slice(2, 4).map((stat) => (
+        <div class="stat-item">
+          <div class="stat-num">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <section class="values-section">
   <div class="section-head fade-up">
-    <div class="eyebrow">What We Believe</div>
-    <h2>Principles We Build By</h2>
+    <div class="eyebrow">{values.eyebrow}</div>
+    <h2>{values.heading}</h2>
   </div>
   <div class="values-grid">
-    <div class="value-card fade-up">
-      <div class="value-ico">🏗️</div>
-      <h3>Fit the Workflow, Don't Fight It</h3>
-      <p>Every feature is designed around how athletic programs actually operate — not how a generic SaaS company thinks they should. We talk to ADs, coaches, and league admins constantly.</p>
-    </div>
-    <div class="value-card fade-up" style="transition-delay:0.08s;">
-      <div class="value-ico">🔐</div>
-      <h3>Roles Matter</h3>
-      <p>A coach shouldn't see another school's full schedule. A league admin shouldn't accidentally delete a game. Access control is a core feature, not an afterthought.</p>
-    </div>
-    <div class="value-card fade-up" style="transition-delay:0.16s;">
-      <div class="value-ico">📋</div>
-      <h3>Accountability Over Chaos</h3>
-      <p>Every request, message, and approval creates a permanent record. "Who confirmed that game?" should have a clear answer — always.</p>
-    </div>
-    <div class="value-card fade-up" style="transition-delay:0.08s;">
-      <div class="value-ico">⚡</div>
-      <h3>Speed Without Shortcuts</h3>
-      <p>The Group Scheduler pre-populates an entire season in minutes. But it shows you a full preview before committing a single game. Fast and careful aren't opposites.</p>
-    </div>
-    <div class="value-card fade-up" style="transition-delay:0.16s;">
-      <div class="value-ico">🌐</div>
-      <h3>Connected Programs</h3>
-      <p>Schedules don't exist in isolation. Game Finder connects programs looking for open dates. Requests flow between schools. The network makes everyone's season better.</p>
-    </div>
-    <div class="value-card fade-up" style="transition-delay:0.24s;">
-      <div class="value-ico">📣</div>
-      <h3>Less Admin, More Sport</h3>
-      <p>Every hour saved on scheduling logistics is an hour someone can spend coaching, developing athletes, or running their program better. That's what we're optimizing for.</p>
-    </div>
+    {values.items.map((item, index) => (
+      <div class="value-card fade-up" style={index ? `transition-delay:${(index % 3) * 0.08}s;` : undefined}>
+        <div class="value-ico">{item.icon}</div>
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+      </div>
+    ))}
   </div>
 </section>
 
 <section class="story-section">
-  <div class="eyebrow fade-up">Our Story</div>
-  <h2 class="fade-up">Where ScheduleRama Came From</h2>
-  <p class="fade-up">It started with a frustrating email chain. A league director trying to coordinate 18 schools, 6 sports, and fall and spring seasons — tracking everything in a master spreadsheet that only one person could edit at a time. Conflicts were caught late. Games got double-booked. Coaches were working from outdated PDFs.</p>
-  <p class="fade-up">The tools available were either generic calendar apps that didn't understand sports structure, or enterprise systems built for professional leagues that cost more than a school's entire athletics budget.</p>
-  <blockquote class="fade-up">"We needed something purpose-built. Something that understands the difference between a request and a confirmation. That knew what a league is, what a level is, what a home-and-away balance means. So we built it."</blockquote>
-  <p class="fade-up">ScheduleRama launched with a single league pilot in 2023 and has grown through direct partnerships with athletic directors and league administrators who helped shape every feature. Every workflow in the platform traces back to a real conversation with someone running a real program.</p>
+  <div class="eyebrow fade-up">{story.eyebrow}</div>
+  <h2 class="fade-up">{story.heading}</h2>
+  {story.paragraphs.slice(0, 2).map((paragraph) => <p class="fade-up">{paragraph}</p>)}
+  <blockquote class="fade-up">{story.quote}</blockquote>
+  {story.paragraphs.slice(2).map((paragraph) => <p class="fade-up">{paragraph}</p>)}
 </section>
 
 <section class="team-section">
   <div class="section-head fade-up">
-    <div class="eyebrow">The Team</div>
-    <h2>Meet the Team — Real experience. Real solutions. Built for you.</h2>
+    <div class="eyebrow">{team.eyebrow}</div>
+    <h2>{team.heading}</h2>
   </div>
   <div class="team-grid">
-    <div class="team-card fade-up">
-      <div class="team-avatar">⚙️</div>
-      <div class="team-info">
-        <h4>Tito Soriano </h4>
-        <div class="role">Co-Founder</div>
-        <p>20+ years working as a Software Developer in Education. With 25+ years of coaching experience, along with serving as Athletic Director, Tito has seen the headaches of managing a season firsthand. Creating an efficient, cost-saving solution to help districts is right in his wheelhouse.</p>
+    {team.members.map((member, index) => (
+      <div class="team-card fade-up" style={index ? `transition-delay:${index * 0.08}s;` : undefined}>
+        <div class="team-avatar">{member.avatar}</div>
+        <div class="team-info">
+          <h4>{member.name}</h4>
+          <div class="role">{member.role}</div>
+          <p>{member.bio}</p>
+        </div>
       </div>
-    </div>
-    <div class="team-card fade-up" style="transition-delay:0.08s;">
-      <div class="team-avatar">📋</div>
-      <div class="team-info">
-        <h4>Steve Mitzel</h4>
-        <div class="role">Co-Founder</div>
-        <p>With years of experience as a Director of Operations in education, Steve recognized the need for a solution that creates a supportive environment — one that alleviates the operational headaches that athletic departments so often face when managing a season.</p>
-      </div>
-    </div>
-    <div class="team-card fade-up" style="transition-delay:0.16s;">
-<div class="team-avatar">🤝</div>
-      
-      <div class="team-info">
-        <h4>Brad Eaton</h4>
-        <div class="role">Co-Founder</div>
-        <p>Obsessive about workflows, Brad ensures every feature starts with a conversation with an actual AD, coach, or league admin before a single line of code is written. His experience as an Athletic Director has been instrumental in shaping Schedulerama into the solution it has become.</p>
-      </div>
-    </div>
-    <div class="team-card fade-up" style="transition-delay:0.24s;">
-      <div class="team-avatar">🎨</div>
-      <div class="team-info">
-        <h4>Rosie Converse Soriano</h4>
-        <div class="role">Director of Marketing</div>
-        <p>If you think Schedulerama looks and feels great, you can thank Rosie. As our marketing guru, she brings a sharp, creative eye along with years of experience in athletics and coaching to the team.</p>
-      </div>
-    </div>
+    ))}
   </div>
 </section>
 
 <div class="cta-strip">
-  <h2>Let's Talk About Your Program</h2>
-  <p>We'd love to show you how ScheduleRama fits your specific setup.</p>
-  <a href="/contact/" class="btn-white">Book a Demo</a>
+  <h2>{cta.heading}</h2>
+  <p>{cta.summary}</p>
+  <a href={cta.href} class="btn-white">{cta.label}</a>
 </div>
 </Base>
