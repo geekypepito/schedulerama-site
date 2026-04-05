@@ -1,0 +1,80 @@
+{
+  "title": "Book a Demo",
+  "description": "Book a live demo tailored to your program. 30 minutes, zero pressure.",
+  "hero": {
+    "eyebrow": "Book a Demo",
+    "heading": "See ScheduleRama<br>in Action",
+    "summary": "Fill out the form and we'll set up a 30-minute live walkthrough tailored to your program — whether you're an AD, a league admin, or running a multi-school network."
+  },
+  "expectations": [
+    {
+      "number": "01",
+      "title": "We review your setup",
+      "body": "Tell us how many schools, leagues, and sports you're managing. We'll tailor the demo to match."
+    },
+    {
+      "number": "02",
+      "title": "Live walkthrough — your use case",
+      "body": "A 30-minute demo focused on the workflows that matter most to your role. No feature dump, just what's relevant."
+    },
+    {
+      "number": "03",
+      "title": "Pricing & onboarding plan",
+      "body": "We'll walk through what a rollout looks like and answer any questions about data migration, user setup, or timing."
+    }
+  ],
+  "form": {
+    "heading": "Tell Us About Your Program",
+    "firstNameLabel": "First Name",
+    "firstNamePlaceholder": "Marcus",
+    "lastNameLabel": "Last Name",
+    "lastNamePlaceholder": "Chen",
+    "emailLabel": "Work Email",
+    "emailPlaceholder": "marcus@lincolnhigh.edu",
+    "organizationLabel": "School / Organization",
+    "organizationPlaceholder": "Lincoln High School Athletic Dept.",
+    "roleLabel": "Your Role",
+    "roleOptions": [
+      "Athletic Director",
+      "League Administrator",
+      "Head Coach",
+      "Super Admin / State Association",
+      "Other"
+    ],
+    "schoolsLabel": "How many schools?",
+    "schoolsOptions": ["1", "2-5", "6-20", "20+"],
+    "sportsLabel": "How many sports?",
+    "sportsOptions": ["1-3", "4-8", "9-15", "15+"],
+    "notesLabel": "Anything specific you'd like us to cover?",
+    "notesPlaceholder": "e.g. We're trying to replace a Google Sheets system and need to handle fall and spring seasons for 12 schools...",
+    "submitLabel": "Request a Demo ->",
+    "note": "We respond within one business day. No spam, no pressure."
+  },
+  "success": {
+    "icon": "✅",
+    "heading": "Demo Request Received!",
+    "body": "Thanks — we'll review your program details and reach out within one business day to find a time that works."
+  },
+  "contactBand": [
+    {
+      "icon": "📧",
+      "title": "Email",
+      "body": "hello@schedulerama.com"
+    },
+    {
+      "icon": "📞",
+      "title": "Phone",
+      "body": "Available after demo booking"
+    },
+    {
+      "icon": "⏱️",
+      "title": "Response Time",
+      "body": "Within 1 business day"
+    },
+    {
+      "icon": "🗓️",
+      "title": "Demo Length",
+      "body": "30 minutes, tailored to your role"
+    }
+  ]
+}

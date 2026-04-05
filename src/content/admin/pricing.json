@@ -1,0 +1,174 @@
+{
+  "title": "Pricing",
+  "description": "Simple, transparent pricing for every athletic program. No per-seat surprises. No hidden add-ons.",
+  "hero": {
+    "eyebrow": "Pricing",
+    "heading": "Simple,<br>Transparent Pricing",
+    "summary": "One platform for every role in your athletic program. No per-seat surprises. No hidden add-ons."
+  },
+  "billing": {
+    "monthlyLabel": "Monthly",
+    "annualLabel": "Annual",
+    "saveBadge": "Save 20%"
+  },
+  "plans": [
+    {
+      "name": "Starter",
+      "description": "Perfect for a single school or small program getting organized.",
+      "monthlyPrice": "79",
+      "annualPrice": "63",
+      "featured": false,
+      "featuredBadge": "",
+      "buttonLabel": "Get Started",
+      "buttonHref": "/contact/",
+      "buttonVariant": "outline",
+      "features": [
+        { "label": "1 school", "dim": false },
+        { "label": "Up to 5 teams", "dim": false },
+        { "label": "Full schedule management", "dim": false },
+        { "label": "Game Finder access", "dim": false },
+        { "label": "Requests Inbox", "dim": false },
+        { "label": "CSV export & print views", "dim": false },
+        { "label": "Group Scheduler", "dim": true },
+        { "label": "Multi-league support", "dim": true },
+        { "label": "API access", "dim": true }
+      ]
+    },
+    {
+      "name": "Pro",
+      "description": "The full platform for ADs and league admins running a complete season.",
+      "monthlyPrice": "199",
+      "annualPrice": "159",
+      "featured": true,
+      "featuredBadge": "Most Popular",
+      "buttonLabel": "Book a Demo",
+      "buttonHref": "/contact/",
+      "buttonVariant": "white",
+      "features": [
+        { "label": "Up to 3 schools or 1 league", "dim": false },
+        { "label": "Unlimited teams", "dim": false },
+        { "label": "Full schedule management", "dim": false },
+        { "label": "Game Finder access", "dim": false },
+        { "label": "Requests Inbox", "dim": false },
+        { "label": "CSV export & print views", "dim": false },
+        { "label": "Group Scheduler", "dim": false },
+        { "label": "Schedule import with validation", "dim": false },
+        { "label": "API access", "dim": true }
+      ]
+    },
+    {
+      "name": "League",
+      "description": "Built for league admins and super admins managing multiple schools.",
+      "monthlyPrice": "449",
+      "annualPrice": "359",
+      "featured": false,
+      "featuredBadge": "",
+      "buttonLabel": "Contact Sales",
+      "buttonHref": "/contact/",
+      "buttonVariant": "outline",
+      "features": [
+        { "label": "Unlimited schools & leagues", "dim": false },
+        { "label": "Unlimited teams", "dim": false },
+        { "label": "Full schedule management", "dim": false },
+        { "label": "Game Finder access", "dim": false },
+        { "label": "Requests Inbox", "dim": false },
+        { "label": "CSV export & print views", "dim": false },
+        { "label": "Group Scheduler", "dim": false },
+        { "label": "Schedule import with validation", "dim": false },
+        { "label": "API access", "dim": false }
+      ]
+    }
+  ],
+  "enterpriseBand": {
+    "heading": "State Associations & Multi-League Networks",
+    "summary": "Running dozens of schools across multiple leagues? We build custom packages for state-level organizations, multi-sport networks, and enterprise athletic departments.",
+    "label": "Talk to Sales ->",
+    "href": "/contact/"
+  },
+  "comparison": {
+    "heading": "Full Feature Comparison",
+    "columns": ["Feature", "Starter", "Pro", "League"],
+    "categories": [
+      {
+        "name": "Scheduling",
+        "rows": [
+          ["Schedule management & calendar", "check", "check", "check"],
+          ["Game creation, edit, delete", "check", "check", "check"],
+          ["Group Scheduler (season pre-population)", "dash", "check", "check"],
+          ["Home/away auto-balance", "dash", "check", "check"],
+          ["Schedule import with field mapping", "dash", "check", "check"]
+        ]
+      },
+      {
+        "name": "Requests & Communication",
+        "rows": [
+          ["Requests Inbox", "check", "check", "check"],
+          ["Game Finder (open opponent search)", "check", "check", "check"],
+          ["Message threads per game", "check", "check", "check"],
+          ["Request approval workflow", "check", "check", "check"]
+        ]
+      },
+      {
+        "name": "Data & Organization",
+        "rows": [
+          ["Schools", "1", "Up to 3", "Unlimited"],
+          ["Teams", "Up to 5", "Unlimited", "Unlimited"],
+          ["Facility management", "check", "check", "check"],
+          ["Contact management", "check", "check", "check"],
+          ["Multi-league support", "dash", "1 league", "Unlimited"]
+        ]
+      },
+      {
+        "name": "Reports & Export",
+        "rows": [
+          ["CSV export (all datasets)", "check", "check", "check"],
+          ["Print-ready schedule views", "check", "check", "check"],
+          ["API access", "dash", "dash", "check"]
+        ]
+      },
+      {
+        "name": "Access & Roles",
+        "rows": [
+          ["Role-based permissions (5 roles)", "check", "check", "check"],
+          ["Super Admin controls", "dash", "dash", "check"],
+          ["User provisioning", "check", "check", "check"]
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Do I need a credit card to get started?",
+        "answer": "No. We start with a demo and scoping call to make sure ScheduleRama is the right fit for your program. There's no self-serve signup — we set you up directly."
+      },
+      {
+        "question": "What counts as a \"school\" or \"league\"?",
+        "answer": "A school is any organization with its own teams and schedule. A league is a grouping of schools that share game scheduling and coordination. We'll help you map your program to the right plan during onboarding."
+      },
+      {
+        "question": "Can I switch plans mid-season?",
+        "answer": "Yes. You can upgrade at any time and the change takes effect immediately. Downgrades take effect at the next billing cycle. Your data is never affected by a plan change."
+      },
+      {
+        "question": "Is there a discount for annual billing?",
+        "answer": "Yes — annual plans save 20% compared to monthly billing. Toggle between billing periods above to see the difference."
+      },
+      {
+        "question": "What kind of support is included?",
+        "answer": "All plans include email support and access to our user guide and documentation. Pro and League plans include priority support with faster response times. Enterprise customers get a dedicated account manager."
+      },
+      {
+        "question": "How does data import work?",
+        "answer": "Pro and League plans include our validated schedule import tool. You map your CSV columns to our fields, we validate the data, and games populate directly into your schedule. No manual re-entry required."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to Run a Tighter Season?",
+    "summary": "See how ScheduleRama works for your program in a live demo.",
+    "label": "Book a Demo",
+    "href": "/contact/"
+  }
+}

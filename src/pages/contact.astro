@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-const title = "Book a Demo";
-const description = `Book a live demo tailored to your program. 30 minutes, zero pressure.`;
+import contactPage from '../content/admin/contact.json';
+
+const { title, description, hero, expectations, form, success, contactBand } = contactPage;
 ---
 
 <Base title={title} description={description} activeSection="company">
@@ -68,123 +69,88 @@ const description = `Book a live demo tailored to your program. 30 minutes, zero
 </style>
 <div class="contact-wrapper">
   <div class="contact-left">
-    <div class="eyebrow">Book a Demo</div>
-    <h1>See ScheduleRama<br>in Action</h1>
-    <p>Fill out the form and we'll set up a 30-minute live walkthrough tailored to your program — whether you're an AD, a league admin, or running a multi-school network.</p>
+    <div class="eyebrow">{hero.eyebrow}</div>
+    <h1 set:html={hero.heading} />
+    <p>{hero.summary}</p>
     <div class="what-to-expect">
-      <div class="expect-item">
-        <span class="expect-num">01</span>
-        <div>
-          <h4>We review your setup</h4>
-          <p>Tell us how many schools, leagues, and sports you're managing. We'll tailor the demo to match.</p>
+      {expectations.map((item) => (
+        <div class="expect-item">
+          <span class="expect-num">{item.number}</span>
+          <div>
+            <h4>{item.title}</h4>
+            <p>{item.body}</p>
+          </div>
         </div>
-      </div>
-      <div class="expect-item">
-        <span class="expect-num">02</span>
-        <div>
-          <h4>Live walkthrough — your use case</h4>
-          <p>A 30-minute demo focused on the workflows that matter most to your role. No feature dump, just what's relevant.</p>
-        </div>
-      </div>
-      <div class="expect-item">
-        <span class="expect-num">03</span>
-        <div>
-          <h4>Pricing &amp; onboarding plan</h4>
-          <p>We'll walk through what a rollout looks like and answer any questions about data migration, user setup, or timing.</p>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 
   <div class="contact-right">
-    <h2>Tell Us About Your Program</h2>
+    <h2>{form.heading}</h2>
     <div id="contact-form">
       <div class="form-row">
         <div class="form-group">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="Marcus">
+          <label for="fname">{form.firstNameLabel}</label>
+          <input type="text" id="fname" placeholder={form.firstNamePlaceholder}>
         </div>
         <div class="form-group">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Chen">
+          <label for="lname">{form.lastNameLabel}</label>
+          <input type="text" id="lname" placeholder={form.lastNamePlaceholder}>
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Work Email</label>
-        <input type="email" id="email" placeholder="marcus@lincolnhigh.edu">
+        <label for="email">{form.emailLabel}</label>
+        <input type="email" id="email" placeholder={form.emailPlaceholder}>
       </div>
       <div class="form-group">
-        <label for="org">School / Organization</label>
-        <input type="text" id="org" placeholder="Lincoln High School Athletic Dept.">
+        <label for="org">{form.organizationLabel}</label>
+        <input type="text" id="org" placeholder={form.organizationPlaceholder}>
       </div>
       <div class="form-group">
-        <label for="role">Your Role</label>
+        <label for="role">{form.roleLabel}</label>
         <select id="role">
           <option value="">Select your role…</option>
-          <option>Athletic Director</option>
-          <option>League Administrator</option>
-          <option>Head Coach</option>
-          <option>Super Admin / State Association</option>
-          <option>Other</option>
+          {form.roleOptions.map((option) => <option>{option}</option>)}
         </select>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label for="schools">How many schools?</label>
+          <label for="schools">{form.schoolsLabel}</label>
           <select id="schools">
             <option value="">Select…</option>
-            <option>1</option>
-            <option>2–5</option>
-            <option>6–20</option>
-            <option>20+</option>
+            {form.schoolsOptions.map((option) => <option>{option}</option>)}
           </select>
         </div>
         <div class="form-group">
-          <label for="sports">How many sports?</label>
+          <label for="sports">{form.sportsLabel}</label>
           <select id="sports">
             <option value="">Select…</option>
-            <option>1–3</option>
-            <option>4–8</option>
-            <option>9–15</option>
-            <option>15+</option>
+            {form.sportsOptions.map((option) => <option>{option}</option>)}
           </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="notes">Anything specific you'd like us to cover?</label>
-        <textarea id="notes" placeholder="e.g. We're trying to replace a Google Sheets system and need to handle fall and spring seasons for 12 schools…"></textarea>
+        <label for="notes">{form.notesLabel}</label>
+        <textarea id="notes" placeholder={form.notesPlaceholder}></textarea>
       </div>
-      <button class="btn-submit" onclick="submitForm()">Request a Demo →</button>
-      <p class="form-note">We respond within one business day. No spam, no pressure.</p>
+      <button class="btn-submit" onclick="submitForm()">{form.submitLabel}</button>
+      <p class="form-note">{form.note}</p>
     </div>
     <div class="success-panel" id="success-panel">
-      <div class="ico">✅</div>
-      <h3>Demo Request Received!</h3>
-      <p>Thanks — we'll review your program details and reach out within one business day to find a time that works.</p>
+      <div class="ico">{success.icon}</div>
+      <h3>{success.heading}</h3>
+      <p>{success.body}</p>
     </div>
   </div>
 </div>
 
 <div class="contact-band">
-  <div class="contact-info-item">
-    <div class="ico">📧</div>
-    <h4>Email</h4>
-    <p>hello@schedulerama.com</p>
-  </div>
-  <div class="contact-info-item">
-    <div class="ico">📞</div>
-    <h4>Phone</h4>
-    <p>Available after demo booking</p>
-  </div>
-  <div class="contact-info-item">
-    <div class="ico">⏱️</div>
-    <h4>Response Time</h4>
-    <p>Within 1 business day</p>
-  </div>
-  <div class="contact-info-item">
-    <div class="ico">🗓️</div>
-    <h4>Demo Length</h4>
-    <p>30 minutes, tailored to your role</p>
-  </div>
+  {contactBand.map((item) => (
+    <div class="contact-info-item">
+      <div class="ico">{item.icon}</div>
+      <h4>{item.title}</h4>
+      <p>{item.body}</p>
+    </div>
+  ))}
 </div>
 </Base>

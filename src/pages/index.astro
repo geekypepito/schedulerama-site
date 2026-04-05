@@ -1,7 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
-const title = "ScheduleRama — Run the season, not the spreadsheet";
-const description = `One command center for athletic directors, coaches, and league admins. Coordinate games, manage requests, and keep every schedule in sync.`;
+import homePage from '../content/admin/home.json';
+
+const {
+  title,
+  description,
+  hero,
+  proofs,
+  livePanel,
+  pillars,
+  featuresSection,
+  solutionsSection,
+  matrixSection,
+  pricingSection,
+  resourcesSection,
+  cta
+} = homePage;
 ---
 
 <Base title={title} description={description} activeSection="">
@@ -819,258 +833,132 @@ const description = `One command center for athletic directors, coaches, and lea
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Athletic Scheduling Platform</div>
-    <h1>
-      Schedule<br>Every<br>
-      <span class="accent">Team &amp;<br>League.</span>
-    </h1>
+    <div class="hero-tag">{hero.tag}</div>
+    <h1 set:html={hero.heading} />
     <div class="tagline-block">
-      <div class="tagline">ScheduleRama <span class="dash">—</span> Run the season,<br>not the spreadsheet!</div>
-      <p class="hero-sub">One command center for athletic directors, coaches, and league admins. Coordinate games, manage requests, and keep every schedule in sync.</p>
+      <div class="tagline" set:html={hero.tagline} />
+      <p class="hero-sub">{hero.summary}</p>
     </div>
     <div class="hero-actions">
-      <a href="/contact/" class="btn-primary">Book a Demo</a>
-      <a href="#product" class="btn-outline">
-        See It In Action
+      <a href={hero.primaryHref} class="btn-primary">{hero.primaryLabel}</a>
+      <a href={hero.secondaryHref} class="btn-outline">
+        {hero.secondaryLabel}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
     <div class="proof-row">
-      <div class="proof-item">
-        <span class="proof-num">200+</span>
-        <span class="proof-label">Schools</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-num">40+</span>
-        <span class="proof-label">Leagues</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-num">50K+</span>
-        <span class="proof-label">Games Scheduled</span>
-      </div>
-      <div class="proof-item">
-        <span class="proof-num">98%</span>
-        <span class="proof-label">Request Resolution</span>
-      </div>
+      {proofs.map((proof) => (
+        <div class="proof-item">
+          <span class="proof-num">{proof.value}</span>
+          <span class="proof-label">{proof.label}</span>
+        </div>
+      ))}
     </div>
   </div>
 
   <div class="hero-right">
     <div class="sched-ui">
       <div class="ui-bar">
-        <span class="ui-title">MWL — Fall Soccer</span>
+        <span class="ui-title">{livePanel.title}</span>
         <span class="live-dot">Live</span>
       </div>
       <div class="ui-tabs">
-        <div class="ui-tab active">Schedule</div>
-        <div class="ui-tab">Inbox</div>
-        <div class="ui-tab">Reports</div>
+        {livePanel.tabs.map((tab, index) => <div class={`ui-tab ${index === 0 ? 'active' : ''}`}>{tab}</div>)}
       </div>
       <div class="ui-games">
-        <div class="game-row">
-          <span class="gdate">Sep 05</span>
-          <span class="gteams">Lincoln vs. Jefferson</span>
-          <span class="gsport">Var SOC</span>
-          <span class="gstatus gs-conf"></span>
-        </div>
-        <div class="game-row">
-          <span class="gdate">Sep 07</span>
-          <span class="gteams">Roosevelt vs. Madison</span>
-          <span class="gsport">JV SOC</span>
-          <span class="gstatus gs-conf"></span>
-        </div>
-        <div class="game-row">
-          <span class="gdate">Sep 12</span>
-          <span class="gteams">Washington @ Franklin</span>
-          <span class="gsport">Var SOC</span>
-          <span class="gstatus gs-pend"></span>
-        </div>
-        <div class="game-row">
-          <span class="gdate">Sep 14</span>
-          <span class="gteams">Hamilton vs. Adams</span>
-          <span class="gsport">JV SOC</span>
-          <span class="gstatus gs-conf"></span>
-        </div>
-        <div class="game-row">
-          <span class="gdate">Sep 19</span>
-          <span class="gteams">Open — Pending Request</span>
-          <span class="gsport">Var SOC</span>
-          <span class="gstatus gs-open"></span>
-        </div>
+        {livePanel.games.map((game) => (
+          <div class="game-row">
+            <span class="gdate">{game.date}</span>
+            <span class="gteams">{game.teams}</span>
+            <span class="gsport">{game.sport}</span>
+            <span class={`gstatus gs-${game.status}`}></span>
+          </div>
+        ))}
       </div>
     </div>
-    <div class="float-chip chip-a">
-      <div class="chip-ico">📥</div>
-      <div>
-        <span class="chip-label">New Request</span>
-        Coach Rivera · 3 open dates
+    {livePanel.chips.map((chip) => (
+      <div class={`float-chip ${chip.className}`}>
+        <div class="chip-ico">{chip.icon}</div>
+        <div>
+          <span class="chip-label">{chip.label}</span>
+          {chip.text}
+        </div>
       </div>
-    </div>
-    <div class="float-chip chip-b">
-      <div class="chip-ico">⚖️</div>
-      <div>
-        <span class="chip-label">Auto-balanced</span>
-        12 home / 12 away
-      </div>
-    </div>
+    ))}
   </div>
 </section>
 
 <!-- PILLARS -->
 <div class="pillars" id="product">
   <div class="pillars-inner">
-    <div class="pillar fade-up" data-n="01">
-      <div class="pillar-ico">⚡</div>
-      <h3>Faster Scheduling</h3>
-      <p>Pre-populate entire seasons with the Group Scheduler. Auto-balance home and away. Go from blank calendar to full schedule in minutes, not weeks.</p>
-    </div>
-    <div class="pillar fade-up" data-n="02" style="transition-delay:0.1s">
-      <div class="pillar-ico">🎯</div>
-      <h3>Clear Accountability</h3>
-      <p>Every request, approval, and status change tracked with a full message thread. No lost emails. No "who confirmed that?" — just a clean audit trail.</p>
-    </div>
-    <div class="pillar fade-up" data-n="03" style="transition-delay:0.2s">
-      <div class="pillar-ico">🔐</div>
-      <h3>Role-Based Control</h3>
-      <p>Super admins govern the system. League admins see their leagues. ADs manage their schools. Coaches focus on their teams. Everyone gets exactly what they need.</p>
-    </div>
+    {pillars.map((pillar, index) => (
+      <div class="pillar fade-up" data-n={pillar.number} style={index ? `transition-delay:${index * 0.1}s` : undefined}>
+        <div class="pillar-ico">{pillar.icon}</div>
+        <h3>{pillar.title}</h3>
+        <p>{pillar.body}</p>
+      </div>
+    ))}
   </div>
 </div>
 
 <!-- FEATURES -->
 <section class="features-bg">
-  <div class="eyebrow">Platform Features</div>
-  <h2>Every Tool to<br>Run a Tight Season</h2>
-  <p class="section-sub">From game finder to group scheduler — every workflow built for the way athletic programs actually operate.</p>
+  <div class="eyebrow">{featuresSection.eyebrow}</div>
+  <h2 set:html={featuresSection.heading} />
+  <p class="section-sub">{featuresSection.summary}</p>
 
   <div class="feat-grid">
-    <div class="feat-tile fade-up">
-      <div class="feat-tag">Core Tool</div>
-      <h3>Schedule Management</h3>
-      <p>Interactive calendar with sport, level, and date filters. Saved views and custom checklists keep your team on track through every phase.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.08s">
-      <div class="feat-tag">Season Setup</div>
-      <h3>Group Scheduler</h3>
-      <p>Pre-populate full seasons from a preview. Automatically balance home and away. Review the entire matchup grid before committing one game.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.12s">
-      <div class="feat-tag">Opponent Discovery</div>
-      <h3>Game Finder</h3>
-      <p>Search open opponents by date, sport, and level. Send game requests directly from results. Fill gaps faster than any email chain ever could.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.16s">
-      <div class="feat-tag">Communication Hub</div>
-      <h3>Requests Inbox</h3>
-      <p>Centralized request workflow with message threads and approvals. Every conversation tied to a specific game. Status visible in real time.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.2s">
-      <div class="feat-tag">Data Management</div>
-      <h3>Organization Data</h3>
-      <p>Manage schools, teams, leagues, sports, and facilities from one place. Bulk team creation for league-wide setups. Contacts linked to teams.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.24s">
-      <div class="feat-tag">Reporting</div>
-      <h3>Reports &amp; Import</h3>
-      <p>CSV export for every data set. Print-ready schedule views. Validated schedule import with field mapping — no manual re-entry.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.28s">
-      <div class="feat-tag">Realtime</div>
-      <h3>Chat &amp; Live Updates</h3>
-      <p>Direct user-to-user messaging with presence indicators. Game requests, replies, and change notices push live — toast notifications and unread badges update without a page refresh.</p>
-    </div>
-    <div class="feat-tile fade-up" style="transition-delay:0.32s">
-      <div class="feat-tag">Operations</div>
-      <h3>Operational Workflows</h3>
-      <p>Transportation plans, facility readiness, and officials confirmation — each owned by the right role. Role-specific dashboards show only what's relevant to each person.</p>
-    </div>
+    {featuresSection.items.map((item, index) => (
+      <div class="feat-tile fade-up" style={index ? `transition-delay:${index * 0.04}s` : undefined}>
+        <div class="feat-tag">{item.tag}</div>
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+      </div>
+    ))}
   </div>
 </section>
 
 <!-- SOLUTIONS -->
 <section id="solutions">
-  <div class="eyebrow">By Role</div>
-  <h2>Built for Everyone<br>in the Athletic Stack</h2>
-  <p class="section-sub">ScheduleRama adapts to how each role works — scoped access, targeted workflows, and the right level of visibility.</p>
+  <div class="eyebrow">{solutionsSection.eyebrow}</div>
+  <h2 set:html={solutionsSection.heading} />
+  <p class="section-sub">{solutionsSection.summary}</p>
 
   <div class="sol-grid">
-    <div class="sol-card fade-up">
-      <div class="sol-role">Role</div>
-      <h3>Athletic Director</h3>
-      <p>Full school-scoped visibility and control. Manage teams, games, contacts, and facilities for every sport your school runs.</p>
-      <ul class="sol-list">
-        <li>Create and edit school games</li>
-        <li>Add coaches, create user accounts</li>
-        <li>Use Game Finder to fill gaps</li>
-        <li>Weekly reporting and checklists</li>
-      </ul>
-    </div>
-    <div class="sol-card fade-up" style="transition-delay:0.1s">
-      <div class="sol-role">Role</div>
-      <h3>League Admin</h3>
-      <p>League-scoped tools to structure and enforce consistency across every member school in your league.</p>
-      <ul class="sol-list">
-        <li>Manage school memberships</li>
-        <li>Run Group Scheduler for the season</li>
-        <li>Triage inbox requests</li>
-        <li>League-level reports and exports</li>
-      </ul>
-    </div>
-    <div class="sol-card fade-up" style="transition-delay:0.2s">
-      <div class="sol-role">Role</div>
-      <h3>Coach</h3>
-      <p>Team-focused view without the noise. Find opponents, coordinate games, and track your team's schedule and readiness.</p>
-      <ul class="sol-list">
-        <li>Discover opponents by sport and date</li>
-        <li>Send and receive game requests</li>
-        <li>Coordinate through inbox threads</li>
-        <li>Track checklist readiness</li>
-      </ul>
-    </div>
-    <div class="sol-card fade-up" style="transition-delay:0.3s">
-      <div class="sol-role">Role</div>
-      <h3>Super Admin</h3>
-      <p>Full-platform governance. Set permissions, manage users, oversee game lifecycles, and keep the whole system running clean.</p>
-      <ul class="sol-list">
-        <li>Configure permissions per role</li>
-        <li>Manage all users and accounts</li>
-        <li>Oversee imports and exports</li>
-        <li>Full audit and cleanup access</li>
-      </ul>
-    </div>
+    {solutionsSection.items.map((item, index) => (
+      <div class="sol-card fade-up" style={index ? `transition-delay:${index * 0.1}s` : undefined}>
+        <div class="sol-role">{item.roleLabel}</div>
+        <h3>{item.title}</h3>
+        <p>{item.body}</p>
+        <ul class="sol-list">
+          {item.bullets.map((bullet) => <li>{bullet}</li>)}
+        </ul>
+      </div>
+    ))}
   </div>
 </section>
 
 <!-- MATRIX -->
 <section class="matrix-bg">
-  <div class="eyebrow">Access Matrix</div>
-  <h2>Who Can Do What</h2>
-  <p class="section-sub">Permissions designed so everyone has access to exactly what they need — and nothing they don't.</p>
+  <div class="eyebrow">{matrixSection.eyebrow}</div>
+  <h2>{matrixSection.heading}</h2>
+  <p class="section-sub">{matrixSection.summary}</p>
   <div style="overflow-x:auto;">
     <table>
       <thead>
         <tr>
-          <th>Feature</th>
-          <th>Super Admin</th>
-          <th>League Admin</th>
-          <th>Athletic Dir.</th>
-          <th>Coach</th>
-          <th>Viewer</th>
+          {matrixSection.columns.map((column) => <th>{column}</th>)}
         </tr>
       </thead>
       <tbody>
-        <tr><td>View Schedule &amp; Calendar</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-        <tr><td>Add / Edit / Delete Games</td><td><span class="chk">✓</span></td><td><span class="partial">Scoped</span></td><td><span class="partial">Scoped</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
-        <tr><td>Group Scheduler</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-        <tr><td>Game Finder</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-        <tr><td>Send Game Requests</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-        <tr><td>Manage Inbox / Threads</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="partial">Scoped</span></td><td><span class="partial">Scoped</span></td><td><span class="partial">View/Respond</span></td></tr>
-        <tr><td>Manage Teams</td><td><span class="chk">✓</span></td><td><span class="partial">Scoped</span></td><td><span class="partial">Scoped</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
-        <tr><td>Manage Schools</td><td><span class="chk">✓</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
-        <tr><td>Manage Contacts &amp; Facilities</td><td><span class="chk">✓</span></td><td><span class="partial">Scoped</span></td><td><span class="partial">Scoped</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
-        <tr><td>Reports, CSV &amp; Print</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-        <tr><td>Schedule Import</td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-        <tr><td>Manage Permissions &amp; Users</td><td><span class="chk">✓</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
+        {matrixSection.rows.map((row) => (
+          <tr>
+            <td>{row[0]}</td>
+            {row.slice(1).map((value) => (
+              <td>{value === 'check' ? <span class="chk">✓</span> : value === 'dash' ? <span class="no">—</span> : <span class="partial">{value}</span>}</td>
+            ))}
+          </tr>
+        ))}
       </tbody>
     </table>
   </div>
@@ -1078,90 +966,46 @@ const description = `One command center for athletic directors, coaches, and lea
 
 <!-- PRICING -->
 <section id="pricing">
-  <div class="eyebrow">Pricing</div>
-  <h2>Plans That Scale<br>With Your League</h2>
-  <p class="section-sub">Transparent tiers for small programs to multi-school associations. No surprise overages.</p>
+  <div class="eyebrow">{pricingSection.eyebrow}</div>
+  <h2 set:html={pricingSection.heading} />
+  <p class="section-sub">{pricingSection.summary}</p>
 
   <div class="price-grid">
-    <div class="price-card fade-up">
-      <div class="price-tier">Starter</div>
-      <h3>Single School</h3>
-      <p class="price-desc">Perfect for independent schools and small programs getting organized for the first time.</p>
-      <ul class="price-feats">
-        <li>Up to 1 school, unlimited teams</li>
-        <li>Schedule management + calendar</li>
-        <li>Game Finder + Requests Inbox</li>
-        <li>CSV export and print views</li>
-        <li>AD + Coach + Viewer roles</li>
-        <li>Email support</li>
-      </ul>
-      <a href="/contact/" class="btn-light">Request Pricing</a>
-    </div>
-    <div class="price-card hot fade-up" style="transition-delay:0.1s">
-      <div class="price-badge">Most Popular</div>
-      <div class="price-tier">Pro</div>
-      <h3>League Plan</h3>
-      <p class="price-desc">Built for leagues managing multiple member schools with structured seasons and shared governance.</p>
-      <ul class="price-feats">
-        <li>Up to 20 schools per league</li>
-        <li>Group Scheduler + season setup</li>
-        <li>League Admin role + scoped access</li>
-        <li>Schedule import with validation</li>
-        <li>Bulk team creation</li>
-        <li>Priority support + onboarding</li>
-      </ul>
-      <a href="/contact/" class="btn-primary-block">Request Pricing</a>
-    </div>
-    <div class="price-card fade-up" style="transition-delay:0.2s">
-      <div class="price-tier">Enterprise</div>
-      <h3>Multi-League</h3>
-      <p class="price-desc">For athletic associations and super admins overseeing dozens of schools across multiple leagues.</p>
-      <ul class="price-feats">
-        <li>Unlimited schools and leagues</li>
-        <li>Full Super Admin governance tools</li>
-        <li>Custom permission configurations</li>
-        <li>Advanced reporting + data snapshots</li>
-        <li>Dedicated account manager</li>
-        <li>SLA-backed support</li>
-      </ul>
-      <a href="/contact/" class="btn-light">Contact Sales</a>
-    </div>
+    {pricingSection.plans.map((plan, index) => (
+      <div class={`price-card fade-up ${plan.hot ? 'hot' : ''}`} style={index ? `transition-delay:${index * 0.1}s` : undefined}>
+        {plan.badge && <div class="price-badge">{plan.badge}</div>}
+        <div class="price-tier">{plan.tier}</div>
+        <h3>{plan.title}</h3>
+        <p class="price-desc">{plan.description}</p>
+        <ul class="price-feats">
+          {plan.features.map((feature) => <li>{feature}</li>)}
+        </ul>
+        <a href={plan.buttonHref} class={plan.buttonClass}>{plan.buttonLabel}</a>
+      </div>
+    ))}
   </div>
 </section>
 
 <!-- RESOURCES -->
 <section class="res-bg" id="resources">
-  <div class="eyebrow">Resources</div>
-  <h2>Everything to Get<br>Up and Running</h2>
+  <div class="eyebrow">{resourcesSection.eyebrow}</div>
+  <h2 set:html={resourcesSection.heading} />
   <div class="res-grid" style="margin-top:16px;">
-    <a href="/resources/user-guide/" class="res-card">
-      <span class="res-ico">📚</span>
-      <h4>User Guide</h4>
-      <p>Step-by-step workflows for every role, from first login to full season setup.</p>
-    </a>
-    <a href="/resources/feature-matrix/" class="res-card">
-      <span class="res-ico">📋</span>
-      <h4>Feature Matrix</h4>
-      <p>Complete breakdown of every feature and which roles can access it.</p>
-    </a>
-    <a href="/resources/release-notes/" class="res-card">
-      <span class="res-ico">🔄</span>
-      <h4>Release Notes</h4>
-      <p>What's new, improved, and coming next to ScheduleRama.</p>
-    </a>
-    <a href="/resources/faq/" class="res-card">
-      <span class="res-ico">❓</span>
-      <h4>FAQ</h4>
-      <p>Quick answers to the most common questions from ADs, coaches, and admins.</p>
-    </a>
+    {resourcesSection.items.map((item) => (
+      <a href={item.href} class="res-card">
+        <span class="res-ico">{item.icon}</span>
+        <h4>{item.title}</h4>
+        <p>{item.body}</p>
+      </a>
+    ))}
   </div>
 </section>
 
 <!-- CTA BANNER -->
 <div class="cta-banner" id="contact">
-  <h2>START YOUR<br>SEASON NOW</h2>
-  <div class="cta-tagline">ScheduleRama — Run the season, not the spreadsheet!</div>
-  <a href="/contact/" class="btn-white">Book a Demo</a>
+  <h2 set:html={cta.heading} />
+  <div class="cta-tagline">{cta.tagline}</div>
+  <a href={cta.href} class="btn-white">{cta.label}</a>
 </div>
 
 </Base>

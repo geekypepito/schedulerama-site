@@ -13,6 +13,30 @@ collections:
   - name: marketing_content
     label: Marketing Content
     files:
+      - label: Home Page
+        name: home_page
+        file: src/content/admin/home.json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Tag, name: tag, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Primary Label, name: primaryLabel, widget: string }
+              - { label: Primary Link, name: primaryHref, widget: string }
+              - { label: Secondary Label, name: secondaryLabel, widget: string }
+              - { label: Secondary Link, name: secondaryHref, widget: string }
+          - label: Proof Stats
+            name: proofs
+            widget: list
+            fields:
+              - { label: Value, name: value, widget: string }
+              - { label: Label, name: label, widget: string }
       - label: About Page
         name: about_page
         file: src/content/admin/about.json
@@ -88,6 +112,138 @@ collections:
               - { label: Summary, name: summary, widget: text }
               - { label: Button Label, name: label, widget: string }
               - { label: Button Link, name: href, widget: string }
+      - label: Pricing Page
+        name: pricing_page
+        file: src/content/admin/pricing.json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+          - label: Billing
+            name: billing
+            widget: object
+            fields:
+              - { label: Monthly Label, name: monthlyLabel, widget: string }
+              - { label: Annual Label, name: annualLabel, widget: string }
+              - { label: Save Badge, name: saveBadge, widget: string }
+          - label: Plans
+            name: plans
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Monthly Price, name: monthlyPrice, widget: string }
+              - { label: Annual Price, name: annualPrice, widget: string }
+              - { label: Featured, name: featured, widget: boolean, required: false }
+              - { label: Featured Badge, name: featuredBadge, widget: string, required: false }
+              - { label: Button Label, name: buttonLabel, widget: string }
+              - { label: Button Link, name: buttonHref, widget: string }
+              - { label: Button Variant, name: buttonVariant, widget: select, options: ["outline", "primary", "white"] }
+              - label: Features
+                name: features
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Dim, name: dim, widget: boolean, required: false }
+          - label: Enterprise Band
+            name: enterpriseBand
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Button Label, name: label, widget: string }
+              - { label: Button Link, name: href, widget: string }
+          - label: FAQ
+            name: faq
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Question, name: question, widget: string }
+                  - { label: Answer, name: answer, widget: text }
+          - label: Call To Action
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Button Label, name: label, widget: string }
+              - { label: Button Link, name: href, widget: string }
+      - label: Contact Page
+        name: contact_page
+        file: src/content/admin/contact.json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+          - label: Expectations
+            name: expectations
+            widget: list
+            fields:
+              - { label: Number, name: number, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - label: Form
+            name: form
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: First Name Label, name: firstNameLabel, widget: string }
+              - { label: First Name Placeholder, name: firstNamePlaceholder, widget: string }
+              - { label: Last Name Label, name: lastNameLabel, widget: string }
+              - { label: Last Name Placeholder, name: lastNamePlaceholder, widget: string }
+              - { label: Email Label, name: emailLabel, widget: string }
+              - { label: Email Placeholder, name: emailPlaceholder, widget: string }
+              - { label: Organization Label, name: organizationLabel, widget: string }
+              - { label: Organization Placeholder, name: organizationPlaceholder, widget: string }
+              - { label: Role Label, name: roleLabel, widget: string }
+              - label: Role Options
+                name: roleOptions
+                widget: list
+                field: { label: Option, name: option, widget: string }
+              - { label: Schools Label, name: schoolsLabel, widget: string }
+              - label: Schools Options
+                name: schoolsOptions
+                widget: list
+                field: { label: Option, name: option, widget: string }
+              - { label: Sports Label, name: sportsLabel, widget: string }
+              - label: Sports Options
+                name: sportsOptions
+                widget: list
+                field: { label: Option, name: option, widget: string }
+              - { label: Notes Label, name: notesLabel, widget: string }
+              - { label: Notes Placeholder, name: notesPlaceholder, widget: text }
+              - { label: Submit Label, name: submitLabel, widget: string }
+              - { label: Note, name: note, widget: text }
+          - label: Success State
+            name: success
+            widget: object
+            fields:
+              - { label: Icon, name: icon, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Body, name: body, widget: text }
+          - label: Contact Band
+            name: contactBand
+            widget: list
+            fields:
+              - { label: Icon, name: icon, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: string }
 
   - name: product
     label: Product Pages

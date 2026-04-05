@@ -1,0 +1,112 @@
+{
+  "title": "ScheduleRama — Run the season, not the spreadsheet",
+  "description": "One command center for athletic directors, coaches, and league admins. Coordinate games, manage requests, and keep every schedule in sync.",
+  "hero": {
+    "tag": "Athletic Scheduling Platform",
+    "heading": "Schedule<br>Every<br><span class=\"accent\">Team &amp;<br>League.</span>",
+    "tagline": "ScheduleRama <span class=\"dash\">—</span> Run the season,<br>not the spreadsheet!",
+    "summary": "One command center for athletic directors, coaches, and league admins. Coordinate games, manage requests, and keep every schedule in sync.",
+    "primaryLabel": "Book a Demo",
+    "primaryHref": "/contact/",
+    "secondaryLabel": "See It In Action",
+    "secondaryHref": "#product"
+  },
+  "proofs": [
+    { "value": "200+", "label": "Schools" },
+    { "value": "40+", "label": "Leagues" },
+    { "value": "50K+", "label": "Games Scheduled" },
+    { "value": "98%", "label": "Request Resolution" }
+  ],
+  "livePanel": {
+    "title": "MWL — Fall Soccer",
+    "tabs": ["Schedule", "Inbox", "Reports"],
+    "games": [
+      { "date": "Sep 05", "teams": "Lincoln vs. Jefferson", "sport": "Var SOC", "status": "conf" },
+      { "date": "Sep 07", "teams": "Roosevelt vs. Madison", "sport": "JV SOC", "status": "conf" },
+      { "date": "Sep 12", "teams": "Washington @ Franklin", "sport": "Var SOC", "status": "pend" },
+      { "date": "Sep 14", "teams": "Hamilton vs. Adams", "sport": "JV SOC", "status": "conf" },
+      { "date": "Sep 19", "teams": "Open — Pending Request", "sport": "Var SOC", "status": "open" }
+    ],
+    "chips": [
+      { "icon": "📥", "label": "New Request", "text": "Coach Rivera · 3 open dates", "className": "chip-a" },
+      { "icon": "⚖️", "label": "Auto-balanced", "text": "12 home / 12 away", "className": "chip-b" }
+    ]
+  },
+  "pillars": [
+    { "number": "01", "icon": "⚡", "title": "Faster Scheduling", "body": "Pre-populate entire seasons with the Group Scheduler. Auto-balance home and away. Go from blank calendar to full schedule in minutes, not weeks." },
+    { "number": "02", "icon": "🎯", "title": "Clear Accountability", "body": "Every request, approval, and status change tracked with a full message thread. No lost emails. No \"who confirmed that?\" — just a clean audit trail." },
+    { "number": "03", "icon": "🔐", "title": "Role-Based Control", "body": "Super admins govern the system. League admins see their leagues. ADs manage their schools. Coaches focus on their teams. Everyone gets exactly what they need." }
+  ],
+  "featuresSection": {
+    "eyebrow": "Platform Features",
+    "heading": "Every Tool to<br>Run a Tight Season",
+    "summary": "From game finder to group scheduler — every workflow built for the way athletic programs actually operate.",
+    "items": [
+      { "tag": "Core Tool", "title": "Schedule Management", "body": "Interactive calendar with sport, level, and date filters. Saved views and custom checklists keep your team on track through every phase." },
+      { "tag": "Season Setup", "title": "Group Scheduler", "body": "Pre-populate full seasons from a preview. Automatically balance home and away. Review the entire matchup grid before committing one game." },
+      { "tag": "Opponent Discovery", "title": "Game Finder", "body": "Search open opponents by date, sport, and level. Send game requests directly from results. Fill gaps faster than any email chain ever could." },
+      { "tag": "Communication Hub", "title": "Requests Inbox", "body": "Centralized request workflow with message threads and approvals. Every conversation tied to a specific game. Status visible in real time." },
+      { "tag": "Data Management", "title": "Organization Data", "body": "Manage schools, teams, leagues, sports, and facilities from one place. Bulk team creation for league-wide setups. Contacts linked to teams." },
+      { "tag": "Reporting", "title": "Reports & Import", "body": "CSV export for every data set. Print-ready schedule views. Validated schedule import with field mapping — no manual re-entry." },
+      { "tag": "Realtime", "title": "Chat & Live Updates", "body": "Direct user-to-user messaging with presence indicators. Game requests, replies, and change notices push live — toast notifications and unread badges update without a page refresh." },
+      { "tag": "Operations", "title": "Operational Workflows", "body": "Transportation plans, facility readiness, and officials confirmation — each owned by the right role. Role-specific dashboards show only what's relevant to each person." }
+    ]
+  },
+  "solutionsSection": {
+    "eyebrow": "By Role",
+    "heading": "Built for Everyone<br>in the Athletic Stack",
+    "summary": "ScheduleRama adapts to how each role works — scoped access, targeted workflows, and the right level of visibility.",
+    "items": [
+      { "roleLabel": "Role", "title": "Athletic Director", "body": "Full school-scoped visibility and control. Manage teams, games, contacts, and facilities for every sport your school runs.", "bullets": ["Create and edit school games", "Add coaches, create user accounts", "Use Game Finder to fill gaps", "Weekly reporting and checklists"] },
+      { "roleLabel": "Role", "title": "League Admin", "body": "League-scoped tools to structure and enforce consistency across every member school in your league.", "bullets": ["Manage school memberships", "Run Group Scheduler for the season", "Triage inbox requests", "League-level reports and exports"] },
+      { "roleLabel": "Role", "title": "Coach", "body": "Team-focused view without the noise. Find opponents, coordinate games, and track your team's schedule and readiness.", "bullets": ["Discover opponents by sport and date", "Send and receive game requests", "Coordinate through inbox threads", "Track checklist readiness"] },
+      { "roleLabel": "Role", "title": "Super Admin", "body": "Full-platform governance. Set permissions, manage users, oversee game lifecycles, and keep the whole system running clean.", "bullets": ["Configure permissions per role", "Manage all users and accounts", "Oversee imports and exports", "Full audit and cleanup access"] }
+    ]
+  },
+  "matrixSection": {
+    "eyebrow": "Access Matrix",
+    "heading": "Who Can Do What",
+    "summary": "Permissions designed so everyone has access to exactly what they need — and nothing they don't.",
+    "columns": ["Feature", "Super Admin", "League Admin", "Athletic Dir.", "Coach", "Viewer"],
+    "rows": [
+      ["View Schedule & Calendar", "check", "check", "check", "check", "check"],
+      ["Add / Edit / Delete Games", "check", "Scoped", "Scoped", "dash", "dash"],
+      ["Group Scheduler", "check", "check", "check", "check", "check"],
+      ["Game Finder", "check", "check", "check", "check", "check"],
+      ["Send Game Requests", "check", "check", "check", "check", "check"],
+      ["Manage Inbox / Threads", "check", "check", "Scoped", "Scoped", "View/Respond"],
+      ["Manage Teams", "check", "Scoped", "Scoped", "dash", "dash"],
+      ["Manage Schools", "check", "dash", "dash", "dash", "dash"],
+      ["Manage Contacts & Facilities", "check", "Scoped", "Scoped", "dash", "dash"],
+      ["Reports, CSV & Print", "check", "check", "check", "check", "check"],
+      ["Schedule Import", "check", "check", "check", "check", "check"],
+      ["Manage Permissions & Users", "check", "dash", "dash", "dash", "dash"]
+    ]
+  },
+  "pricingSection": {
+    "eyebrow": "Pricing",
+    "heading": "Plans That Scale<br>With Your League",
+    "summary": "Transparent tiers for small programs to multi-school associations. No surprise overages.",
+    "plans": [
+      { "tier": "Starter", "title": "Single School", "description": "Perfect for independent schools and small programs getting organized for the first time.", "buttonLabel": "Request Pricing", "buttonHref": "/contact/", "buttonClass": "btn-light", "features": ["Up to 1 school, unlimited teams", "Schedule management + calendar", "Game Finder + Requests Inbox", "CSV export and print views", "AD + Coach + Viewer roles", "Email support"] },
+      { "tier": "Pro", "title": "League Plan", "description": "Built for leagues managing multiple member schools with structured seasons and shared governance.", "badge": "Most Popular", "buttonLabel": "Request Pricing", "buttonHref": "/contact/", "buttonClass": "btn-primary-block", "hot": true, "features": ["Up to 20 schools per league", "Group Scheduler + season setup", "League Admin role + scoped access", "Schedule import with validation", "Bulk team creation", "Priority support + onboarding"] },
+      { "tier": "Enterprise", "title": "Multi-League", "description": "For athletic associations and super admins overseeing dozens of schools across multiple leagues.", "buttonLabel": "Contact Sales", "buttonHref": "/contact/", "buttonClass": "btn-light", "features": ["Unlimited schools and leagues", "Full Super Admin governance tools", "Custom permission configurations", "Advanced reporting + data snapshots", "Dedicated account manager", "SLA-backed support"] }
+    ]
+  },
+  "resourcesSection": {
+    "eyebrow": "Resources",
+    "heading": "Everything to Get<br>Up and Running",
+    "items": [
+      { "icon": "📚", "title": "User Guide", "body": "Step-by-step workflows for every role, from first login to full season setup.", "href": "/resources/user-guide/" },
+      { "icon": "📋", "title": "Feature Matrix", "body": "Complete breakdown of every feature and which roles can access it.", "href": "/resources/feature-matrix/" },
+      { "icon": "🔄", "title": "Release Notes", "body": "What's new, improved, and coming next to ScheduleRama.", "href": "/resources/release-notes/" },
+      { "icon": "❓", "title": "FAQ", "body": "Quick answers to the most common questions from ADs, coaches, and admins.", "href": "/resources/faq/" }
+    ]
+  },
+  "cta": {
+    "heading": "START YOUR<br>SEASON NOW",
+    "tagline": "ScheduleRama — Run the season, not the spreadsheet!",
+    "label": "Book a Demo",
+    "href": "/contact/"
+  }
+}
