@@ -17,67 +17,131 @@ collections:
         name: home
         file: src/pages/index.astro
         fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Description, name: description, widget: text, required: false }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - { label: Page Source, name: body, widget: text }
       - label: About
         name: about
         file: src/pages/about.astro
         fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Description, name: description, widget: text, required: false }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - { label: Page Source, name: body, widget: text }
       - label: Pricing
         name: pricing
         file: src/pages/pricing.astro
         fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Description, name: description, widget: text, required: false }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - { label: Page Source, name: body, widget: text }
       - label: Contact
         name: contact
         file: src/pages/contact.astro
         fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Description, name: description, widget: text, required: false }
-          - { label: Body, name: body, widget: markdown, required: false }
+          - { label: Page Source, name: body, widget: text }
 
   - name: product
     label: Product Pages
-    folder: src/pages/product
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }
+    files:
+      - label: Facility Operations
+        name: facility_operations
+        file: src/pages/product/facility-operations.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Game Finder
+        name: game_finder
+        file: src/pages/product/game-finder.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Group Scheduler
+        name: group_scheduler
+        file: src/pages/product/group-scheduler.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Operational Workflows
+        name: operational_workflows
+        file: src/pages/product/operational-workflows.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Organization Data
+        name: organization_data
+        file: src/pages/product/organization-data.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Realtime Messaging
+        name: realtime_messaging
+        file: src/pages/product/realtime-messaging.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Reports and Import
+        name: reports_import
+        file: src/pages/product/reports-import.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Requests Inbox
+        name: requests_inbox
+        file: src/pages/product/requests-inbox.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Schedule Management
+        name: schedule_management
+        file: src/pages/product/schedule-management.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
 
   - name: solutions
     label: Solutions Pages
-    folder: src/pages/solutions
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }
+    files:
+      - label: Athletic Directors
+        name: athletic_directors
+        file: src/pages/solutions/athletic-directors.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Coaches
+        name: coaches
+        file: src/pages/solutions/coaches.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Game Officials
+        name: game_officials
+        file: src/pages/solutions/game-officials.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: League Admins
+        name: league_admins
+        file: src/pages/solutions/league-admins.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Maintenance
+        name: maintenance
+        file: src/pages/solutions/maintenance.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Super Admins
+        name: super_admins
+        file: src/pages/solutions/super-admins.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Transportation
+        name: transportation
+        file: src/pages/solutions/transportation.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
 
   - name: resources
     label: Resources Pages
-    folder: src/pages/resources
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }
-
+    files:
+      - label: FAQ
+        name: faq
+        file: src/pages/resources/faq.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Feature Matrix
+        name: feature_matrix
+        file: src/pages/resources/feature-matrix.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: Release Notes
+        name: release_notes
+        file: src/pages/resources/release-notes.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
+      - label: User Guide
+        name: user_guide
+        file: src/pages/resources/user-guide.astro
+        fields:
+          - { label: Page Source, name: body, widget: text }
