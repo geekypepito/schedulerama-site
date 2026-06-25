@@ -11,146 +11,46 @@
       {
         "name": "Scheduling",
         "rows": [
-          [
-            "Schedule management & calendar",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Game creation, edit, delete",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Group Scheduler (season pre-population)",
-            "dash",
-            "check",
-            "check"
-          ],
-          [
-            "Home/away auto-balance",
-            "dash",
-            "check",
-            "check"
-          ],
-          [
-            "Schedule import with field mapping",
-            "dash",
-            "check",
-            "check"
-          ]
+          { "feature": "Schedule management & calendar", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Game creation, edit, delete", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Group Scheduler (season pre-population)", "col2": "dash", "col3": "check", "col4": "check" },
+          { "feature": "Home/away auto-balance", "col2": "dash", "col3": "check", "col4": "check" },
+          { "feature": "Schedule import with field mapping", "col2": "dash", "col3": "check", "col4": "check" }
         ]
       },
       {
         "name": "Requests & Communication",
         "rows": [
-          [
-            "Requests Inbox",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Game Finder (open opponent search)",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Message threads per game",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Request approval workflow",
-            "check",
-            "check",
-            "check"
-          ]
+          { "feature": "Requests Inbox", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Game Finder (open opponent search)", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Message threads per game", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Request approval workflow", "col2": "check", "col3": "check", "col4": "check" }
         ]
       },
       {
         "name": "Data & Organization",
         "rows": [
-          [
-            "Schools",
-            "1",
-            "Up to 3",
-            "Unlimited"
-          ],
-          [
-            "Teams",
-            "Up to 5",
-            "Unlimited",
-            "Unlimited"
-          ],
-          [
-            "Facility management",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Contact management",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Multi-league support",
-            "dash",
-            "1 league",
-            "Unlimited"
-          ]
+          { "feature": "Schools", "col2": "1", "col3": "Up to 3", "col4": "Unlimited" },
+          { "feature": "Teams", "col2": "Up to 5", "col3": "Unlimited", "col4": "Unlimited" },
+          { "feature": "Facility management", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Contact management", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Multi-league support", "col2": "dash", "col3": "1 league", "col4": "Unlimited" }
         ]
       },
       {
         "name": "Reports & Export",
         "rows": [
-          [
-            "CSV export (all datasets)",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Print-ready schedule views",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "API access",
-            "dash",
-            "dash",
-            "check"
-          ]
+          { "feature": "CSV export (all datasets)", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Print-ready schedule views", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "API access", "col2": "dash", "col3": "dash", "col4": "check" }
         ]
       },
       {
         "name": "Access & Roles",
         "rows": [
-          [
-            "Role-based permissions (5 roles)",
-            "check",
-            "check",
-            "check"
-          ],
-          [
-            "Super Admin controls",
-            "dash",
-            "dash",
-            "check"
-          ],
-          [
-            "User provisioning",
-            "check",
-            "check",
-            "check"
-          ]
+          { "feature": "Role-based permissions (5 roles)", "col2": "check", "col3": "check", "col4": "check" },
+          { "feature": "Super Admin controls", "col2": "dash", "col3": "dash", "col4": "check" },
+          { "feature": "User provisioning", "col2": "check", "col3": "check", "col4": "check" }
         ]
       }
     ]

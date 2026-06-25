@@ -953,8 +953,8 @@ const {
       <tbody>
         {matrixSection.rows.map((row) => (
           <tr>
-            <td>{row[0]}</td>
-            {row.slice(1).map((value) => (
+            <td>{row.feature}</td>
+            {[row.superAdmin, row.leagueAdmin, row.athleticDirector, row.coach, row.viewer].map((value) => (
               <td>{value === 'check' ? <span class="chk">✓</span> : value === 'dash' ? <span class="no">—</span> : <span class="partial">{value}</span>}</td>
             ))}
           </tr>

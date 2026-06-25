@@ -37,6 +37,138 @@ collections:
             fields:
               - { label: Value, name: value, widget: string }
               - { label: Label, name: label, widget: string }
+          - label: Live Panel
+            name: livePanel
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Tabs
+                name: tabs
+                widget: list
+                field: { label: Tab, name: tab, widget: string }
+              - label: Games
+                name: games
+                widget: list
+                fields:
+                  - { label: Date, name: date, widget: string }
+                  - { label: Teams, name: teams, widget: string }
+                  - { label: Sport, name: sport, widget: string }
+                  - { label: Status, name: status, widget: select, options: ["conf", "pend", "open"] }
+              - label: Chips
+                name: chips
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Label, name: label, widget: string }
+                  - { label: Text, name: text, widget: string }
+                  - { label: Class Name, name: className, widget: select, options: ["chip-a", "chip-b"] }
+          - label: Pillars
+            name: pillars
+            widget: list
+            fields:
+              - { label: Number, name: number, widget: string }
+              - { label: Icon, name: icon, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - label: Features Section
+            name: featuresSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Tag, name: tag, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+          - label: Solutions Section
+            name: solutionsSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Role Label, name: roleLabel, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    field: { label: Bullet, name: bullet, widget: string }
+          - label: Matrix Section
+            name: matrixSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - label: Columns
+                name: columns
+                widget: list
+                field: { label: Column, name: column, widget: string }
+              - label: Rows
+                name: rows
+                widget: list
+                summary: '{{fields.feature}}'
+                fields:
+                  - { label: Feature, name: feature, widget: string }
+                  - { label: Super Admin, name: superAdmin, widget: string }
+                  - { label: League Admin, name: leagueAdmin, widget: string }
+                  - { label: Athletic Director, name: athleticDirector, widget: string }
+                  - { label: Coach, name: coach, widget: string }
+                  - { label: Viewer, name: viewer, widget: string }
+          - label: Pricing Section
+            name: pricingSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - label: Plans
+                name: plans
+                widget: list
+                fields:
+                  - { label: Tier, name: tier, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Badge, name: badge, widget: string, required: false }
+                  - { label: Hot, name: hot, widget: boolean, required: false }
+                  - { label: Button Label, name: buttonLabel, widget: string }
+                  - { label: Button Link, name: buttonHref, widget: string }
+                  - { label: Button Class, name: buttonClass, widget: select, options: ["btn-light", "btn-primary-block"] }
+                  - label: Features
+                    name: features
+                    widget: list
+                    field: { label: Feature, name: feature, widget: string }
+          - label: Resources Section
+            name: resourcesSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+                  - { label: Link, name: href, widget: string }
+          - label: Call To Action
+            name: cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Button Label, name: label, widget: string }
+              - { label: Button Link, name: href, widget: string }
       - label: About Page
         name: about_page
         file: src/content/admin/about.json
@@ -159,6 +291,28 @@ collections:
               - { label: Summary, name: summary, widget: text }
               - { label: Button Label, name: label, widget: string }
               - { label: Button Link, name: href, widget: string }
+          - label: Comparison
+            name: comparison
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Columns
+                name: columns
+                widget: list
+                field: { label: Column, name: column, widget: string }
+              - label: Categories
+                name: categories
+                widget: list
+                fields:
+                  - { label: Category Name, name: name, widget: string }
+                  - label: Rows
+                    name: rows
+                    widget: list
+                    fields:
+                      - { label: Feature, name: feature, widget: string }
+                      - { label: Column 2, name: col2, widget: string }
+                      - { label: Column 3, name: col3, widget: string }
+                      - { label: Column 4, name: col4, widget: string }
           - label: FAQ
             name: faq
             widget: object
@@ -244,42 +398,3 @@ collections:
               - { label: Icon, name: icon, widget: string }
               - { label: Title, name: title, widget: string }
               - { label: Body, name: body, widget: string }
-
-  - name: product
-    label: Product Pages
-    folder: src/pages/product
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }
-
-  - name: solutions
-    label: Solution Pages
-    folder: src/pages/solutions
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }
-
-  - name: resources
-    label: Resource Pages
-    folder: src/pages/resources
-    create: false
-    extension: astro
-    format: frontmatter
-    slug: '{{slug}}'
-    summary: '{{slug}}'
-    fields:
-      - { label: Title, name: title, widget: string, required: false }
-      - { label: Description, name: description, widget: text, required: false }
-      - { label: Body, name: body, widget: markdown, required: false }

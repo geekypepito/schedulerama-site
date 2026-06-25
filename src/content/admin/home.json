@@ -69,18 +69,18 @@
     "summary": "Permissions designed so everyone has access to exactly what they need — and nothing they don't.",
     "columns": ["Feature", "Super Admin", "League Admin", "Athletic Dir.", "Coach", "Viewer"],
     "rows": [
-      ["View Schedule & Calendar", "check", "check", "check", "check", "check"],
-      ["Add / Edit / Delete Games", "check", "Scoped", "Scoped", "dash", "dash"],
-      ["Group Scheduler", "check", "check", "check", "check", "check"],
-      ["Game Finder", "check", "check", "check", "check", "check"],
-      ["Send Game Requests", "check", "check", "check", "check", "check"],
-      ["Manage Inbox / Threads", "check", "check", "Scoped", "Scoped", "View/Respond"],
-      ["Manage Teams", "check", "Scoped", "Scoped", "dash", "dash"],
-      ["Manage Schools", "check", "dash", "dash", "dash", "dash"],
-      ["Manage Contacts & Facilities", "check", "Scoped", "Scoped", "dash", "dash"],
-      ["Reports, CSV & Print", "check", "check", "check", "check", "check"],
-      ["Schedule Import", "check", "check", "check", "check", "check"],
-      ["Manage Permissions & Users", "check", "dash", "dash", "dash", "dash"]
+      { "feature": "View Schedule & Calendar", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "check", "coach": "check", "viewer": "check" },
+      { "feature": "Add / Edit / Delete Games", "superAdmin": "check", "leagueAdmin": "Scoped", "athleticDirector": "Scoped", "coach": "dash", "viewer": "dash" },
+      { "feature": "Group Scheduler", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "check", "coach": "check", "viewer": "check" },
+      { "feature": "Game Finder", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "check", "coach": "check", "viewer": "check" },
+      { "feature": "Send Game Requests", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "check", "coach": "check", "viewer": "check" },
+      { "feature": "Manage Inbox / Threads", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "Scoped", "coach": "Scoped", "viewer": "View/Respond" },
+      { "feature": "Manage Teams", "superAdmin": "check", "leagueAdmin": "Scoped", "athleticDirector": "Scoped", "coach": "dash", "viewer": "dash" },
+      { "feature": "Manage Schools", "superAdmin": "check", "leagueAdmin": "dash", "athleticDirector": "dash", "coach": "dash", "viewer": "dash" },
+      { "feature": "Manage Contacts & Facilities", "superAdmin": "check", "leagueAdmin": "Scoped", "athleticDirector": "Scoped", "coach": "dash", "viewer": "dash" },
+      { "feature": "Reports, CSV & Print", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "check", "coach": "check", "viewer": "check" },
+      { "feature": "Schedule Import", "superAdmin": "check", "leagueAdmin": "check", "athleticDirector": "check", "coach": "check", "viewer": "check" },
+      { "feature": "Manage Permissions & Users", "superAdmin": "check", "leagueAdmin": "dash", "athleticDirector": "dash", "coach": "dash", "viewer": "dash" }
     ]
   },
   "pricingSection": {

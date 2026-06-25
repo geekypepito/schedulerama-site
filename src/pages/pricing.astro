@@ -160,8 +160,8 @@ const { title, description, hero, billing, plans, enterpriseBand, comparison, fa
           <tr class="cat-row"><td colspan="4">{category.name}</td></tr>
           {category.rows.map((row) => (
             <tr>
-              <td class="feature-name">{row[0]}</td>
-              {row.slice(1).map((value) => (
+              <td class="feature-name">{row.feature}</td>
+              {[row.col2, row.col3, row.col4].map((value) => (
                 <td>
                   {value === 'check' ? <span class="check">✓</span> : value === 'dash' ? <span class="dash">—</span> : <span class="val">{value}</span>}
                 </td>
