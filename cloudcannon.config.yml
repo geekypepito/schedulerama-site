@@ -1,0 +1,15 @@
+paths:
+  static: public
+  uploads: public/images
+timezone: America/Los_Angeles
+markdown:
+  engine: commonmark
+  options:
+    gfm: true
+collections_config:
+  pages:
+    path: src/pages
+    icon: wysiwyg
+  admin:
+    path: src/content/admin
+    icon: ad
