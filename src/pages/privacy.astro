@@ -1,0 +1,390 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Privacy Policy"
+  description="ScheduleRama privacy policy for website visitors, organizations, and authorized users."
+  activeSection="company"
+>
+  <style>
+    .hero {
+      background: linear-gradient(180deg, var(--navy-deep) 0%, #132543 100%);
+      padding: 132px 56px 76px;
+    }
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 0.95;
+      color: #fff;
+      max-width: 780px;
+    }
+
+    .hero p {
+      max-width: 740px;
+      margin-top: 20px;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .legal-wrap {
+      max-width: 980px;
+      margin: -36px auto 72px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .legal-card {
+      background: #fffaf2;
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      box-shadow: 0 18px 48px rgba(15,28,48,0.08);
+      overflow: hidden;
+    }
+
+    .legal-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.72);
+    }
+
+    .meta-item span {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+
+    .meta-item strong {
+      font-size: 1rem;
+    }
+
+    .legal-body {
+      padding: 36px 32px 44px;
+    }
+
+    .legal-body > p {
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .legal-body hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 28px 0;
+    }
+
+    .legal-body h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+      margin: 34px 0 14px;
+    }
+
+    .legal-body h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      margin: 24px 0 10px;
+    }
+
+    .legal-body ul, .legal-body ol {
+      padding-left: 22px;
+      margin: 14px 0 18px;
+    }
+
+    .legal-body li {
+      margin: 0 0 10px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    .callout {
+      background: var(--orange-pale);
+      border-left: 4px solid var(--orange);
+      padding: 16px 18px;
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0 24px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 24px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid var(--rule);
+      padding: 12px 14px;
+      vertical-align: top;
+      text-align: left;
+      line-height: 1.65;
+    }
+
+    th {
+      background: var(--bg-warm);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    .fine-print {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: 112px 20px 60px;
+      }
+
+      .legal-wrap {
+        padding: 0 12px;
+        margin-top: -28px;
+      }
+
+      .legal-meta {
+        grid-template-columns: 1fr;
+        padding: 22px 20px;
+      }
+
+      .legal-body {
+        padding: 28px 20px 34px;
+      }
+    }
+  </style>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p>This page explains what information ScheduleRama collects, how it is used, and the choices available to organizations and authorized users of the service.</p>
+    </div>
+  </section>
+
+  <main class="legal-wrap">
+    <article class="legal-card">
+      <div class="legal-meta">
+        <div class="meta-item">
+          <span>Effective Date</span>
+          <strong>8/1/2026</strong>
+        </div>
+        <div class="meta-item">
+          <span>Last Updated</span>
+          <strong>8/1/2026</strong>
+        </div>
+      </div>
+      <div class="legal-body">
+        <p>ScheduleRama ("ScheduleRama," "we," "us," or "our") provides a web application that helps schools, athletic departments, and leagues organize athletic schedules and publish game and event information to social media platforms, including Facebook Pages and Instagram professional accounts operated by Meta Platforms, Inc. ("Meta").</p>
+        <p>This Privacy Policy explains what information we collect, how we use it, who we share it with, and the choices available to you. It applies to the ScheduleRama website, web application, and any related services (collectively, the "Service").</p>
+        <p>If you do not agree with this Policy, please do not use the Service.</p>
+
+        <hr />
+
+        <h2>1. Who We Are and How to Contact Us</h2>
+        <p><strong>Data Controller:</strong> WolfPack Solutions LLC<br />
+        <strong>Mailing Address:</strong> 51 S. Stage Rd, Medford OR 97501<br />
+        <strong>Privacy Contact:</strong> hello@schedulerama.com<br />
+        <strong>Data Deletion Requests:</strong> hello@schedulerama.com or https://www.schedulerama.com/data-deletion</p>
+        <p>For schools and districts, ScheduleRama may act as a <strong>service provider / processor</strong> on your behalf under an executed agreement. Where that agreement conflicts with this Policy, the agreement controls with respect to data you provide.</p>
+
+        <h2>2. Information We Collect</h2>
+        <h3>2.1 Account Information</h3>
+        <p>When an authorized staff member creates a ScheduleRama account, we collect:</p>
+        <ul>
+          <li>Name and job title or role (e.g., Athletic Director, Coach, Communications Staff)</li>
+          <li>Work email address</li>
+          <li>Organization or school name and district affiliation</li>
+          <li>Password credentials (stored only as a salted cryptographic hash) or, where you use single sign-on, an identifier issued by your identity provider</li>
+          <li>Account preferences and notification settings</li>
+        </ul>
+
+        <h3>2.2 Schedule and Athletic Content</h3>
+        <p>The core content in ScheduleRama is <strong>institutional, not personal</strong>. This typically includes:</p>
+        <ul>
+          <li>School and team names, short names, mascots, classifications or divisions, city and state</li>
+          <li>Sport, competition level (e.g., Varsity, JV, JV2, Freshman), and season</li>
+          <li>Game and event dates, times, locations, home/away designation, and opponent</li>
+          <li>Non-league, league, and bye designations; confirmation status; scheduling notes</li>
+          <li>Scores, results, and standings, where you choose to enter them</li>
+        </ul>
+        <div class="callout">We do not require, and do not ask for, student names, student photographs, student contact information, grades, health or injury records, or any other student education record. Please see Section 8 regarding student privacy.</div>
+
+        <h3>2.3 Meta Platform Information</h3>
+        <p>If you choose to connect a Facebook Page or Instagram professional account, we receive information from Meta through its official APIs, subject to the permissions you grant. This may include:</p>
+        <ul>
+          <li>Your Meta user ID and basic profile information (name, profile picture) associated with the connecting account</li>
+          <li>A list of Facebook Pages and Instagram professional accounts you manage, including Page ID, Page name, and Instagram Business Account ID</li>
+          <li>Page access tokens and related credentials needed to publish on your behalf</li>
+          <li>Identifiers and metadata for posts ScheduleRama publishes (post IDs, publication timestamps, publication status and errors)</li>
+          <li>Aggregate engagement and insights metrics for posts ScheduleRama published, where you enable that feature</li>
+        </ul>
+        <p>We request only the permissions necessary to provide the Service. These typically include permissions to view the Pages you manage, publish and manage content on those Pages, and read engagement on that content. <strong>The specific permissions requested are shown to you by Meta during authorization, and you may decline any of them.</strong> Declining certain permissions may limit or disable publishing features.</p>
+        <p>We <strong>do not</strong> collect your Meta password, your private messages, your friends list, or content from Pages or accounts you have not connected to ScheduleRama.</p>
+
+        <h3>2.4 Technical and Usage Information</h3>
+        <p>We automatically collect certain information when you use the Service:</p>
+        <ul>
+          <li>IP address, browser type and version, operating system, and device type</li>
+          <li>Pages viewed, features used, actions taken, and timestamps</li>
+          <li>Referring URLs and, for authenticated sessions, the associated account ID</li>
+          <li>Application logs and error diagnostics</li>
+        </ul>
+
+        <h3>2.5 Cookies and Similar Technologies</h3>
+        <p>We use cookies and similar technologies for:</p>
+        <ul>
+          <li><strong>Strictly necessary purposes</strong> — authentication, session management, security, and load balancing. These cannot be disabled without breaking the Service.</li>
+          <li><strong>Functional purposes</strong> — remembering your preferences, such as default sport or season view.</li>
+          <li><strong>Analytics purposes</strong> — understanding aggregate feature usage to improve the product.</li>
+        </ul>
+        <p>We do <strong>not</strong> use advertising cookies, and we do not permit third parties to use the Service to build advertising profiles. You may control cookies through your browser settings; disabling necessary cookies will prevent you from signing in.</p>
+
+        <h2>3. How We Use Information</h2>
+        <p>We use the information described above to:</p>
+        <ul>
+          <li>Create and administer accounts and authenticate users</li>
+          <li>Store, organize, and display athletic schedules and related content</li>
+          <li>Format and publish schedule information, game announcements, results, and related posts to Facebook Pages and Instagram accounts <strong>you have connected and authorized</strong></li>
+          <li>Schedule posts for future publication and retry failed publications</li>
+          <li>Report back to you on publication status and, where enabled, engagement metrics</li>
+          <li>Provide customer support and respond to your inquiries</li>
+          <li>Monitor, secure, troubleshoot, and improve the Service</li>
+          <li>Detect and prevent fraud, abuse, and unauthorized access</li>
+          <li>Comply with legal obligations and enforce our terms</li>
+        </ul>
+        <div class="callout">We do not sell personal information. We do not share personal information for cross-context behavioral advertising. We do not use your content or Meta Platform Data to train machine learning or artificial intelligence models.</div>
+        <h3>3.1 Legal Bases (EEA/UK Users)</h3>
+        <p>Where the UK GDPR or EU GDPR applies, we process personal data on the following bases: <strong>performance of a contract</strong> (providing the Service you signed up for), <strong>legitimate interests</strong> (securing and improving the Service, preventing abuse), <strong>consent</strong> (connecting a Meta account, optional analytics), and <strong>legal obligation</strong> (recordkeeping, responding to lawful requests). You may withdraw consent at any time; withdrawal does not affect processing already carried out.</p>
+
+        <h2>4. How We Share Information</h2>
+        <p>We share information only as described here:</p>
+        <table>
+          <thead>
+            <tr><th>Recipient</th><th>Purpose</th><th>What Is Shared</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Meta Platforms, Inc.</strong></td><td>Publishing content to Pages and Instagram accounts you connect</td><td>Post content (schedule text, images, links) and API requests made under your authorization</td></tr>
+            <tr><td><strong>Cloud hosting and database providers</strong></td><td>Operating the Service</td><td>[e.g., Microsoft Azure / Amazon Web Services] — encrypted data at rest and in transit</td></tr>
+            <tr><td><strong>Email and notification providers</strong></td><td>Transactional email</td><td>recipient email address and message content</td></tr>
+            <tr><td><strong>Analytics and error monitoring</strong></td><td>Reliability and improvement</td><td>usage events and diagnostic data</td></tr>
+            <tr><td><strong>Your organization</strong></td><td>Administration</td><td>Account activity visible to your school or district administrators</td></tr>
+            <tr><td><strong>Professional advisors</strong></td><td>Legal, accounting, insurance</td><td>As necessary and under confidentiality</td></tr>
+            <tr><td><strong>Successors</strong></td><td>Merger, acquisition, or asset sale</td><td>Subject to this Policy or notice and choice</td></tr>
+            <tr><td><strong>Legal and safety</strong></td><td>Compliance with law</td><td>As required by valid legal process, or to protect rights and safety</td></tr>
+          </tbody>
+        </table>
+        <p>All service providers are bound by written agreements limiting their use of information to providing services to us.</p>
+        <p><strong>Content you publish to Facebook or Instagram becomes subject to Meta's own privacy practices,</strong> which we do not control. Please review the <a href="https://www.facebook.com/privacy/policy/">Meta Privacy Policy</a> and the <a href="https://privacycenter.instagram.com/policy">Instagram Privacy Policy</a>.</p>
+
+        <h2>5. Meta Platform Data — Specific Commitments</h2>
+        <p>In accordance with Meta's Platform Terms and Developer Policies:</p>
+        <ul>
+          <li>We use Meta Platform Data <strong>only</strong> to provide and improve the ScheduleRama features you have requested.</li>
+          <li>We <strong>do not</strong> sell, license, or transfer Meta Platform Data to data brokers, information resellers, advertising networks, or monetization partners.</li>
+          <li>We <strong>do not</strong> use Meta Platform Data for advertising targeting, audience building, or model training.</li>
+          <li>We store the minimum Meta Platform Data necessary. Access tokens are encrypted at rest and are never displayed in the application interface or logs.</li>
+          <li>We honor deletion and deauthorization signals from Meta, including the Deauthorize Callback and Data Deletion Request Callback.</li>
+        </ul>
+
+        <h3>5.1 Disconnecting Your Meta Account</h3>
+        <p>You may disconnect at any time by either:</p>
+        <ol>
+          <li>Opening <strong>Settings → Connected Accounts</strong> in ScheduleRama and selecting <strong>Disconnect</strong>; or</li>
+          <li>Visiting <strong>Facebook → Settings &amp; Privacy → Settings → Apps and Websites</strong>, locating ScheduleRama, and removing it.</li>
+        </ol>
+        <p>On disconnection, we revoke and delete stored access tokens within <strong>24 hours</strong> and cease all publishing on your behalf. Posts already published to your Page remain on your Page until you delete them through Facebook or Instagram — we cannot remove them for you once your authorization is revoked.</p>
+        <p>To request deletion of all Meta-derived data we hold about you, email hello@schedulerama.com or visit https://www.schedulerama.com/data-deletion. We will confirm completion within <strong>30 days</strong>.</p>
+
+        <h2>6. Data Retention</h2>
+        <table>
+          <thead>
+            <tr><th>Data Type</th><th>Retention Period</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Account records</td><td>Duration of the account, plus 90 days after closure</td></tr>
+            <tr><td>Schedule and athletic content</td><td>Duration of the account, or until deleted by you; archived seasons retained for historical reference unless deletion is requested</td></tr>
+            <tr><td>Meta access tokens</td><td>Until disconnection, expiration, or revocation — deleted within 24 hours</td></tr>
+            <tr><td>Meta post identifiers and publication logs</td><td>24 months, then deleted or aggregated</td></tr>
+            <tr><td>Application and security logs</td><td>12 months</td></tr>
+            <tr><td>Backups</td><td>Rolling 35 days, after which deleted records are permanently purged</td></tr>
+            <tr><td>Records required by law</td><td>As required by applicable law</td></tr>
+          </tbody>
+        </table>
+
+        <h2>7. Security</h2>
+        <p>We maintain administrative, technical, and physical safeguards appropriate to the sensitivity of the data, including encryption in transit (TLS 1.2 or higher) and at rest, hashed credentials, role-based access controls, least-privilege administrative access, audit logging, dependency and vulnerability monitoring, and regular backups.</p>
+        <p>No system is perfectly secure. If we become aware of a breach affecting your personal information, we will notify you and, where required, the relevant supervisory authority and affected institutions without undue delay and consistent with applicable law.</p>
+
+        <h2>8. Children's Privacy and Student Data</h2>
+        <p>ScheduleRama is designed for use by <strong>school staff and other adults aged 18 and over</strong>. Accounts are not offered to, and may not be created by, children. We do not knowingly collect personal information from children under 13, and the Service is not directed to children within the meaning of the Children's Online Privacy Protection Act (COPPA).</p>
+        <p>The Service is built around <strong>team-level and institutional information</strong> — school names, opponents, dates, locations, and competition levels. It is not designed to be, and should not be used as, a repository for student education records.</p>
+        <p><strong>Guidance for schools and districts:</strong></p>
+        <ul>
+          <li>Do not enter student names, rosters, photographs, contact information, jersey numbers tied to identified individuals, health or injury information, eligibility records, or any other information that would constitute a student education record under the Family Educational Rights and Privacy Act (FERPA) or an equivalent state student privacy law.</li>
+          <li>Before publishing any content that identifies a student — including team photographs or player names in post text — confirm that you hold the necessary directory-information consent or opt-out status under your district's FERPA policy, and that no involved student has an active opt-out or safety flag.</li>
+          <li>Publishing to social media is a public disclosure. Once posted to Facebook or Instagram, content may be copied, indexed, or redistributed beyond your control.</li>
+        </ul>
+        <p>If you believe a child under 13 has provided personal information to us, or that student information has been entered in error, contact hello@schedulerama.com and we will delete it promptly.</p>
+        <p>Where a district requires a Student Data Privacy Agreement, National Data Privacy Agreement (NDPA), or state-specific addendum, contact us at hello@schedulerama.com.</p>
+
+        <h2>9. Your Rights and Choices</h2>
+        <p>Depending on where you live, you may have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> the personal information we hold about you</li>
+          <li><strong>Correct</strong> inaccurate or incomplete information</li>
+          <li><strong>Delete</strong> your personal information</li>
+          <li><strong>Port</strong> your information in a portable, machine-readable format</li>
+          <li><strong>Opt out</strong> of sale or sharing of personal information (we do neither) and of targeted advertising (we do not conduct it)</li>
+          <li><strong>Limit</strong> the use of sensitive personal information</li>
+          <li><strong>Withdraw consent</strong> where processing is based on consent</li>
+          <li><strong>Appeal</strong> a denial of any of the above</li>
+          <li><strong>Lodge a complaint</strong> with a supervisory authority or your state attorney general</li>
+        </ul>
+        <p>To exercise these rights, email hello@schedulerama.com. We will verify your identity before acting and respond within the period required by applicable law — generally 45 days under U.S. state laws (extendable by 45 days) and one month under GDPR. <strong>We will not discriminate against you for exercising any privacy right.</strong></p>
+        <p>If ScheduleRama processes information on behalf of your school or district, we will refer your request to that institution and support them in responding.</p>
+        <p>Residents of Oregon, California, Colorado, Connecticut, Virginia, and other states with comprehensive privacy laws, as well as residents of the EEA, UK, and Switzerland, may have additional or specific rights under their local law; we honor those rights as applicable.</p>
+
+        <h2>10. International Data Transfers</h2>
+        <p>The Service is hosted in [the United States / REGION]. If you access it from outside that region, your information will be transferred to and processed there, where data protection laws may differ. Where required, we rely on appropriate safeguards such as the European Commission's Standard Contractual Clauses. Contact us for a copy of the relevant safeguards.</p>
+
+        <h2>11. Third-Party Links</h2>
+        <p>The Service may contain links to third-party websites, including league sites, athletic association sites, and Meta properties. We are not responsible for the privacy practices of those sites. Review their policies before providing information.</p>
+
+        <h2>12. Changes to This Policy</h2>
+        <p>We may update this Policy from time to time. If we make material changes, we will update the "Last Updated" date, post a notice within the application, and — where required by law or where the change materially affects how we handle your information — notify account holders by email at least 30 days before the change takes effect. Continued use after the effective date constitutes acceptance.</p>
+
+        <h2>13. Contact</h2>
+        <p>Questions, requests, or complaints:</p>
+        <p><strong>WolfPack Solutions LLC</strong><br />
+        51 S. Stage Rd<br />
+        Medford, OR 97501<br />
+        Email: hello@schedulerama.com</p>
+      </div>
+    </article>
+  </main>
+</Base>
